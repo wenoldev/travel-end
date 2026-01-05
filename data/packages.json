@@ -1,0 +1,34 @@
+{
+  "packages": [
+    {
+      "id": "1",
+      "title": "Spiritual Madurai",
+      "subtitle": "Temple City Experience",
+      "price": "8,999",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDktWoP2QWAqXDcMw62IJQ4XtMQNPoDco-AMOxrxio9fBrGPOFjfXTnFly6XA1EmY9PQ0To8SGOsrL2XSP-FrRudILreOlrXlbE_ujwO4fn-ExWNdGqlAr3cGqem_r2IM1G11u15W_yxbiE3WzRJpWk7iOun4_ydwcakJxKnGR6JXsotLCnQuceJR6Yz2qYKe9rfp9Ex9ZiWTYXZGB_-NsTc1N8eDCJj4fgD4iQqjZ_30PotTpFRaXpz6EBq-NrxV8BeezcGLNDt0ZS",
+      "duration": "3 Days",
+      "accommodation": "3 Star Hotel",
+      "tag": "Top Rated"
+    },
+    {
+      "id": "2",
+      "title": "Relaxing Kodaikanal",
+      "subtitle": "Princess of Hill Stations",
+      "price": "12,499",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDrL0NlhAg8srLaOGAkLdseLXDQZs7WIkzdpDVu9xmyoKYPSluMohOl79kei0LkBzRH8dIoAuyoHH0YMzdyIWwbe5xeYrI1PZCxLN9_5sBaLYprtbGdwNmZI-G7fvdXV8dv0tzlJ2LYcbHlB7GU7BEAZBCSp8ZkhlLTUoPin-61-vC16pPybKkaclrkAFj2Iihpge2PKFCDaULE1fFRt29H6n08_8Dw5aPBaYVSLlUyRnehAxxBzNoMwpEPG9ukaspbJtk71lReQ6kF",
+      "duration": "4 Days",
+      "accommodation": "Transfers",
+      "tag": null
+    },
+    {
+      "id": "3",
+      "title": "Historic Thanjavur",
+      "subtitle": "Great Living Chola Temples",
+      "price": "6,999",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBOTZmfFEZ0fNxeldiKfKHUlSTMsloiACU6uEpR-1WXAbgj3nNc7TAf7-N1-zT_KQLHl6laC7GsdlZpweCMEgA19oGMNmrYG8cCgz4EGAXDcaQBA6QZYMjubIZvyeJ1TS09o9bpdddaXSaz-bIA_IiOQGkedJzedk_-t8qHL_6xuvz-orTdKVcaKaU1NQl3NU5QNMjpeDGPDAqeUAd1cua2r-6RZUNJK2GjXy4ct1LDz-gUNaCh3dnw29NFDU_DebVzSOicvIKMfI0y",
+      "duration": "2 Days",
+      "accommodation": "Meals",
+      "tag": null
+    }
+  ]
+}

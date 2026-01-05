@@ -1,0 +1,28 @@
+{
+  "destinations": [
+    {
+      "id": "1",
+      "name": "Ooty & Coonoor",
+      "description": "The Queen of Hill Stations",
+      "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "2",
+      "name": "Rameswaram",
+      "description": "The Island City",
+      "image": "https://images.unsplash.com/photo-1580833211173-ef3767263c9e?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "3",
+      "name": "Kanyakumari",
+      "description": "The Southern Tip of India",
+      "image": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "4",
+      "name": "Mahabalipuram",
+      "description": "Ancient Rock-cut Architecture",
+      "image": "https://images.unsplash.com/photo-1626014303757-646c39423e41?auto=format&fit=crop&q=80&w=800"
+    }
+  ]
+}

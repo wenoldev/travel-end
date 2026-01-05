@@ -1,0 +1,37 @@
+{
+  "siteName": "Travelend.in",
+  "tagline": "Discover the Soul of Tamil Nadu",
+  "description": "Curated experiences across ancient temples, serene beaches, and misty hill stations.",
+  "contact": {
+    "phone": "+91 98765 43210",
+    "email": "hello@travelend.in",
+    "address": "123, Anna Salai, Chennai, Tamil Nadu - 600002"
+  },
+  "socials": {
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#"
+  },
+  "navLinks": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Tour Packages",
+      "href": "/packages"
+    },
+    {
+      "name": "Destinations",
+      "href": "/destinations"
+    },
+    {
+      "name": "About Us",
+      "href": "/about"
+    },
+    {
+      "name": "Contact Us",
+      "href": "/contact"
+    }
+  ]
+}

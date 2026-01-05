@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tour Packages - Travelend.in</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1392ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101a22",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d161b] dark:text-slate-50 flex flex-col min-h-screen overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-[#101a22]/95 backdrop-blur-sm">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<!-- Logo -->
+<div class="flex items-center gap-2">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">travel_explore</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-[#0d161b] dark:text-white">Travelend.in</h2>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#0d161b] dark:text-slate-200" href="#">Home</a>
+<a class="text-sm font-bold text-primary" href="#">Packages</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#0d161b] dark:text-slate-200" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-[#0d161b] dark:text-slate-200" href="#">Contact</a>
+</nav>
+<!-- CTA Button -->
+<div class="flex items-center gap-4">
+<button class="hidden md:flex h-10 px-5 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors shadow-sm">
+                        Book Now
+                    </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full bg-cover bg-center bg-no-repeat min-h-[400px] flex items-center justify-center" data-alt="Scenic view of Tamil Nadu landscape with hills and temples" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWlsx0raGTF0gXkc05QBhkiYdLA_l2HXcHEdZGM-FtdQiJx0Vy1uD2jw1t4v8rmIeQFMTpR4E1Z1cZiSAGkqqp1nWo1DF3Xi_SpvUHRAgAQf5RnEtUjNmX8z04uxn8P13dAzalqqd_ZfLF7UVA4s_aeDu4b6IH-GZR6vh8Dev5Aunk6cJs_W0Wbhh3NO3SekfzJhphTOStZo5CNjpdyPH63f3X6lnbZcNGfweMhqF4PpJni-xJjc5YtbkwaQB6ZLXM77Da5Jd-VrlV");'>
+<div class="w-full max-w-4xl px-4 text-center">
+<h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight drop-shadow-lg">
+                    Explore Tamil Nadu
+                </h1>
+<p class="text-lg md:text-xl text-slate-100 mb-8 max-w-2xl mx-auto drop-shadow-md">
+                    Discover the soul of the south. Unforgettable journeys through ancient temples, misty hills, and pristine beaches start here.
+                </p>
+<!-- Search Bar -->
+<div class="bg-white dark:bg-[#1a2632] p-2 rounded-xl shadow-xl max-w-3xl mx-auto flex flex-col sm:flex-row gap-2">
+<div class="flex-1 flex items-center px-4 h-12 border-b sm:border-b-0 sm:border-r border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-400 mr-3">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400" placeholder="Search destinations (e.g., Ooty, Madurai)..." type="text"/>
+</div>
+<div class="flex-1 flex items-center px-4 h-12 border-b sm:border-b-0 sm:border-r border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-400 mr-3">calendar_month</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400" placeholder="Duration (e.g., 3 Days)" type="text"/>
+</div>
+<button class="h-12 px-8 bg-primary hover:bg-blue-600 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">travel_explore</span>
+<span>Find</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Filters & Sort -->
+<section class="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#101a22] sticky top-16 z-40 shadow-sm">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+<div class="flex gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 no-scrollbar">
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1a2632] text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>Duration</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1a2632] text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>Budget</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<button class="whitespace-nowrap flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1a2632] text-sm font-medium hover:border-primary hover:text-primary transition-all">
+<span>Theme</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+<div class="hidden sm:block text-sm text-gray-500 dark:text-gray-400">
+                        Showing 8 Packages
+                    </div>
+</div>
+</div>
+</section>
+<!-- Packages Grid -->
+<section class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl md:text-3xl font-bold text-[#0d161b] dark:text-white">Popular Tour Packages</h2>
+<a class="text-primary font-bold text-sm hover:underline flex items-center gap-1" href="#">
+                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute top-4 left-4 z-10 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Best Seller</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Beautiful sunrise at Kanyakumari beach with Vivekananda Rock Memorial" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAnleu2vdHyA70-zFgN0GvCMFySPsVJsX80vRCSm5ESXrJ9Oqwjx0dbIx1bnft9ZMi61a0UUUAGfvbRqjHVWA5hbCdokypgKo0Hfvj9kiqC5FmjTef-sJ9at8zCzoBNPL3JfemfZNh38cwmyjgHQU-8E8tYOUN4Bb4FdWjabVFG-64JJb2mye0vvH-2CAX9etyaPG_qD84ItVTQ9ZO4yjxmDbgtRy0BYLx0SsR_s1cM7V7bC2pEXlSnxcjsCyF7MutEb-_Oe4_Ixig");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Chennai to Kanyakumari</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>5 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">Experience the coastal beauty from Marina Beach to the southern tip of India.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">temple_buddhist</span> Temples
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">beach_access</span> Beach
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹15,000</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Scenic tea gardens in Ooty hills" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSMp51CR-RedZ8S9br-VytvfvY6IXV-Ic2Y4_ATve4RvtlxmHWWZZKNAb2Wfqb1gmjZLOrHWsR9bG6OLuxRzqsOmsPIDsrtsxYkcefCUYUAom-aaA-ZN1unhjcJncWWxeHnjwuniRhshzi2kW_zlfqZHRmIxt1V2CkwwxoOBnJtyS60AFf5DpB1qD5kk2dYeURhT8XRegdBm6hyIcdnUBwlJW8eKfAiyR7Eyp2z9DHaHQh4QZDVZM1oTR5Lnn8bJykv_0y6ojo1bVK");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Ooty &amp; Kodaikanal Retreat</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>4 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">Escape to the "Queen of Hill Stations" and enjoy the serene lakes and gardens.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">landscape</span> Hills
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">park</span> Nature
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹12,000</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Corridor of Rameshwaram Temple with pillars" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7F28YSv-kTDAzkJSdP1ArjKIv_SZJfGEWzX_UgFdBA8uhbK4iwHuDTPLNMcfW_Kwy0oVCePnzuYlk7dln5J1Kd5U_24lgOVM6WKDJCpfOmtbwCSvawWf-wgNa8hdHFWNj1mj8EdpYaHjZBjtu7oE3ObByinE5CxDiU9BAE3GhfBmBPK7fgZV1LxuWXDzgG4ub8lSE4IIci9NIuKxnBv4aenNAspnJRHgAUzL_Bbn05U-VnwNGpp_e4T4qJtFCUy68ZO5g7ZFQwH3i");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Rameshwaram Spiritual Tour</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>3 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">A divine journey to one of the holiest places in India. Visit Pamban Bridge &amp; Dhanushkodi.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">self_improvement</span> Spiritual
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">history_edu</span> History
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹9,500</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Brihadeeswarar Temple in Thanjavur against blue sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeHvES19CPweh94ZXi9jtFJgahnTSGEeA_TlXKTv3kVY5Vw2jTPEVIWCUvurFTIv0_lPFa7wwHa_51phZpTgQe_UxS05R9fDeqReCli_v4WBULJAnT4T1eD_WCBn5tz2-EqhVJCNkBT8qH1VacqoCBaLlIR7dQ_vrUzs3j8jKutVmEIJ2VfxQ3eG8GEP8Vu-TST_wzq9o2v9ly2IzCzlq6hyWN0uaUyofHRBA4oWOFrbwJf2UsYGhYltMPQTiqzZHzXAYHp72eXgC_");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Great Living Chola Temples</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>4 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">Explore the architectural marvels of the Chola dynasty in Thanjavur, Gangaikonda Cholapuram, and Darasuram.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">museum</span> Heritage
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹13,500</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Tiger in Mudumalai National Park wildlife sanctuary" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBUxbfrfK0QZ487bOa4tlwyLY4qUpvvK7bKUAm1oZER59IUYuTGjcHVEQLjhXlGSZ_wMZvOqYoiJuXRLh_Q_-Wz9Wyn1aznzQlj3lq7y-2c45wdujoxGHVR47BHDRTIkD2GvmPh4MbUugeGqmfcSF0ooOshnM7LnMQ2tOpPKCKzdWadJ1rG63nVmJS1ZOoj6xwBECS30qvA3esFrdex6nmhr-mOB4I7wRlZuO7SDPaP6AZospSGFIvNqAV1rNskJz7P-csx-sP-Abi");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Mudumalai Wildlife Safari</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>3 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">Thrilling jungle safaris, bird watching, and a stay in the heart of the Nilgiri Biosphere Reserve.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">pets</span> Wildlife
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">forest</span> Forest
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹11,000</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-white dark:bg-[#1a2632] rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-full hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Colourful French colonial houses in Pondicherry" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPbZ-ai2oujpCzTR9jRGDGJ5F--G3WY5mjtkw7Bm02DyET3kfKsAY-NlNvzEvHoVkdvVtGsbgT1a47NrB0ANf-nzA64QTOshNZHL4ciX65ETG5akW_exOkYMhTJJ_9fN0h3NBiGrpXXceVlCOmyxWfiT0y_irG8h8yUW4vtbQrmreU2fG8A8HzugUAfBFFmtdLnzxzgcoXHW7Om2n0wLg5aSoI0XW9xloFXdysKeitKk3Otbjif0-qpnDpZ-Gfh_Yw5GCvNzRTorH8");'>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Pondicherry French Getaway</h3>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>3 Days</span>
+</div>
+</div>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">Relax in the French Quarter, visit Auroville, and enjoy serene beaches and cafes.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-pink-50 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">cottage</span> City
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded">
+<span class="material-symbols-outlined text-[14px]">beach_access</span> Beach
+                            </span>
+</div>
+<div class="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+<div>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Starting from</p>
+<p class="text-lg font-bold text-primary">₹10,500</p>
+</div>
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
+                                View Details
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="px-8 py-3 bg-white dark:bg-[#1a2632] border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary dark:hover:text-primary text-[#0d161b] dark:text-slate-200 font-bold rounded-lg transition-all">
+                    Load More Packages
+                </button>
+</div>
+</section>
+<!-- Testimonial Strip -->
+<section class="bg-white dark:bg-[#1a2632] py-16 border-y border-gray-100 dark:border-gray-800">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<div class="flex justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-primary/40">format_quote</span>
+</div>
+<blockquote class="text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+                    "We booked the Rameshwaram Spiritual Tour and it was perfectly organized. The guide was knowledgeable and the hotels were top-notch. Highly recommend Travelend.in for anyone visiting Tamil Nadu!"
+                </blockquote>
+<div class="flex items-center justify-center gap-4">
+<div class="size-12 rounded-full bg-gray-200 overflow-hidden" data-alt="Portrait of happy customer Anita Sharma" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjbSBVDOpXW0Ld8-6tpXYZ8xFHeo4M7yAu43BQRVeoqEbwfQYu9jo6zzik0VVcnqG86pxdCZuBtjOuVUOSV4O1VVAV4Jtd0IVunfRKSfcUt6sqml4rEOmuzCwL4Oz90xkW0UIh_qqYl7iWvK-ykSPy2SPXvu1CgrsEBOTPSdwQwWTefSL5PjXQfPGZX87dNj-trJ3yKF3AlISS00l0n_U0sf-vu5npMPyTpa6Q7JWevo49AK3pCWJ00Qtx5qHK5Kz6u_nTvobPDECj"); background-size: cover; background-position: center;'>
+</div>
+<div class="text-left">
+<div class="font-bold text-gray-900 dark:text-white">Anita Sharma</div>
+<div class="text-sm text-gray-500">Traveled in October 2023</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Banner -->
+<section class="bg-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div class="text-white">
+<h2 class="text-3xl font-bold mb-2">Can't find what you're looking for?</h2>
+<p class="text-blue-100 text-lg">We customize packages to suit your specific needs and budget.</p>
+</div>
+<button class="bg-white text-primary hover:bg-blue-50 font-bold py-3 px-8 rounded-lg shadow-lg transition-colors whitespace-nowrap">
+                    Get Custom Quote
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-slate-300 pt-16 pb-8 border-t border-slate-800">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<!-- Brand Info -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-3xl text-primary">travel_explore</span>
+<h3 class="text-xl font-bold">Travelend.in</h3>
+</div>
+<p class="text-sm text-slate-400 leading-relaxed">
+                        Your trusted partner for exploring the rich heritage and natural beauty of Tamil Nadu. We craft unforgettable journeys with passion.
+                    </p>
+<div class="flex gap-4 pt-2">
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<!-- social icon placeholder (twitter) -->
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<!-- social icon placeholder (facebook) -->
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" href="#">
+<!-- social icon placeholder (instagram) -->
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="text-white font-bold mb-6">Quick Links</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tour Packages</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Top Destinations -->
+<div>
+<h4 class="text-white font-bold mb-6">Top Destinations</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Ooty &amp; Nilgiris</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kodaikanal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rameshwaram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mahabalipuram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Madurai</a></li>
+</ul>
+</div>
+<!-- Contact Box -->
+<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+<h4 class="text-white font-bold mb-4">Contact Us</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">call</span>
+<div>
+<p class="text-xs text-slate-400">Call Us 24/7</p>
+<p class="text-white font-bold">+91 98765 43210</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">mail</span>
+<div>
+<p class="text-xs text-slate-400">Email for Booking</p>
+<p class="text-white font-medium break-all">bookings@travelend.in</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="text-xs text-slate-400">Head Office</p>
+<p class="text-white font-medium">Anna Nagar, Chennai, Tamil Nadu</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+<p>© 2024 Travelend.in. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-slate-300" href="#">Terms of Service</a>
+<a class="hover:text-slate-300" href="#">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
