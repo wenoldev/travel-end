@@ -1,10 +1,81 @@
+'use client';
+
+import { useState } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import siteConfig from "@/data/siteConfig.json";
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    store_id: process.env.NEXT_PUBLIC_STORE_ID,
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    meta_data: {
+      subject: ''
+    }
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/public/queries`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then(({ data, error }) => {
+        if (error) {
+          console.error("API Error:", error);
+          alert("Failed to send message: " + (error.message || "Unknown error"));
+        } else {
+          console.log("Success:", data);
+          setShowSuccessDialog(true);
+          setFormData({
+            store_id: process.env.NEXT_PUBLIC_STORE_ID,
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            meta_data: { subject: '' }
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Fetch Error:", error);
+        alert("A technical error occurred. Please try again later.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    if (name === 'subject') {
+      setFormData(prev => ({
+        ...prev,
+        meta_data: {
+          ...prev.meta_data,
+          subject: value
+        }
+      }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
+
   return (
-    <div className="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-200">
+    <div className="bg-white font-sans text-slate-900 antialiased overflow-x-hidden transition-colors duration-200">
       <div className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-grow">
@@ -74,24 +145,53 @@ export default function ContactPage() {
               <div className="lg:col-span-8">
                 <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 sm:p-8 lg:p-10">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send us a Message</h2>
-                  <form className="flex flex-col gap-6">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <label className="flex flex-col gap-2">
                         <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Your Name</span>
-                        <input className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400" placeholder="Enter your full name" type="text" />
+                        <input
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 outline-none"
+                          placeholder="Enter your full name"
+                          type="text"
+                        />
                       </label>
                       <label className="flex flex-col gap-2">
                         <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Email Address</span>
-                        <input className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400" placeholder="Enter your email address" type="email" />
+                        <input
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 outline-none"
+                          placeholder="Enter your email address"
+                          type="email"
+                        />
                       </label>
                       <label className="flex flex-col gap-2">
                         <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Phone Number</span>
-                        <input className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400" placeholder="+91" type="tel" />
+                        <input
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 outline-none"
+                          placeholder="+91"
+                          type="tel"
+                        />
                       </label>
                       <label className="flex flex-col gap-2">
                         <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Subject / Interest</span>
-                        <select className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
-                          <option disabled selected value="">Select a topic</option>
+                        <select
+                          name="subject"
+                          value={formData.meta_data.subject}
+                          onChange={handleChange}
+                          required
+                          className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors outline-none"
+                        >
+                          <option value="" disabled>Select a topic</option>
                           <option value="packages">Tour Packages</option>
                           <option value="custom">Custom Itinerary</option>
                           <option value="hotel">Hotel Booking</option>
@@ -101,16 +201,34 @@ export default function ContactPage() {
                     </div>
                     <label className="flex flex-col gap-2">
                       <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Your Message</span>
-                      <textarea className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 resize-y" placeholder="Tell us about your travel plans, number of people, dates, etc." rows={5}></textarea>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 resize-y outline-none"
+                        placeholder="Tell us about your travel plans, number of people, dates, etc."
+                        rows={5}
+                      ></textarea>
                     </label>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
                       <div className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                         <span className="material-symbols-outlined text-[18px]">schedule</span>
                         <span>We usually reply within 2 hours</span>
                       </div>
-                      <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-bold text-white hover:bg-blue-600 transition-all" type="button">
-                        Send Message
-                        <span className="material-symbols-outlined text-[18px]">send</span>
+                      <button
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3.5 text-sm font-bold text-white hover:bg-orange-600 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                        type="submit"
+                      >
+                        {isSubmitting ? (
+                          <span className="material-symbols-outlined animate-spin">sync</span>
+                        ) : (
+                          <>
+                            Send Message
+                            <span className="material-symbols-outlined text-[18px]">send</span>
+                          </>
+                        )}
                       </button>
                     </div>
                   </form>
@@ -120,21 +238,63 @@ export default function ContactPage() {
           </div>
 
           {/* Map Section */}
-          <div className="w-full h-[400px] bg-slate-200 relative group overflow-hidden">
-            <div className="absolute inset-0 bg-slate-300 animate-pulse"></div>
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC98WhrCsNVYaCkkznMjdewQ6ZfXm0njQxT6Je734nROVwaf-q1WMzzxJIH2-IOYi6HLOR_2o3ElN11zWUSaHTmyPAwWEztX6WNWt64Tx7DDOcO_RLr0LOogXCnHT3SHtK9Kbc0jPLdqRIhklX-tCiKDptLCSo8vcKu7JKbQa2oOjUz7xkEp5KuahlvCyO8E6bAh2YoTQRbfzDRseZvQHxZGa2wIYwiahBGqtG7WSAlOdE-nvVJwLJffzmdWgjR1JQsiIwKaT11hl8k"
-              alt="Map"
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-            />
-            <div className="absolute bottom-6 left-6 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 max-w-[90%]">
+          <div className="w-full h-[450px] relative group overflow-hidden border-t">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126135.2599554316!2d78.06649887856448!3d8.756247959085023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b03ee06543b5993%3A0x6fb247d5f0967a57!2sThoothukudi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1705570000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale-[0.5] hover:grayscale-0 transition-all duration-700"
+            ></iframe>
+            <div className="absolute bottom-6 left-6 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 max-w-[90%] border border-slate-100">
               <span className="material-symbols-outlined text-primary">pin_drop</span>
-              <span className="text-sm font-medium text-slate-900 dark:text-white truncate">{siteConfig.contact.address}</span>
+              <span className="text-sm font-bold text-slate-900 dark:text-white truncate">Thoothukudi, Tamil Nadu</span>
             </div>
           </div>
         </main>
         <Footer />
       </div>
+
+      {/* Success Dialog */}
+      <AnimatePresence>
+        {showSuccessDialog && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowSuccessDialog(false)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-md bg-white rounded-[2.5rem] p-8 text-center shadow-2xl border border-slate-100 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-2 bg-primary" />
+              <div className="mb-6 flex justify-center">
+                <div className="size-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 shadow-inner">
+                  <span className="material-symbols-outlined text-4xl font-bold">check_circle</span>
+                </div>
+              </div>
+              <h3 className="text-3xl font-black text-slate-900 mb-4 italic">Thank You!</h3>
+              <p className="text-slate-600 text-lg font-medium leading-relaxed mb-8">
+                Your query has been received. Our travel experts will get back to you shortly.
+              </p>
+              <button
+                onClick={() => setShowSuccessDialog(false)}
+                className="w-full py-4 bg-primary text-white rounded-2xl font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-primary/20"
+              >
+                Close
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

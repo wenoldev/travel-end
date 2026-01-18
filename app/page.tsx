@@ -1,153 +1,158 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import siteConfig from "@/data/siteConfig.json";
 import packagesData from "@/data/packages.json";
 import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white">
       <Header />
       <main className="flex-grow w-full">
         {/* Hero Section */}
-        <div className="w-full bg-background-light dark:bg-background-dark py-6 sm:py-10">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="@container">
-              <div
-                className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-6 sm:p-10 relative overflow-hidden shadow-lg"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9pqoaFKdNaYqeAom9AlcntGbqZJG4Hz7RiyiU7r1B69ZUeYZUbxGV8pPYviQhXYCfit3kN6Sa0TPWnoR7ZS3sulcwkDYzPqUrL1fNNPxv9bxcmIYb9jyBssbWxwqoN8Qfm2nREvCurvn5bE7Avtl11dXR2leeKKFokVGGtMuarCwEj0pWy-XEkW_MeqfjYPlXViIo69FPYwfgqcvxy2LJZ2ar4m3j6mUFyeQnIex5aKXP7oTUDEDqoqMNxE6wVrBQsjBxf_AWWSPN")`
-                }}
-              >
-                <div className="flex flex-col gap-3 text-center z-10 max-w-2xl">
-                  <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight drop-shadow-md">
-                    {siteConfig.tagline}
-                  </h1>
-                  <h2 className="text-white/90 text-base sm:text-lg font-medium leading-relaxed drop-shadow-sm max-w-lg mx-auto">
-                    {siteConfig.description}
-                  </h2>
-                </div>
-                <label className="flex flex-col w-full max-w-[540px] z-10 mt-4">
-                  <div className="flex w-full flex-col sm:flex-row items-stretch rounded-lg bg-white dark:bg-slate-800 shadow-xl overflow-hidden p-1 gap-1">
-                    <div className="flex-1 flex items-center px-3 relative h-12 sm:h-auto border-b sm:border-b-0 sm:border-r border-slate-100 dark:border-slate-700">
-                      <span className="material-symbols-outlined text-slate-400">search</span>
-                      <input className="w-full h-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-400 text-base px-3" placeholder="Where do you want to go?" />
-                    </div>
-                    <div className="flex items-center px-1">
-                      <button className="w-full sm:w-auto flex items-center justify-center rounded-md h-12 sm:h-12 px-8 bg-primary hover:bg-blue-600 text-white text-base font-bold transition-all">
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
+        <section className="w-full bg-white">
+          <HeroCarousel />
+        </section>
 
         {/* Intro Feature Section */}
-        <div className="w-full bg-background-light dark:bg-background-dark py-10">
+        <section className="w-full bg-[#f8f9fa] py-20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl animate-pulse" />
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-12 items-start">
-              <div className="flex flex-col gap-6 flex-1">
-                <h2 className="text-slate-900 dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-tight">
-                  About {siteConfig.siteName}
+            <div className="flex flex-col lg:flex-row gap-16 items-center">
+              <div className="flex flex-col gap-8 flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                  </span>
+                  About Us
+                </div>
+                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+                  Crafting Your Perfect <span className="text-primary italic">Travel Story</span>
                 </h2>
-                <p className="text-slate-600 dark:text-slate-300 text-lg font-normal leading-relaxed">
-                  Your trusted partner for exploring the hidden gems and heritage of Tamil Nadu. We specialize in creating unforgettable journeys through the rich culture, spicy cuisine, and diverse landscapes of the region.
+                <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                  Your trusted partner for exploring the hidden gems and heritage of South India. We specialize in creating unforgettable journeys through the rich culture, spicy cuisine, and diverse landscapes of the region.
                 </p>
-                <Link className="text-primary font-bold hover:underline inline-flex items-center gap-1" href="/about">
-                  Read our story <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </Link>
+                <div className="flex flex-wrap gap-4">
+                  <Link className="px-8 py-4 bg-primary text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform" href="/about">
+                    Our Story
+                  </Link>
+                  <Link className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-100 rounded-xl font-bold hover:bg-slate-50 transition-colors" href="/contact">
+                    Get in Touch
+                  </Link>
+                </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:w-auto flex-[1.5]">
-                <div className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="size-12 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">location_on</span>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-auto flex-[1.2]">
+                {[
+                  { icon: 'location_on', title: 'Local Expertise', desc: 'Deep native knowledge of history and culture.' },
+                  { icon: 'calendar_month', title: 'Custom Itineraries', desc: 'Tailor-made trips to suit your travel style.' },
+                  { icon: 'support_agent', title: '24/7 Support', desc: 'Always here to help you during your journey.' },
+                  { icon: 'verified', title: 'Trusted Service', desc: 'Thousands of happy travelers every year.' }
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex flex-col gap-6 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div className="size-14 rounded-2xl bg-secondary flex items-center justify-center text-primary group">
+                      <span className="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">{feature.icon}</span>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-slate-900 text-xl font-bold">{feature.title}</h3>
+                      <p className="text-slate-500 text-sm leading-relaxed">{feature.desc}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-slate-900 dark:text-white text-lg font-bold">Local Expertise</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Deep native knowledge of Tamil Nadu's history and culture.</p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="size-12 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">calendar_month</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-slate-900 dark:text-white text-lg font-bold">Custom Itineraries</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Tailor-made trips to suit your specific travel preferences.</p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
-                  <div className="size-12 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined">support_agent</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-slate-900 dark:text-white text-lg font-bold">24/7 Support</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Always here to help you during every step of your journey.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Popular Destinations Header */}
-        <div className="w-full bg-background-light dark:bg-background-dark pt-8 pb-4">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-end gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
-            <div>
-              <h2 className="text-slate-900 dark:text-white text-2xl sm:text-3xl font-bold leading-tight tracking-tight">Popular Destinations</h2>
-              <p className="text-slate-500 dark:text-slate-400 mt-2">Explore our most booked packages this season</p>
-            </div>
-            <Link className="text-primary font-bold text-sm hover:underline" href="/packages">View All Destinations</Link>
-          </div>
-        </div>
-
-        {/* Image Grid */}
-        <div className="w-full bg-background-light dark:bg-background-dark pb-16">
+        {/* Popular Destinations */}
+        <section className="w-full bg-white py-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+            <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-16 px-4">
+              <div className="max-w-xl">
+                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">Trending Packages</h2>
+                <div className="h-1.5 w-24 bg-primary rounded-full mb-6" />
+                <p className="text-slate-500 text-lg font-medium">Explore our most booked packages this season, curated just for you.</p>
+              </div>
+              <Link className="text-primary font-bold text-lg hover:underline flex items-center gap-2 group" href="/packages">
+                All Destinations
+                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {packagesData.packages.map((pkg) => (
-                <div key={pkg.id} className="group flex flex-col gap-4 bg-white dark:bg-slate-800 rounded-xl p-3 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-300">
-                  <div className="w-full aspect-video bg-gray-200 rounded-lg overflow-hidden relative">
+                <div key={pkg.id} className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
+                  <div className="w-full aspect-[4/5] overflow-hidden relative">
                     <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                       style={{ backgroundImage: `url("${pkg.image}")` }}
-                    ></div>
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                     {pkg.tag && (
-                      <div className="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-slate-800 dark:text-white shadow-sm">
+                      <div className="absolute top-6 right-6 bg-primary/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black text-white shadow-lg uppercase tracking-widest leading-none">
                         {pkg.tag}
                       </div>
                     )}
+                    <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
+                      <h3 className="text-2xl font-black mb-1 drop-shadow-md">{pkg.title}</h3>
+                      <div className="flex items-center gap-2 text-white/90 text-sm font-bold">
+                        <span className="material-symbols-outlined text-sm">location_on</span>
+                        {pkg.subtitle}
+                      </div>
+                    </div>
                   </div>
-                  <div className="px-1 pb-2">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="text-slate-900 dark:text-white text-lg font-bold">{pkg.title}</h3>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{pkg.subtitle}</p>
+                  <div className="p-8 flex flex-col gap-6">
+                    <div className="flex justify-between items-center">
+                      <div className="flex flex-col">
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Starting from</span>
+                        <span className="text-primary text-3xl font-black">₹{pkg.price}</span>
                       </div>
-                      <div className="text-right">
-                        <span className="block text-primary font-bold">₹{pkg.price}</span>
-                        <span className="text-xs text-slate-400">per person</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">
-                      <div className="flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[18px]">schedule</span>
-                        {pkg.duration}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[18px]">hotel</span>
-                        {pkg.accommodation}
+                      <div className="text-right flex flex-col items-end">
+                        <div className="flex items-center gap-1 text-slate-700 font-bold mb-1">
+                          <span className="material-symbols-outlined text-lg">schedule</span>
+                          {pkg.duration}
+                        </div>
+                        <span className="text-xs text-slate-400">{pkg.accommodation} included</span>
                       </div>
                     </div>
+                    <Link
+                      href={`/packages/${pkg.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
+                    >
+                      View Trip Details
+                      <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">double_arrow</span>
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="w-full bg-white pb-24">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full bg-primary rounded-[3rem] p-12 sm:p-20 relative overflow-hidden flex flex-col items-center text-center">
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+              <div className="relative z-10 max-w-2xl">
+                <h2 className="text-white text-4xl sm:text-6xl font-black mb-8 leading-tight">Ready to Start Your Journey?</h2>
+                <p className="text-white/80 text-lg sm:text-xl font-medium mb-12">
+                  Contact our travel experts today and let us plan your dream vacation down to the last detail.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <a href="tel:+919876543210" className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-primary rounded-2xl font-black text-lg hover:scale-105 transition-transform shadow-xl">
+                    <span className="material-symbols-outlined">call</span>
+                    Call Us Now
+                  </a>
+                  <Link href="/contact" className="flex items-center justify-center gap-3 px-10 py-5 bg-primary border-2 border-white/30 text-white rounded-2xl font-black text-lg hover:bg-white/10 transition-all">
+                    Plan My Trip
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

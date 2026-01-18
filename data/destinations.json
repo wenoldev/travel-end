@@ -1,28 +1,82 @@
 {
   "destinations": [
     {
-      "id": "1",
+      "id": "ooty-coonoor",
       "name": "Ooty & Coonoor",
-      "description": "The Queen of Hill Stations",
-      "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=800"
+      "category": "Tamilnadu",
+      "description": "The Queen of Hill Stations, known for its sprawling tea gardens and colonial charm.",
+      "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Gardens",
+        "Lake",
+        "Train Trip"
+      ],
+      "fullDescription": "Nestled in the Nilgiri Hills, Ooty is one of the most popular hill stations in South India. Coonoor, its quieter neighbor, offers breathtaking views of tea estates."
     },
     {
-      "id": "2",
-      "name": "Rameswaram",
-      "description": "The Island City",
-      "image": "https://images.unsplash.com/photo-1580833211173-ef3767263c9e?auto=format&fit=crop&q=80&w=800"
+      "id": "wayanad",
+      "name": "Wayanad",
+      "category": "Kerala",
+      "description": "A green paradise with spice plantations, waterfalls, and ancient caves.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA9pqoaFKdNaYqeAom9AlcntGbqZJG4Hz7RiyiU7r1B69ZUeYZUbxGV8pPYviQhXYCfit3kN6Sa0TPWnoR7ZS3sulcwkDYzPqUrL1fNNPxv9bxcmIYb9jyBssbWxwqoN8Qfm2nREvCurvn5bE7Avtl11dXR2leeKKFokVGGtMuarCwEj0pWy-XEkW_MeqfjYPlXViIo69FPYwfgqcvxy2LJZ2ar4m3j6mUFyeQnIex5aKXP7oTUDEDqoqMNxE6wVrBQsjBxf_AWWSPN",
+      "highlights": [
+        "Banasura Sagar Dam",
+        "Edakkal Caves",
+        "Chembra Peak"
+      ],
+      "fullDescription": "Wayanad is known for its pristine beauty and rich tribal heritage. It's a perfect destination for nature lovers and adventure enthusiasts."
     },
     {
-      "id": "3",
-      "name": "Kanyakumari",
-      "description": "The Southern Tip of India",
-      "image": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=800"
+      "id": "munnar",
+      "name": "Munnar",
+      "category": "Kerala",
+      "description": "The emerald tea capital of South India.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Tea Museum",
+        "Eravikulam National Park",
+        "Mattupetty Dam"
+      ],
+      "fullDescription": "Munnar is a must-visit for its rolling hills covered in tea plantations. The mist-covered mountains provide a romantic and peaceful atmosphere."
     },
     {
-      "id": "4",
-      "name": "Mahabalipuram",
-      "description": "Ancient Rock-cut Architecture",
-      "image": "https://images.unsplash.com/photo-1626014303757-646c39423e41?auto=format&fit=crop&q=80&w=800"
+      "id": "kodaikanal",
+      "name": "Kodaikanal",
+      "category": "Tamilnadu",
+      "description": "Princess of Hill Stations with its famous star-shaped lake.",
+      "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Kodai Lake",
+        "Cois Walk",
+        "Pillar Rocks"
+      ],
+      "fullDescription": "Located in the Palani Hills, Kodaikanal is famous for its cool climate, beautiful gardens, and scenic viewpoints."
+    },
+    {
+      "id": "goa",
+      "name": "Goa",
+      "category": "North India",
+      "description": "Sun, sand, and serenity on the shores of the Arabian Sea.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Baga Beach",
+        "Basilica of Bom Jesus",
+        "Old Goa"
+      ],
+      "fullDescription": "Goa is a kaleidoscope of cultures, with its Portuguese heritage and vibrant beach life. It offers something for every traveler."
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "category": "International",
+      "description": "The world's most visited country, a hub of art, fashion, and gastronomy.",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Eiffel Tower",
+        "Louvre Museum",
+        "French Riviera"
+      ],
+      "fullDescription": "From the romantic streets of Paris to the glamorous beaches of the Cote d'Azur, France offers an unparalleled European experience."
     }
   ]
 }

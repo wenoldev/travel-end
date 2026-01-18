@@ -3,90 +3,107 @@ import siteConfig from '@/data/siteConfig.json';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
+
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand Column */}
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-slate-900 dark:text-white">
-              <div className="size-6 text-primary flex items-center justify-center">
-                <span className="material-symbols-outlined text-2xl">travel_explore</span>
+          <div className="flex flex-col gap-6">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="size-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+                <span className="material-symbols-outlined text-3xl">travel_explore</span>
               </div>
-              <h3 className="text-lg font-bold">{siteConfig.siteName}</h3>
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-              {siteConfig.tagline}. {siteConfig.description}
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-black tracking-tight leading-none">TravelEnd<span className="text-primary">.in</span></h3>
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/50">Tours & Travels</span>
+              </div>
+            </Link>
+            <p className="text-white/60 text-base leading-relaxed">
+              {siteConfig.description} We specialize in creating unforgettable journeys through the rich heritage of South India.
             </p>
-            <div className="flex gap-4 mt-2">
-              <a href={siteConfig.socials.facebook} className="size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors">
-                <span className="sr-only">Facebook</span>
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-              </a>
-              <a href={siteConfig.socials.instagram} className="size-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors">
-                <span className="sr-only">Instagram</span>
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-              </a>
+            <div className="flex gap-4">
+              {['facebook', 'instagram', 'twitter'].map((social) => (
+                <a
+                  key={social}
+                  href="#"
+                  className="size-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-primary transition-all group"
+                >
+                  <span className="sr-only">{social}</span>
+                  <i className={`fab fa-${social} text-lg group-hover:scale-110 transition-transform`}></i>
+                </a>
+              ))}
             </div>
           </div>
+
           {/* Quick Links */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-slate-900 dark:text-white font-bold">Quick Links</h4>
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-8">
+            <h4 className="text-xl font-bold border-b border-white/10 pb-4">Explore</h4>
+            <div className="flex flex-col gap-4">
               {siteConfig.navLinks.map((link) => (
-                <Link key={link.name} href={link.href} className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">
+                <Link key={link.name} href={link.href} className="text-white/60 hover:text-primary transition-colors font-medium flex items-center gap-2 group">
+                  <span className="h-px w-0 group-hover:w-4 bg-primary transition-all" />
                   {link.name}
                 </Link>
               ))}
-              <Link href="/terms" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Terms & Conditions</Link>
-              <Link href="/privacy" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Privacy Policy</Link>
             </div>
           </div>
-          {/* Top Destinations */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-slate-900 dark:text-white font-bold">Top Destinations</h4>
-            <div className="flex flex-col gap-2">
-              <Link href="/destinations/ooty" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Ooty & Coonoor</Link>
-              <Link href="/destinations/kodaikanal" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Kodaikanal</Link>
-              <Link href="/destinations/rameswaram" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Rameswaram</Link>
-              <Link href="/destinations/kanyakumari" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Kanyakumari</Link>
-              <Link href="/destinations/mahabalipuram" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors text-sm">Mahabalipuram</Link>
-            </div>
-          </div>
-          {/* Contact */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-slate-900 dark:text-white font-bold">Contact Us</h4>
+
+          {/* Destinations */}
+          <div className="flex flex-col gap-8">
+            <h4 className="text-xl font-bold border-b border-white/10 pb-4">Top Places</h4>
             <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-xl mt-0.5">call</span>
+              {['Ooty', 'Kodaikanal', 'Munnar', 'Wayanad', 'Goa'].map((place) => (
+                <Link
+                  key={place}
+                  href={`/destinations/${place.toLowerCase()}`}
+                  className="text-white/60 hover:text-primary transition-colors font-medium flex items-center gap-2 group"
+                >
+                  <span className="material-symbols-outlined text-xs text-white/20 group-hover:text-primary">double_arrow</span>
+                  {place}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className="flex flex-col gap-8">
+            <h4 className="text-xl font-bold border-b border-white/10 pb-4">Get in Touch</h4>
+            <div className="flex flex-col gap-6">
+              <div className="flex items-start gap-4">
+                <div className="size-10 rounded-lg bg-white/5 flex items-center justify-center text-primary shrink-0">
+                  <span className="material-symbols-outlined">call</span>
+                </div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">Phone</span>
-                  <a className="text-slate-900 dark:text-white font-medium hover:text-primary transition-colors" href={`tel:${siteConfig.contact.phone}`}>{siteConfig.contact.phone}</a>
+                  <span className="text-xs text-white/40 uppercase font-black">Call support</span>
+                  <a className="text-white font-bold hover:text-primary transition-colors" href={`tel:${siteConfig.contact.phone}`}>{siteConfig.contact.phone}</a>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-xl mt-0.5">mail</span>
-                <div className="flex flex-col">
-                  <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">Email</span>
-                  <a className="text-slate-900 dark:text-white font-medium hover:text-primary transition-colors" href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+              <div className="flex items-start gap-4">
+                <div className="size-10 rounded-lg bg-white/5 flex items-center justify-center text-primary shrink-0">
+                  <span className="material-symbols-outlined">mail</span>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-xl mt-0.5">pin_drop</span>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-400 uppercase font-bold tracking-wider">Address</span>
-                  <span className="text-slate-500 dark:text-slate-400 text-sm">{siteConfig.contact.address}</span>
+                  <span className="text-xs text-white/40 uppercase font-black">Email us</span>
+                  <a className="text-white font-bold hover:text-primary transition-colors" href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 dark:text-slate-500 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} {siteConfig.siteName}. All rights reserved.
+
+        <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-white/40 text-sm font-medium">
+            © {new Date().getFullYear()} {siteConfig.siteName}. All rights reserved. Made with ❤️ for travelers.
           </p>
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-sm">
-              <span className="material-symbols-outlined text-base">language</span> English (IN)
+          <div className="flex items-center gap-8 text-white/40 text-sm font-bold">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <span className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+              <span className="material-symbols-outlined text-xs">language</span>
+              English (IN)
             </span>
           </div>
         </div>

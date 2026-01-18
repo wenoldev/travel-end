@@ -1,34 +1,103 @@
 {
   "packages": [
     {
-      "id": "1",
+      "id": "spiritual-madura",
       "title": "Spiritual Madurai",
       "subtitle": "Temple City Experience",
       "price": "8,999",
       "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDktWoP2QWAqXDcMw62IJQ4XtMQNPoDco-AMOxrxio9fBrGPOFjfXTnFly6XA1EmY9PQ0To8SGOsrL2XSP-FrRudILreOlrXlbE_ujwO4fn-ExWNdGqlAr3cGqem_r2IM1G11u15W_yxbiE3WzRJpWk7iOun4_ydwcakJxKnGR6JXsotLCnQuceJR6Yz2qYKe9rfp9Ex9ZiWTYXZGB_-NsTc1N8eDCJj4fgD4iQqjZ_30PotTpFRaXpz6EBq-NrxV8BeezcGLNDt0ZS",
       "duration": "3 Days",
       "accommodation": "3 Star Hotel",
-      "tag": "Top Rated"
+      "tag": "Top Rated",
+      "spots": [
+        "Meenakshi Amman Temple",
+        "Thirumalai Nayakkar Mahal",
+        "Alagar Koyil",
+        "Gandhi Memorial Museum"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival & Meenakshi Temple",
+          "details": "Arrive in Madurai, check-in to your hotel. Evening visit to the magnificent Meenakshi Amman Temple to witness the temple ritual."
+        },
+        {
+          "day": 2,
+          "title": "City Historical Tour",
+          "details": "Explore Thirumalai Nayakkar Mahal, Gandhi Museum, and the local vibrant markets for famous silk sarees."
+        },
+        {
+          "day": 3,
+          "title": "Alagar Koyil & Departure",
+          "details": "Morning visit to Alagar Koyil temple located in scenic hills. Post lunch, transfer to airport/station for departure."
+        }
+      ]
     },
     {
-      "id": "2",
+      "id": "relaxing-kodaikanal",
       "title": "Relaxing Kodaikanal",
       "subtitle": "Princess of Hill Stations",
       "price": "12,499",
       "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDrL0NlhAg8srLaOGAkLdseLXDQZs7WIkzdpDVu9xmyoKYPSluMohOl79kei0LkBzRH8dIoAuyoHH0YMzdyIWwbe5xeYrI1PZCxLN9_5sBaLYprtbGdwNmZI-G7fvdXV8dv0tzlJ2LYcbHlB7GU7BEAZBCSp8ZkhlLTUoPin-61-vC16pPybKkaclrkAFj2Iihpge2PKFCDaULE1fFRt29H6n08_8Dw5aPBaYVSLlUyRnehAxxBzNoMwpEPG9ukaspbJtk71lReQ6kF",
       "duration": "4 Days",
-      "accommodation": "Transfers",
-      "tag": null
+      "accommodation": "Transfers Included",
+      "tag": "Best Seller",
+      "spots": [
+        "Kodai Lake",
+        "Cois Walk",
+        "Pillar Rocks",
+        "Pine Forest",
+        "Bryant Park"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Mist & Lake",
+          "details": "Arrival at Kodaikanal. Check-in. Evening spent cycling around the star-shaped Kodai Lake and local shopping."
+        },
+        {
+          "day": 2,
+          "title": "Scenic Viewpoints",
+          "details": "Full day tour including Cois Walk, Upper Lake View, Moir Point, and the famous Pillar Rocks."
+        },
+        {
+          "day": 3,
+          "title": "Nature's Trail",
+          "details": "Visit Pine Forest, Guna Caves, and Bryant Park. Enjoy the serene beauty of the botanical gardens."
+        },
+        {
+          "day": 4,
+          "title": "Farewell to Kodai",
+          "details": "Leisurely breakfast. Visit local chocolate makers. Departure from the hill station with sweet memories."
+        }
+      ]
     },
     {
-      "id": "3",
+      "id": "historic-thanjavur",
       "title": "Historic Thanjavur",
       "subtitle": "Great Living Chola Temples",
       "price": "6,999",
       "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBOTZmfFEZ0fNxeldiKfKHUlSTMsloiACU6uEpR-1WXAbgj3nNc7TAf7-N1-zT_KQLHl6laC7GsdlZpweCMEgA19oGMNmrYG8cCgz4EGAXDcaQBA6QZYMjubIZvyeJ1TS09o9bpdddaXSaz-bIA_IiOQGkedJzedk_-t8qHL_6xuvz-orTdKVcaKaU1NQl3NU5QNMjpeDGPDAqeUAd1cua2r-6RZUNJK2GjXy4ct1LDz-gUNaCh3dnw29NFDU_DebVzSOicvIKMfI0y",
       "duration": "2 Days",
-      "accommodation": "Meals",
-      "tag": null
+      "accommodation": "Meals Included",
+      "tag": "Cultural",
+      "spots": [
+        "Brihadisvara Temple",
+        "Thanjavur Royal Palace",
+        "Saraswathi Mahal Library"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "The Big Temple",
+          "details": "Arrival. Visit the UNESCO world heritage Brihadisvara Temple, an architectural marvel of the Chola era."
+        },
+        {
+          "day": 2,
+          "title": "Palace & Arts",
+          "details": "Visit Thanjavur Palace complex and the historic library. Witness the making of Thanjavur paintings before departure."
+        }
+      ]
     }
   ]
 }
