@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Ananya Sharma",
+        "role": "Travel Blogger",
+        "content": "The experience with TravelEnd was absolutely phenomenal. Their attention to detail in planning our South India tour was impressive. Highly recommended!",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=ananya"
+    },
+    {
+        "id": 2,
+        "name": "Rajesh Kumar",
+        "role": "Family Traveler",
+        "content": "Perfectly curated itinerary for my family's first trip to Tamil Nadu. The local guides were knowledgeable and very professional. We felt safe throughout.",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=rajesh"
+    },
+    {
+        "id": 3,
+        "name": "Sarah Jenkins",
+        "role": "Solo Explorer",
+        "content": "I was hesitant about solo travel in India, but TravelEnd made it so easy. Every pickup was on time, and the hotels were top-notch. Truly a memorable trip!",
+        "rating": 4,
+        "image": "https://i.pravatar.cc/150?u=sarah"
+    },
+    {
+        "id": 4,
+        "name": "Vikram Singh",
+        "role": "Adventure Enthusiast",
+        "content": "If you want to see the real South India, go with TravelEnd. They took us to some hidden gems that aren't on the typical tourist map. Spectacular!",
+        "rating": 5,
+        "image": "https://i.pravatar.cc/150?u=vikram"
+    }
+]

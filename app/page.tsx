@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import packagesData from "@/data/packages.json";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
+import Reviews from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -81,7 +82,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {packagesData.packages.map((pkg) => (
+              {packagesData.packages.map((pkg: any) => (
                 <div key={pkg.id} className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
                   <div className="w-full aspect-[4/5] overflow-hidden relative">
                     <div
@@ -129,6 +130,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Reviews Section */}
+        <Reviews />
 
         {/* CTA Section */}
         <section className="w-full bg-white pb-24">
