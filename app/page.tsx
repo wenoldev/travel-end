@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import packagesData from "@/data/packages.json";
@@ -35,10 +36,10 @@ export default function Home() {
                   Your trusted partner for exploring the hidden gems and heritage of South India. We specialize in creating unforgettable journeys through the rich culture, spicy cuisine, and diverse landscapes of the region.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link className="px-8 py-4 bg-primary text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform" href="/about">
+                  <Link className="flex-1 sm:flex-none px-6 py-3.5 sm:px-8 sm:py-4 bg-primary text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform text-center" href="/about">
                     Our Story
                   </Link>
-                  <Link className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-100 rounded-xl font-bold hover:bg-slate-50 transition-colors" href="/contact">
+                  <Link className="flex-1 sm:flex-none px-6 py-3.5 sm:px-8 sm:py-4 bg-white text-slate-900 border-2 border-slate-100 rounded-xl font-bold hover:bg-slate-50 transition-colors text-center" href="/contact">
                     Get in Touch
                   </Link>
                 </div>
@@ -119,7 +120,7 @@ export default function Home() {
                     </div>
                     <Link
                       href={`/packages/${pkg.title.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
+                      className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-3.5 sm:py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
                     >
                       View Trip Details
                       <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">double_arrow</span>
@@ -137,19 +138,19 @@ export default function Home() {
         {/* CTA Section */}
         <section className="w-full bg-white pb-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full bg-primary rounded-[3rem] p-12 sm:p-20 relative overflow-hidden flex flex-col items-center text-center">
+            <div className="w-full bg-primary rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col items-center text-center">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
               <div className="relative z-10 max-w-2xl">
-                <h2 className="text-white text-4xl sm:text-6xl font-black mb-8 leading-tight">Ready to Start Your Journey?</h2>
-                <p className="text-white/80 text-lg sm:text-xl font-medium mb-12">
+                <h2 className="text-white text-3xl sm:text-6xl font-black mb-6 sm:mb-8 leading-tight italic">Ready to Start Your Journey?</h2>
+                <p className="text-white/80 text-base sm:text-xl font-medium mb-10 sm:mb-12">
                   Contact our travel experts today and let us plan your dream vacation down to the last detail.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <a href="tel:+919876543210" className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-primary rounded-2xl font-black text-lg hover:scale-105 transition-transform shadow-xl">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
+                  <a href="tel:+919876543210" className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-primary rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl w-full sm:w-auto">
                     <span className="material-symbols-outlined">call</span>
                     Call Us Now
                   </a>
-                  <Link href="/contact" className="flex items-center justify-center gap-3 px-10 py-5 bg-primary border-2 border-white/30 text-white rounded-2xl font-black text-lg hover:bg-white/10 transition-all">
+                  <Link href="/contact" className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-primary border-2 border-white/30 text-white rounded-2xl font-black text-base sm:text-lg hover:bg-white/10 transition-all w-full sm:w-auto">
                     Plan My Trip
                   </Link>
                 </div>

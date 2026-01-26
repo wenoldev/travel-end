@@ -32,7 +32,7 @@ export default function HeroCarousel() {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % carouselItems.length);
-        }, 6000);
+        }, 3000);
         return () => clearInterval(timer);
     }, []);
 
@@ -40,13 +40,13 @@ export default function HeroCarousel() {
         <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[80vh] overflow-hidden">
 
             {/* IMAGE ONLY ANIMATION */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                 <motion.div
                     key={carouselItems[index].image}
-                    initial={{ scale: 1.2, opacity: 0 }}
+                    initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 1.05, opacity: 0 }} // 👈 IMPORTANT
-                    transition={{ duration: 1.6, ease: "easeInOut" }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
                         backgroundImage: `url("${carouselItems[index].image}")`,
@@ -69,7 +69,7 @@ export default function HeroCarousel() {
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: -30, opacity: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             className="text-white text-5xl sm:text-6xl lg:text-8xl font-black mb-6 drop-shadow-2xl"
                         >
                             {carouselItems[index].title}
@@ -83,7 +83,7 @@ export default function HeroCarousel() {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: -20, opacity: 0 }}
-                            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+                            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                             className="text-white/90 text-xl sm:text-2xl font-medium max-w-2xl mx-auto drop-shadow-lg mb-10"
                         >
                             {carouselItems[index].description}

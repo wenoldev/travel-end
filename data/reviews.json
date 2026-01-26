@@ -5,15 +5,31 @@
         "role": "Travel Blogger",
         "content": "The experience with TravelEnd was absolutely phenomenal. Their attention to detail in planning our South India tour was impressive. Highly recommended!",
         "rating": 5,
-        "image": "https://i.pravatar.cc/150?u=ananya"
+        "image": "https://i.pravatar.cc/150?u=ananya",
+        "visited_place": "South India",
+        "service_type": "Tempo Traveller",
+        "trip_type": "Group Tour",
+        "gallery": [
+            "https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?q=80&w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1598333104533-33e14f685933?q=80&w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=500&auto=format&fit=crop"
+        ]
     },
     {
         "id": 2,
         "name": "Rajesh Kumar",
         "role": "Family Traveler",
-        "content": "Perfectly curated itinerary for my family's first trip to Tamil Nadu. The local guides were knowledgeable and very professional. We felt safe throughout.",
+        "content": "The trip was smooth, vehicle was clean, and the driver was very professional. Highly recommended! Perfectly curated itinerary for my family's first trip.",
         "rating": 5,
-        "image": "https://i.pravatar.cc/150?u=rajesh"
+        "image": "https://i.pravatar.cc/150?u=rajesh",
+        "visited_place": "Tamil Nadu",
+        "service_type": "SUV Rental",
+        "trip_type": "Family Trip",
+        "gallery": [
+            "https://images.unsplash.com/photo-1580192980104-44d565c61456?q=80&w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1590050752117-23a92dbf9f1d?q=80&w=500&auto=format&fit=crop"
+        ]
     },
     {
         "id": 3,
@@ -21,7 +37,10 @@
         "role": "Solo Explorer",
         "content": "I was hesitant about solo travel in India, but TravelEnd made it so easy. Every pickup was on time, and the hotels were top-notch. Truly a memorable trip!",
         "rating": 4,
-        "image": "https://i.pravatar.cc/150?u=sarah"
+        "image": "https://i.pravatar.cc/150?u=sarah",
+        "visited_place": "Rajasthan",
+        "service_type": "Sedan Rental",
+        "trip_type": "Solo Trip"
     },
     {
         "id": 4,
@@ -29,6 +48,12 @@
         "role": "Adventure Enthusiast",
         "content": "If you want to see the real South India, go with TravelEnd. They took us to some hidden gems that aren't on the typical tourist map. Spectacular!",
         "rating": 5,
-        "image": "https://i.pravatar.cc/150?u=vikram"
+        "image": "https://i.pravatar.cc/150?u=vikram",
+        "visited_place": "Western Ghats",
+        "service_type": "Jeep Safari",
+        "trip_type": "Adventure Trip",
+        "gallery": [
+            "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=500&auto=format&fit=crop"
+        ]
     }
 ]
