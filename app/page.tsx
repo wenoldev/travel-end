@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import siteConfig from "@/data/siteConfig.json";
 import packagesData from "@/data/packages.json";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -68,7 +69,7 @@ export default function Home() {
         </section>
 
         {/* Popular Destinations */}
-        <section className="w-full bg-white py-24">
+        {/* <section className="w-full bg-white py-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-16 px-4">
               <div className="max-w-xl">
@@ -130,7 +131,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Reviews Section */}
         <Reviews />
@@ -146,7 +147,7 @@ export default function Home() {
                   Contact our travel experts today and let us plan your dream vacation down to the last detail.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
-                  <a href="tel:+919876543210" className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-primary rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl w-full sm:w-auto">
+                  <a href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-primary rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl w-full sm:w-auto">
                     <span className="material-symbols-outlined">call</span>
                     Call Us Now
                   </a>

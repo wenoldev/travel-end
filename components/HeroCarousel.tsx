@@ -10,7 +10,7 @@ const carouselItems = [
         description: "Discover the serene backwaters and lush greenery of God's Own Country."
     },
     {
-        image: "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1920",
+        image: "./munnar.jpeg",
         title: "Misty Munnar",
         description: "Walk through emerald tea plantations and breathe in the fresh mountain air."
     },
@@ -20,9 +20,19 @@ const carouselItems = [
         description: "Where French heritage meets tranquil beaches and spiritual calm."
     },
     {
-        image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1920",
-        title: "Serene Kodaikanal",
+        image: "https://res.cloudinary.com/dyiffrkzh/image/upload/v1694413840/bbj/vtqglaifsujeb1po1hy1.webp",
+        title: "Kodaikanal",
         description: "Explore the Princess of Hill Stations and its tranquil lakeside beauty."
+    },
+    {
+        image: "https://res.cloudinary.com/dyiffrkzh/image/upload/v1694413840/bbj/ooty.webp",
+        title: "Ooty",
+        description: "Discover the Queen of Hill Stations, known for its misty hills, tea gardens, and pleasant climate."
+    },
+    {
+        image: "https://www.holidaylap.com/wp-content/uploads/2025/11/ChatGPT-Image-Nov-23-2025-07_01_56-PM.png",
+        title: "Varkala",
+        description: "Relax at Kerala’s coastal cliff town, famous for stunning sunsets, beaches, and spiritual vibes."
     }
 ];
 
@@ -32,7 +42,7 @@ export default function HeroCarousel() {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % carouselItems.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(timer);
     }, []);
 
@@ -56,7 +66,7 @@ export default function HeroCarousel() {
             </AnimatePresence>
 
             {/* STATIC OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-black/20 to-transparent" />
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-black/20 to-transparent" /> */}
 
             {/* TEXT CONTENT */}
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">

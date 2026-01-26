@@ -109,14 +109,14 @@ export default async function DestinationPage({ params }: PageProps) {
                                         <span className="material-symbols-outlined text-primary text-3xl">call</span>
                                         <div className="flex flex-col">
                                             <span className="text-xs font-bold text-slate-400 uppercase">Call us</span>
-                                            <span className="text-xl font-black text-slate-900">+91 98765 43210</span>
+                                            <span className="text-xl font-black text-slate-900">{siteConfig.contact.phone}</span>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4 p-4 bg-secondary rounded-2xl">
                                         <span className="material-symbols-outlined text-primary text-3xl">mail</span>
                                         <div className="flex flex-col">
                                             <span className="text-xs font-bold text-slate-400 uppercase">Email us</span>
-                                            <span className="text-lg font-black text-slate-900 truncate">hello@travelend.in</span>
+                                            <span className="text-lg font-black text-slate-900 truncate">{siteConfig.contact.email}</span>
                                         </div>
                                     </div>
                                     <a
