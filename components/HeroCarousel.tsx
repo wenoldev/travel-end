@@ -25,7 +25,7 @@ const carouselItems = [
         description: "Explore the Princess of Hill Stations and its tranquil lakeside beauty."
     },
     {
-        image: "https://res.cloudinary.com/dyiffrkzh/image/upload/v1694413840/bbj/ooty.webp",
+        image: "https://roamers.in/assets/img/Ooty/1-min.jpg",
         title: "Ooty",
         description: "Discover the Queen of Hill Stations, known for its misty hills, tea gardens, and pleasant climate."
     },
