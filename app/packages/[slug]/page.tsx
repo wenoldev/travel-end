@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+
 import packagesData from "@/data/packages.json";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -34,7 +34,6 @@ export default async function PackageDetailsPage({ params }: { params: Promise<{
 
   return (
     <div className="bg-white font-sans text-slate-900 antialiased">
-      <Header />
       <main className="w-full">
         {/* Banner Section - Match Image 2 Pattern */}
         <section className="relative w-full h-[400px] overflow-hidden">
@@ -172,7 +171,6 @@ export default async function PackageDetailsPage({ params }: { params: Promise<{
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

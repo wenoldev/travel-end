@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import siteConfig from "@/data/siteConfig.json";
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -77,7 +75,6 @@ export default function ContactPage() {
   return (
     <div className="bg-white font-sans text-slate-900 antialiased overflow-x-hidden transition-colors duration-200">
       <div className="flex min-h-screen flex-col">
-        <Header />
         <main className="flex-grow">
           {/* Hero Header Section */}
           <div className="bg-white dark:bg-slate-900 py-12 sm:py-16 lg:py-20 border-b border-slate-100 dark:border-slate-800">
@@ -255,7 +252,6 @@ export default function ContactPage() {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
 
       {/* Success Dialog */}

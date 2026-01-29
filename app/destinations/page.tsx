@@ -1,12 +1,11 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+
 import destinationsData from "@/data/destinations.json";
 import Link from "next/link";
 
 export default function DestinationsPage() {
   return (
     <div className="bg-white flex flex-col min-h-screen overflow-x-hidden">
-      <Header />
       <main className="flex-grow">
         {/* Banner */}
         <section className="relative w-full h-[300px] overflow-hidden">
@@ -56,7 +55,6 @@ export default function DestinationsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -134,7 +133,6 @@ export default function AddReviewPage() {
 
     return (
         <div className="relative flex min-h-screen w-full flex-col bg-white font-sans antialiased">
-            <Header />
             <main className="flex-grow pt-32 pb-24">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
@@ -343,7 +341,6 @@ export default function AddReviewPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
 
             {/* Success Dialog */}
             <AnimatePresence>

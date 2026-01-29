@@ -1,16 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import siteConfig from "@/data/siteConfig.json";
 import packagesData from "@/data/packages.json";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Reviews from "@/components/Reviews";
+import TripPlannerCards from "@/components/TripPlannerCards";
 
 export default function Home() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white">
-      <Header />
       <main className="flex-grow w-full">
         {/* Hero Section */}
         <section className="w-full bg-white">
@@ -67,6 +64,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Trip Planner Section */}
+        <TripPlannerCards />
 
         {/* Popular Destinations */}
         {/* <section className="w-full bg-white py-24">
@@ -160,7 +160,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

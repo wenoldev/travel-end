@@ -44,7 +44,19 @@ const Reviews = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/public/testimonials?store_id=${process.env.NEXT_PUBLIC_STORE_ID}`);
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+                const storeId = process.env.NEXT_PUBLIC_STORE_ID;
+
+                if (!apiUrl || !storeId) {
+                    throw new Error("Missing API configuration");
+                }
+
+                const response = await fetch(`${apiUrl}/api/v1/public/testimonials?store_id=${storeId}`);
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
                 const result = await response.json();
 
                 if (result.data?.testimonials && result.data.testimonials.length > 0) {
@@ -63,15 +75,10 @@ const Reviews = () => {
                     }));
                     setReviews(formattedReviews);
                 } else {
-                    setReviews(reviewsData.map(r => ({
-                        ...r,
-                        image: r.image || FALLBACK_IMAGE,
-                        is_verified: true,
-                        subtitle: r.role
-                    })));
+                    throw new Error("No reviews found in API");
                 }
             } catch (error) {
-                console.error("Error fetching reviews:", error);
+                console.error("Error fetching reviews, using fallback:", error);
                 setReviews(reviewsData.map(r => ({
                     ...r,
                     image: r.image || FALLBACK_IMAGE,

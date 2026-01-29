@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+
 import destinationsData from "@/data/destinations.json";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -22,8 +22,6 @@ export default async function DestinationPage({ params }: PageProps) {
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
-            <Header />
-
             <main className="flex-grow">
                 {/* Banner Section - Inspired by Image 2 */}
                 <section className="relative w-full h-[400px] overflow-hidden">
@@ -133,8 +131,6 @@ export default async function DestinationPage({ params }: PageProps) {
                     </div>
                 </section>
             </main>
-
-            <Footer />
         </div>
     );
 }

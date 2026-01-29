@@ -1,10 +1,9 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+
 
 export default function PrivacyPage() {
   return (
     <div className="bg-white text-slate-900 font-sans flex flex-col min-h-screen">
-      <Header />
       <main className="flex-grow py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-black mb-8 text-primary">Privacy Policy</h1>
@@ -28,7 +27,6 @@ export default function PrivacyPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

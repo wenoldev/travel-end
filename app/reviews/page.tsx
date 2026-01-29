@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import reviewsData from "@/data/reviews.json";
@@ -47,7 +46,19 @@ export default function AllReviewsPage() {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/public/testimonials?store_id=${process.env.NEXT_PUBLIC_STORE_ID}`);
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+                const storeId = process.env.NEXT_PUBLIC_STORE_ID;
+
+                if (!apiUrl || !storeId) {
+                    throw new Error("Missing API configuration");
+                }
+
+                const response = await fetch(`${apiUrl}/api/v1/public/testimonials?store_id=${storeId}`);
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
                 const result = await response.json();
 
                 if (result.data?.testimonials && result.data.testimonials.length > 0) {
@@ -66,15 +77,10 @@ export default function AllReviewsPage() {
                     }));
                     setReviews(formattedReviews);
                 } else {
-                    setReviews(reviewsData.map(r => ({
-                        ...r,
-                        image: r.image || FALLBACK_IMAGE,
-                        is_verified: true,
-                        subtitle: r.role
-                    })));
+                    throw new Error("No reviews found in API");
                 }
             } catch (error) {
-                console.error("Error fetching reviews:", error);
+                console.error("Error fetching reviews, using fallback:", error);
                 setReviews(reviewsData.map(r => ({
                     ...r,
                     image: r.image || FALLBACK_IMAGE,
@@ -91,7 +97,6 @@ export default function AllReviewsPage() {
 
     return (
         <div className="relative flex min-h-screen w-full flex-col bg-[#f8f9fa] font-sans antialiased">
-            <Header />
             <main className="flex-grow pt-32 pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header Section */}
@@ -230,7 +235,6 @@ export default function AllReviewsPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
         </div>
     );
 }

@@ -1,12 +1,9 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import siteConfig from "@/data/siteConfig.json";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <div className="bg-white text-slate-900 font-sans flex flex-col min-h-screen">
-      <Header />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-12 sm:py-20 lg:py-24">
@@ -150,7 +147,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }
