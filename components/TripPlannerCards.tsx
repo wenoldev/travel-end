@@ -11,7 +11,8 @@ const tripTypes = [
         description: 'Explore Thoothukudi and surrounding areas with ease.',
         icon: 'location_on',
         color: 'bg-blue-500',
-        link: '/planner/local'
+        link: '/planner/local',
+        featured: false
     },
     {
         id: 'outstation',
@@ -19,7 +20,8 @@ const tripTypes = [
         description: 'Venture beyond to Madurai, Kanyakumari, and more.',
         icon: 'directions_car',
         color: 'bg-primary',
-        link: '/planner/outstation'
+        link: '/planner/outstation',
+        featured: false
     },
     {
         id: 'college',
@@ -27,7 +29,8 @@ const tripTypes = [
         description: 'Custom group packages for students and institutions.',
         icon: 'school',
         color: 'bg-orange-600',
-        link: '/planner/college'
+        link: '/planner/college',
+        featured: true
     }
 ];
 
@@ -42,7 +45,7 @@ export default function TripPlannerCards() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     {tripTypes.map((trip, idx) => (
                         <motion.div
                             key={trip.id}
@@ -50,17 +53,28 @@ export default function TripPlannerCards() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
                             viewport={{ once: true }}
+                            className="h-full"
                         >
                             <Link
                                 href={trip.link}
-                                className="group relative block bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden h-full"
+                                className={`group relative block rounded-[2.5rem] p-8 border transition-all duration-500 overflow-hidden h-full ${(trip as any).featured
+                                        ? 'bg-slate-900 border-slate-800 shadow-2xl scale-105 z-10'
+                                        : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'
+                                    }`}
                             >
+                                {(trip as any).featured && (
+                                    <div className="absolute top-6 right-6">
+                                        <span className="bg-primary px-4 py-1.5 rounded-full text-[10px] font-black text-white uppercase tracking-widest leading-none shadow-lg">
+                                            Popular
+                                        </span>
+                                    </div>
+                                )}
                                 <div className={`size-16 rounded-2xl ${trip.color} text-white flex items-center justify-center mb-8 shadow-lg shadow-current/20 group-hover:scale-110 transition-transform`}>
                                     <span className="material-symbols-outlined text-4xl">{trip.icon}</span>
                                 </div>
 
-                                <h3 className="text-2xl font-black text-slate-900 mb-4">{trip.title}</h3>
-                                <p className="text-slate-500 leading-relaxed mb-8">{trip.description}</p>
+                                <h3 className={`text-2xl font-black mb-4 ${(trip as any).featured ? 'text-white' : 'text-slate-900'}`}>{trip.title}</h3>
+                                <p className={`leading-relaxed mb-8 ${(trip as any).featured ? 'text-slate-400' : 'text-slate-500'}`}>{trip.description}</p>
 
                                 <div className="flex items-center gap-2 text-primary font-bold">
                                     Start Planning
