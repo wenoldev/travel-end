@@ -4,7 +4,17 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-const tripTypes = [
+interface TripType {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+    color: string;
+    link: string;
+    featured: boolean;
+}
+
+const tripTypes: TripType[] = [
     {
         id: 'local',
         title: 'Local Trip',
@@ -57,12 +67,12 @@ export default function TripPlannerCards() {
                         >
                             <Link
                                 href={trip.link}
-                                className={`group relative block rounded-[2.5rem] p-8 border transition-all duration-500 overflow-hidden h-full ${(trip as any).featured
+                                className={`group relative block rounded-[2.5rem] p-8 border transition-all duration-500 overflow-hidden h-full ${trip.featured
                                         ? 'bg-slate-900 border-slate-800 shadow-2xl scale-105 z-10'
                                         : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'
                                     }`}
                             >
-                                {(trip as any).featured && (
+                                {trip.featured && (
                                     <div className="absolute top-6 right-6">
                                         <span className="bg-primary px-4 py-1.5 rounded-full text-[10px] font-black text-white uppercase tracking-widest leading-none shadow-lg">
                                             Popular
@@ -73,8 +83,8 @@ export default function TripPlannerCards() {
                                     <span className="material-symbols-outlined text-4xl">{trip.icon}</span>
                                 </div>
 
-                                <h3 className={`text-2xl font-black mb-4 ${(trip as any).featured ? 'text-white' : 'text-slate-900'}`}>{trip.title}</h3>
-                                <p className={`leading-relaxed mb-8 ${(trip as any).featured ? 'text-slate-400' : 'text-slate-500'}`}>{trip.description}</p>
+                                <h3 className={`text-2xl font-black mb-4 ${trip.featured ? 'text-white' : 'text-slate-900'}`}>{trip.title}</h3>
+                                <p className={`leading-relaxed mb-8 ${trip.featured ? 'text-slate-400' : 'text-slate-500'}`}>{trip.description}</p>
 
                                 <div className="flex items-center gap-2 text-primary font-bold">
                                     Start Planning

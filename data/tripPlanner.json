@@ -1,0 +1,85 @@
+{
+    "destinations": {
+        "outstation": [
+            {
+                "id": "tirunelveli",
+                "name": "Tirunelveli",
+                "price": 1200
+            },
+            {
+                "id": "kanyakumari",
+                "name": "Kanyakumari",
+                "price": 3500
+            },
+            {
+                "id": "madurai",
+                "name": "Madurai",
+                "price": 4000
+            },
+            {
+                "id": "rameswaram",
+                "name": "Rameswaram",
+                "price": 4500
+            },
+            {
+                "id": "courtallam",
+                "name": "Courtallam",
+                "price": 2500
+            }
+        ],
+        "local": [
+            {
+                "id": "temple_tour",
+                "name": "Local Temple Tour",
+                "price": 1000
+            },
+            {
+                "id": "beach_tour",
+                "name": "Beach & Harbour Tour",
+                "price": 800
+            },
+            {
+                "id": "city_highlights",
+                "name": "City Highlights",
+                "price": 1200
+            }
+        ],
+        "college": [
+            {
+                "id": "industrial_visit",
+                "name": "Industrial Visit (Chennai/Coimbatore)",
+                "price": 15000
+            },
+            {
+                "id": "tour_kerala",
+                "name": "College Tour (Kerala)",
+                "price": 12000
+            },
+            {
+                "id": "tour_karnataka",
+                "name": "College Tour (Karnataka)",
+                "price": 10000
+            }
+        ]
+    },
+    "expenseOptions": [
+        {
+            "id": "food",
+            "label": "Food",
+            "price": 500,
+            "description": "+₹500 per day"
+        },
+        {
+            "id": "accommodation",
+            "label": "Accommodation",
+            "price": 1500,
+            "description": "+₹1500 per night"
+        },
+        {
+            "id": "toll_parking",
+            "label": "Toll & Parking",
+            "price": 300,
+            "description": "+₹300 flat"
+        }
+    ]
+}

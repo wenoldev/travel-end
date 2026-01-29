@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import siteConfig from '@/data/siteConfig.json';
+import tripPlanner from '@/data/tripPlanner.json';
 
 // --- Types & Data ---
 
@@ -14,25 +15,9 @@ interface Destination {
     price: number;
 }
 
-const OUTSTATION_LOCATIONS: Destination[] = [
-    { id: 'tirunelveli', name: 'Tirunelveli', price: 1200 },
-    { id: 'kanyakumari', name: 'Kanyakumari', price: 3500 },
-    { id: 'madurai', name: 'Madurai', price: 4000 },
-    { id: 'rameswaram', name: 'Rameswaram', price: 4500 },
-    { id: 'courtallam', name: 'Courtallam', price: 2500 },
-];
-
-const LOCAL_LOCATIONS: Destination[] = [
-    { id: 'temple_tour', name: 'Local Temple Tour', price: 1000 },
-    { id: 'beach_tour', name: 'Beach & Harbour Tour', price: 800 },
-    { id: 'city_highlights', name: 'City Highlights', price: 1200 },
-];
-
-const COLLEGE_LOCATIONS: Destination[] = [
-    { id: 'industrial_visit', name: 'Industrial Visit (Chennai/Coimbatore)', price: 15000 },
-    { id: 'tour_kerala', name: 'College Tour (Kerala)', price: 12000 },
-    { id: 'tour_karnataka', name: 'College Tour (Karnataka)', price: 10000 },
-];
+const OUTSTATION_LOCATIONS: Destination[] = tripPlanner.destinations.outstation;
+const LOCAL_LOCATIONS: Destination[] = tripPlanner.destinations.local;
+const COLLEGE_LOCATIONS: Destination[] = tripPlanner.destinations.college;
 
 interface ExpenseOption {
     id: string;
@@ -41,11 +26,8 @@ interface ExpenseOption {
     description: string;
 }
 
-const EXPENSE_OPTIONS: ExpenseOption[] = [
-    { id: 'food', label: 'Food', price: 500, description: '+₹500 per day' },
-    { id: 'accommodation', label: 'Accommodation', price: 1500, description: '+₹1500 per night' },
-    { id: 'toll_parking', label: 'Toll & Parking', price: 300, description: '+₹300 flat' },
-];
+const EXPENSE_OPTIONS: ExpenseOption[] = tripPlanner.expenseOptions;
+
 
 // --- Component ---
 
@@ -181,8 +163,8 @@ _Generated via TravelEnd Planner_`;
                                                 key={loc.id}
                                                 onClick={() => toggleDestination(loc.id)}
                                                 className={`group flex items-center justify-between p-4 rounded-2xl border-2 transition-all text-left ${selectedDestinations.includes(loc.id)
-                                                        ? 'border-primary bg-primary/5 shadow-md'
-                                                        : 'border-slate-100 bg-white hover:border-slate-200 hover:shadow-sm'
+                                                    ? 'border-primary bg-primary/5 shadow-md'
+                                                    : 'border-slate-100 bg-white hover:border-slate-200 hover:shadow-sm'
                                                     }`}
                                             >
                                                 <div className="flex flex-col">
