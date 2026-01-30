@@ -1,0 +1,175 @@
+{
+    "tariffs": [
+        {
+            "hours": 3,
+            "km": 50,
+            "sedan": 1050,
+            "suv": null,
+            "innova": null
+        },
+        {
+            "hours": 4,
+            "km": 60,
+            "sedan": 1280,
+            "suv": 1800,
+            "innova": null
+        },
+        {
+            "hours": 5,
+            "km": 70,
+            "sedan": 1510,
+            "suv": 2050,
+            "innova": null
+        },
+        {
+            "hours": 6,
+            "km": 80,
+            "sedan": 1740,
+            "suv": 2300,
+            "innova": 3000
+        },
+        {
+            "hours": 7,
+            "km": 90,
+            "sedan": 1970,
+            "suv": 2550,
+            "innova": 3260
+        },
+        {
+            "hours": 8,
+            "km": 100,
+            "sedan": 2200,
+            "suv": 2800,
+            "innova": 3520
+        },
+        {
+            "hours": 9,
+            "km": 110,
+            "sedan": 2430,
+            "suv": 3050,
+            "innova": 3780
+        },
+        {
+            "hours": 10,
+            "km": 120,
+            "sedan": 2660,
+            "suv": 3300,
+            "innova": 4040
+        },
+        {
+            "hours": 11,
+            "km": 130,
+            "sedan": 2890,
+            "suv": 3550,
+            "innova": 4300
+        },
+        {
+            "hours": 12,
+            "km": 140,
+            "sedan": 3120,
+            "suv": 3800,
+            "innova": 4560
+        },
+        {
+            "hours": 13,
+            "km": 150,
+            "sedan": 3350,
+            "suv": 4050,
+            "innova": 4820
+        },
+        {
+            "hours": 14,
+            "km": 160,
+            "sedan": 3580,
+            "suv": 4300,
+            "innova": 5080
+        },
+        {
+            "hours": 15,
+            "km": 170,
+            "sedan": 3810,
+            "suv": 4550,
+            "innova": 5340
+        },
+        {
+            "hours": 16,
+            "km": 180,
+            "sedan": 4040,
+            "suv": 4800,
+            "innova": 5600
+        },
+        {
+            "hours": 17,
+            "km": 190,
+            "sedan": 4270,
+            "suv": 5050,
+            "innova": 5860
+        },
+        {
+            "hours": 18,
+            "km": 200,
+            "sedan": 4500,
+            "suv": 5300,
+            "innova": 6120
+        },
+        {
+            "hours": 19,
+            "km": 210,
+            "sedan": 4730,
+            "suv": 5550,
+            "innova": 6380
+        },
+        {
+            "hours": 20,
+            "km": 220,
+            "sedan": 4960,
+            "suv": 5800,
+            "innova": 6640
+        },
+        {
+            "hours": 21,
+            "km": 230,
+            "sedan": 5190,
+            "suv": 6050,
+            "innova": 6900
+        },
+        {
+            "hours": 22,
+            "km": 240,
+            "sedan": 5420,
+            "suv": 6300,
+            "innova": 7060
+        },
+        {
+            "hours": 23,
+            "km": 250,
+            "sedan": 5650,
+            "suv": 6550,
+            "innova": 7320
+        },
+        {
+            "hours": 24,
+            "km": 260,
+            "sedan": 5880,
+            "suv": 6800,
+            "innova": 7580
+        }
+    ],
+    "extraPerKm": {
+        "sedan": 13,
+        "suv": 15,
+        "innova": 16
+    },
+    "extraHours": 100,
+    "nightHalt": 800,
+    "hillsExtraPerKm": 5,
+    "otherVehicles": [
+        "Crysta",
+        "Tempo Traveller",
+        "Force Urbania",
+        "Marcopolo Van",
+        "Coach Van",
+        "Tourist Bus",
+        "Luxury Volvo Multi Axle Bus"
+    ]
+}

@@ -128,6 +128,7 @@ export default function AllReviewsPage() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                     key={review.id}
                                     className="flex flex-col bg-white p-6 sm:p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 h-full"

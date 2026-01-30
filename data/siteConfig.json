@@ -28,6 +28,10 @@
       "href": "/about"
     },
     {
+      "name": "Taxi Tariff",
+      "href": "/taxi-tariff"
+    },
+    {
       "name": "Contact Us",
       "href": "/contact"
     }

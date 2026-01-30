@@ -4,82 +4,93 @@
             {
                 "id": "tirunelveli",
                 "name": "Tirunelveli",
-                "price": 1200
+                "price": 1800
             },
             {
                 "id": "kanyakumari",
                 "name": "Kanyakumari",
-                "price": 3500
+                "price": 3700
             },
             {
                 "id": "madurai",
                 "name": "Madurai",
-                "price": 4000
+                "price": 4500
             },
             {
                 "id": "rameswaram",
                 "name": "Rameswaram",
-                "price": 4500
+                "price": 5500
             },
             {
                 "id": "courtallam",
                 "name": "Courtallam",
-                "price": 2500
+                "price": 3600
+            },
+            {
+                "id": "chennai",
+                "name": "Chennai",
+                "price": 16000
+            },
+            {
+                "id": "coimbatore",
+                "name": "Coimbatore",
+                "price": 9000
+            },
+            {
+                "id": "bangalore",
+                "name": "Bangalore",
+                "price": 16500
             }
         ],
         "local": [
             {
-                "id": "temple_tour",
-                "name": "Local Temple Tour",
-                "price": 1000
+                "id": "tiruchendur",
+                "name": "Tiruchendur",
+                "price": 1650
             },
             {
-                "id": "beach_tour",
-                "name": "Beach & Harbour Tour",
+                "id": "beach_harbour",
+                "name": "Beach & Harbour",
                 "price": 800
             },
             {
                 "id": "city_highlights",
                 "name": "City Highlights",
-                "price": 1200
+                "price": 1800
             }
         ],
         "college": [
             {
+                "id": "kerala_tour",
+                "name": "Kerala Tour Packages",
+                "price": 0,
+                "note": "Custom pricing based on group size"
+            },
+            {
+                "id": "karnataka_tour",
+                "name": "Karnataka Tour Packages",
+                "price": 0,
+                "note": "Custom pricing based on group size"
+            },
+            {
                 "id": "industrial_visit",
                 "name": "Industrial Visit (Chennai/Coimbatore)",
                 "price": 15000
-            },
-            {
-                "id": "tour_kerala",
-                "name": "College Tour (Kerala)",
-                "price": 12000
-            },
-            {
-                "id": "tour_karnataka",
-                "name": "College Tour (Karnataka)",
-                "price": 10000
             }
         ]
     },
     "expenseOptions": [
         {
             "id": "food",
-            "label": "Food",
-            "price": 500,
-            "description": "+₹500 per day"
+            "label": "Food Arrangement",
+            "price": 0,
+            "description": "Customizable based on preference"
         },
         {
             "id": "accommodation",
-            "label": "Accommodation",
-            "price": 1500,
-            "description": "+₹1500 per night"
-        },
-        {
-            "id": "toll_parking",
-            "label": "Toll & Parking",
-            "price": 300,
-            "description": "+₹300 flat"
+            "label": "Stay/Accommodation",
+            "price": 0,
+            "description": "Choice of Home stay, Hotel or 3-Star"
         }
     ]
 }
