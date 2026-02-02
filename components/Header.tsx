@@ -89,6 +89,7 @@ export default function Header() {
               ))}
 
               <Link href="/packages" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Packages</Link>
+              <Link href="/college-trip" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">College Trip</Link>
               <Link href="/taxi-tariff" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Taxi Tariff</Link>
               <Link href="/contact" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Contact Us</Link>
             </nav>
@@ -147,6 +148,7 @@ export default function Header() {
           ))}
 
           <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Packages</Link>
+          <Link href="/college-trip" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">College Trip</Link>
           <Link href="/taxi-tariff" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Taxi Tariff</Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Contact Us</Link>
 

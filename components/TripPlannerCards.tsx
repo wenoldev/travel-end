@@ -31,15 +31,6 @@ const tripTypes: TripType[] = [
         icon: 'directions_car',
         color: 'bg-primary',
         link: '/planner/outstation',
-        featured: false
-    },
-    {
-        id: 'college',
-        title: 'IV or College Trip',
-        description: 'Custom group packages for students and institutions.',
-        icon: 'school',
-        color: 'bg-orange-600',
-        link: '/planner/college',
         featured: true
     }
 ];

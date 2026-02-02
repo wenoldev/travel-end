@@ -58,19 +58,28 @@ _Generated via TravelEnd Taxi Tariff_`;
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                    <div>
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-12">
+                    <div className="max-w-2xl">
                         <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold mb-4">
                             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                             <span className="material-symbols-outlined text-xs">chevron_right</span>
                             <span className="text-slate-600">Taxi Tariff</span>
                         </nav>
-                        <h1 className="text-4xl sm:text-5xl font-black text-slate-900">
+                        <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
                             Taxi <span className="text-primary italic">Tariff Sheet</span>
                         </h1>
-                        <p className="text-slate-500 mt-4 font-medium max-w-2xl">
-                            Transparent pricing for all your travel needs. Select a vehicle and check our hourly/kilometer-based rates.
+                        <p className="text-slate-500 mt-4 font-medium text-lg leading-relaxed">
+                            Transparent pricing for all your travel needs. Select a vehicle and check our competitive hourly and kilometer-based rates.
                         </p>
+                    </div>
+                    <div className="flex-1 max-w-md">
+                        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl-soft border-4 border-white shadow-xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1449965022632-6a1a6b0ef68a?auto=format&fit=crop&q=80&w=800" 
+                                alt="Taxi Service" 
+                                className="w-full h-48 object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
 

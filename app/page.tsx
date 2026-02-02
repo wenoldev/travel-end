@@ -68,6 +68,91 @@ export default function Home() {
         {/* Trip Planner Section */}
         <TripPlannerCards />
 
+        {/* College & IV Trips Special Section */}
+        <section className="w-full bg-[#f8f9fa] py-24">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-16 items-center">
+              <div className="flex-1 space-y-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider">
+                  Specialized Tours
+                </div>
+                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+                  Unforgettable <span className="text-primary italic">College & IV</span> Trips
+                </h2>
+                <p className="text-slate-600 text-lg font-medium leading-relaxed">
+                  We specialize in organizing safe, educational, and fun Industrial Visits and College excursions. From premium transport to comfortable stays and expert guidance, we handle everything so students can focus on learning and making memories.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4 text-slate-700 font-bold">
+                    <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+                      <span className="material-symbols-outlined">verified_user</span>
+                    </div>
+                    Student Safety First Priority
+                  </div>
+                  <div className="flex items-center gap-4 text-slate-700 font-bold">
+                    <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+                      <span className="material-symbols-outlined">directions_bus</span>
+                    </div>
+                    Premium Bus & Coach Fleet
+                  </div>
+                  <div className="flex items-center gap-4 text-slate-700 font-bold">
+                    <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
+                      <span className="material-symbols-outlined">groups</span>
+                    </div>
+                    Tailored Packages for Departments
+                  </div>
+                </div>
+                <div className="pt-4">
+                  <Link 
+                    href="/college-trip" 
+                    className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white rounded-[2rem] font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-primary/20 group"
+                  >
+                    <span>Book Your IV Trip</span>
+                    <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex-1 w-full">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
+                      <img 
+                        src="https://images.unsplash.com/photo-1523050853063-89a1f4969877?auto=format&fit=crop&q=80&w=800" 
+                        alt="College Students Trip" 
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
+                      <img 
+                        src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800" 
+                        alt="Campus Life" 
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-4 pt-12">
+                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
+                      <img 
+                        src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800" 
+                        alt="Students Group" 
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
+                      <img 
+                        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800" 
+                        alt="Industrial Visit" 
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Popular Destinations */}
         {/* <section className="w-full bg-white py-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
