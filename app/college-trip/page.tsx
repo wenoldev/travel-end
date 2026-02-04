@@ -25,6 +25,9 @@ export default function CollegeTripPage() {
     const [days, setDays] = useState(1);
     const [destination, setDestination] = useState('');
     const [mobile, setMobile] = useState('');
+    const [includeFood, setIncludeFood] = useState(false);
+    const [accommodation, setAccommodation] = useState('hotel'); // homestay, hotel, 3-star
+    const [includeTickets, setIncludeTickets] = useState(false);
     const [showDestSuggestions, setShowDestSuggestions] = useState(false);
 
     const shareToWhatsApp = () => {
@@ -36,6 +39,9 @@ export default function CollegeTripPage() {
 *Group Size:* ${personCount} Students/Staff
 *Duration:* ${days} Day(s)
 *Target Destination:* ${destination}
+*Food Included:* ${includeFood ? 'Yes' : 'No'}
+*Accommodation:* ${accommodation === 'homestay' ? 'Home Stay' : accommodation === '3-star' ? '3-Star Hotel' : 'Standard Hotel'}
+*Entry Tickets:* ${includeTickets ? 'Include Common Tickets' : 'No'}
 *Contact:* ${mobile}
 
 _Generated via TravelEnd College Planner_`;
@@ -72,7 +78,7 @@ _Generated via TravelEnd College Planner_`;
                         </div>
                         <div className="w-full lg:w-72 h-44 rounded-3xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
                             <img 
-                                src="https://images.unsplash.com/photo-1523050853063-89a1f4969877?auto=format&fit=crop&q=80&w=600" 
+                                src="./iv-1.png" 
                                 alt="College Trip" 
                                 className="w-full h-full object-cover"
                             />
@@ -197,6 +203,56 @@ _Generated via TravelEnd College Planner_`;
                                     </motion.div>
                                 )}
                             </AnimatePresence>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div className="flex flex-col gap-4">
+                            <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Preferences</label>
+                            <div className="space-y-3">
+                                <button 
+                                    onClick={() => setIncludeFood(!includeFood)}
+                                    className={`w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${includeFood ? 'border-primary bg-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
+                                >
+                                    <div className="flex items-center gap-3 font-bold text-slate-700">
+                                        <span className="material-symbols-outlined text-primary">restaurant</span>
+                                        Include Food
+                                    </div>
+                                    <div className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${includeFood ? 'border-primary bg-primary' : 'border-slate-200'}`}>
+                                        {includeFood && <span className="material-symbols-outlined text-white text-[16px] font-bold">check</span>}
+                                    </div>
+                                </button>
+                                <button 
+                                    onClick={() => setIncludeTickets(!includeTickets)}
+                                    className={`w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${includeTickets ? 'border-primary bg-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
+                                >
+                                    <div className="flex items-center gap-3 font-bold text-slate-700">
+                                        <span className="material-symbols-outlined text-primary">confirmation_number</span>
+                                        Entry Tickets
+                                    </div>
+                                    <div className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${includeTickets ? 'border-primary bg-primary' : 'border-slate-200'}`}>
+                                        {includeTickets && <span className="material-symbols-outlined text-white text-[16px] font-bold">check</span>}
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-4">
+                            <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Accommodation Type</label>
+                            <div className="grid grid-cols-1 gap-3">
+                                {['homestay', 'hotel', '3-star'].map((type) => (
+                                    <button
+                                        key={type}
+                                        onClick={() => setAccommodation(type)}
+                                        className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${accommodation === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
+                                    >
+                                        <span className="material-symbols-outlined">
+                                            {type === 'homestay' ? 'home' : type === '3-star' ? 'stars' : 'hotel'}
+                                        </span>
+                                        <span className="capitalize">{type === '3-star' ? '3-Star Hotel' : type === 'hotel' ? 'Standard Hotel' : 'Home Stay'}</span>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

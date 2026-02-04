@@ -118,14 +118,14 @@ export default function Home() {
                   <div className="space-y-4">
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
                       <img 
-                        src="https://images.unsplash.com/photo-1523050853063-89a1f4969877?auto=format&fit=crop&q=80&w=800" 
+                        src="./iv-2.jpg" 
                         alt="College Students Trip" 
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
                       <img 
-                        src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800" 
+                        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800" 
                         alt="Campus Life" 
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
@@ -141,7 +141,7 @@ export default function Home() {
                     </div>
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
                       <img 
-                        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800" 
+                        src="./iv-3.jpg" 
                         alt="Industrial Visit" 
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
