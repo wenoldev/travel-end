@@ -60,7 +60,7 @@ export default async function DestinationPage({ params }: PageProps) {
                         {/* Left Column - Details */}
                         <div className="lg:col-span-2 flex flex-col gap-12">
                             <div className="flex flex-col gap-6">
-                                <span className="text-primary font-black uppercase tracking-widest text-sm">Destination</span>
+                                <span className="text-primary font-black uppercase tracking-widest text-sm">{destination.category}</span>
                                 <h2 className="text-slate-900 text-4xl font-black">About {destination.name}</h2>
                                 <div className="h-1.5 w-20 bg-primary rounded-full" />
                                 <p className="text-slate-600 text-xl leading-relaxed font-medium">

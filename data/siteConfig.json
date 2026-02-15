@@ -24,6 +24,10 @@
       "href": "/destinations"
     },
     {
+      "name": "Pilgrimage Places",
+      "href": "/pilgrimage"
+    },
+    {
       "name": "About Us",
       "href": "/about"
     },

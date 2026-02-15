@@ -4,6 +4,10 @@ import destinationsData from "@/data/destinations.json";
 import Link from "next/link";
 
 export default function DestinationsPage() {
+  const generalDestinations = destinationsData.destinations.filter(
+    (dest) => dest.category !== "Pilgrimage"
+  );
+
   return (
     <div className="bg-white flex flex-col min-h-screen overflow-x-hidden">
       <main className="flex-grow">
@@ -19,14 +23,14 @@ export default function DestinationsPage() {
               <div className="h-10 w-1.5 bg-white rounded-full" />
               <h1 className="text-white text-5xl sm:text-7xl font-black">Destinations</h1>
             </div>
-            <p className="text-white/80 text-xl max-w-2xl font-medium">Explore the diverse landscapes and rich heritage of India.</p>
+            <p className="text-white/80 text-xl max-w-2xl font-medium">Explore the diverse landscapes and natural beauty of India.</p>
           </div>
         </section>
 
         {/* Destinations Grid */}
         <section className="max-w-[1280px] mx-auto px-4 py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {destinationsData.destinations.map((dest) => (
+            {generalDestinations.map((dest) => (
               <Link
                 key={dest.id}
                 href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`}

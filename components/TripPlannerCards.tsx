@@ -58,10 +58,7 @@ export default function TripPlannerCards() {
                         >
                             <Link
                                 href={trip.link}
-                                className={`group relative block rounded-[2.5rem] p-8 border transition-all duration-500 overflow-hidden h-full ${trip.featured
-                                        ? 'bg-slate-900 border-slate-800 shadow-2xl scale-105 z-10'
-                                        : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'
-                                    }`}
+                                className={`group relative block rounded-[2.5rem] p-8 border transition-all duration-500 overflow-hidden h-full bg-white border-slate-100 shadow-sm hover:shadow-xl}`}
                             >
                                 {trip.featured && (
                                     <div className="absolute top-6 right-6">

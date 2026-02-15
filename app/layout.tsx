@@ -13,8 +13,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Travelend.in - Discover Tamil Nadu",
+  title: "Travelend - Your travel friend",
   description: "Curated experiences across ancient temples, serene beaches, and misty hill stations.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

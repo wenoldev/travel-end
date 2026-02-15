@@ -6,10 +6,10 @@ import siteConfig from '@/data/siteConfig.json';
 
 const megaMenuData = {
   "Domestic": {
+    "Tamilnadu": ["Ooty", "Kodaikanal", "Pondy", "Yercaud", "Valparai", "Courtallam", "Rameswaram", "Kanyakumari"],
     "Kerala": ["Wayanad", "Munnar", "Alappuzha", "Kochi", "Vagamon", "Varkala"],
     "Karnataka": ["Coorg", "Chikkamagaluru", "Dandeli", "Gokarna", "Mysuru", "Hampi"],
-    "North India": ["Pune", "Goa", "Manali", "Golden Triangle", "Rajasthan", "Kashmir"],
-    "Tamilnadu": ["Ooty", "Kodaikanal", "Pondy"]
+    "Other": ["Goa", "Manali", "Ladakh", "Delhi", "Mumbai", "Kashmir"],
   },
   // "International": {
   //   "South Asia": ["Thailand", "Singapore", "Malaysia", "Bali"],
@@ -69,17 +69,23 @@ export default function Header() {
                         <div key={subcat} className="flex flex-col gap-4">
                           <h3 className="text-lg font-black border-b border-white/20 pb-2 mb-2">{subcat}</h3>
                           <ul className="flex flex-col gap-2">
-                            {places.map((place) => (
-                              <li key={place}>
-                                <Link
-                                  href={`/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`}
-                                  className="text-white/80 hover:text-white flex items-center gap-2 text-sm transition-colors group/item"
-                                >
-                                  <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100">double_arrow</span>
-                                  {place}
-                                </Link>
-                              </li>
-                            ))}
+                            {places.map((place) => {
+                              const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
+                              const href = isPilgrimage
+                                ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
+                                : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
+                              return (
+                                <li key={place}>
+                                  <Link
+                                    href={href}
+                                    className="text-white/80 hover:text-white flex items-center gap-2 text-sm transition-colors group/item"
+                                  >
+                                    <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100">double_arrow</span>
+                                    {place}
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       ))}
@@ -131,16 +137,22 @@ export default function Header() {
                 {Object.entries(subcats).map(([subcat, places]) => (
                   <div key={subcat} className="flex flex-col gap-2">
                     <h4 className="font-bold text-sm text-slate-500">{subcat}</h4>
-                    {places.map(place => (
-                      <Link
-                        key={place}
-                        href={`/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-sm text-slate-700"
-                      >
-                        {place}
-                      </Link>
-                    ))}
+                    {places.map(place => {
+                      const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
+                      const href = isPilgrimage
+                        ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
+                        : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
+                      return (
+                        <Link
+                          key={place}
+                          href={href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-sm text-slate-700"
+                        >
+                          {place}
+                        </Link>
+                      );
+                    })}
                   </div>
                 ))}
               </div>

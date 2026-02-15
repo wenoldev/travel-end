@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20">
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3">
@@ -53,12 +53,29 @@ export default function Footer() {
 
           {/* Destinations */}
           <div className="flex flex-col gap-8">
-            <h4 className="text-xl font-bold border-b border-white/10 pb-4">Top Places</h4>
+            <h4 className="text-xl font-bold border-b border-white/10 pb-4 ">Special Places</h4>
             <div className="flex flex-col gap-4">
-              {['Ooty', 'Kodaikanal', 'Munnar', 'Wayanad', 'Goa'].map((place) => (
+              {['Ooty', 'Kodaikanal', 'Munnar', 'Wayanad', 'Goa', 'Vagamon', 'Valparai'].map((place) => (
                 <Link
                   key={place}
                   href={`/destinations/${place.toLowerCase()}`}
+                  className="text-white/60 hover:text-primary transition-colors font-medium flex items-center gap-2 group"
+                >
+                  <span className="material-symbols-outlined text-xs text-white/20 group-hover:text-primary">double_arrow</span>
+                  {place}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Pilgrimage Places */}
+          <div className="flex flex-col gap-8">
+            <h4 className="text-xl font-bold border-b border-white/10 pb-4">Pilgrimage Places</h4>
+            <div className="flex flex-col gap-4">
+              {['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].map((place) => (
+                <Link
+                  key={place}
+                  href={`/pilgrimage/${place.toLowerCase()}`}
                   className="text-white/60 hover:text-primary transition-colors font-medium flex items-center gap-2 group"
                 >
                   <span className="material-symbols-outlined text-xs text-white/20 group-hover:text-primary">double_arrow</span>

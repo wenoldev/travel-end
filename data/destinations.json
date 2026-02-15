@@ -66,6 +66,58 @@
       "fullDescription": "Goa is a kaleidoscope of cultures, with its Portuguese heritage and vibrant beach life. It offers something for every traveler."
     },
     {
+      "id": "madurai",
+      "name": "Madurai",
+      "category": "Pilgrimage",
+      "description": "The Athens of the East, home to the magnificent Meenakshi Amman Temple.",
+      "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Meenakshi Temple",
+        "Thirumalai Nayakkar Mahal",
+        "Alagar Koyil"
+      ],
+      "fullDescription": "Madurai is one of the oldest continuously inhabited cities in the world. Its life revolves around the Meenakshi Amman Temple, a masterpiece of Dravidian architecture."
+    },
+    {
+      "id": "rameswaram",
+      "name": "Rameswaram",
+      "category": "Pilgrimage",
+      "description": "One of the Char Dham pilgrimage sites, located on a beautiful island.",
+      "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Ramanathaswamy Temple",
+        "Dhanushkodi",
+        "Pamban Bridge"
+      ],
+      "fullDescription": "Rameswaram is a holy city for Hindus. It is believed that Lord Rama built a bridge from here to Lanka. The temple is famous for its long corridors."
+    },
+    {
+      "id": "velankanni",
+      "name": "Velankanni",
+      "category": "Pilgrimage",
+      "description": "The Lourdes of the East, a major Catholic pilgrimage center.",
+      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Basilica of Our Lady",
+        "Velankanni Beach",
+        "Museum of Offerings"
+      ],
+      "fullDescription": "Velankanni is famous for the Basilica of Our Lady of Good Health. It attracts millions of pilgrims of all faiths from around the world."
+    },
+    {
+      "id": "tiruchendur",
+      "name": "Tiruchendur",
+      "category": "Pilgrimage",
+      "description": "One of the six abodes of Lord Murugan, located right on the seashore.",
+      "image": "https://images.unsplash.com/photo-1588623598822-9ff0cd048b8a?q=80&w=1200",
+      "highlights": [
+        "Murugan Temple",
+        "Sea Bathing",
+        "Valli's Cave"
+      ],
+      "fullDescription": "Tiruchendur is unique as the only abode of Murugan located on the seashore. It is a place of immense spiritual power and natural beauty."
+    },
+    {
       "id": "france",
       "name": "France",
       "category": "International",
