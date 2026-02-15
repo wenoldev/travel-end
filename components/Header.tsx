@@ -9,13 +9,9 @@ const megaMenuData = {
     "Tamilnadu": ["Ooty", "Kodaikanal", "Pondy", "Yercaud", "Valparai", "Courtallam", "Rameswaram", "Kanyakumari"],
     "Kerala": ["Wayanad", "Munnar", "Alappuzha", "Kochi", "Vagamon", "Varkala"],
     "Karnataka": ["Coorg", "Chikkamagaluru", "Dandeli", "Gokarna", "Mysuru", "Hampi"],
-    "Other": ["Goa", "Manali", "Ladakh", "Delhi", "Mumbai", "Kashmir"],
+    "Other Places": ["Goa", "Manali", "Ladakh", "Delhi", "Mumbai", "Kashmir"],
+    "International": { type: 'cta', icon: 'public', title: 'Global Tours', buttonText: 'Enquire for Details' }
   },
-  // "International": {
-  //   "South Asia": ["Thailand", "Singapore", "Malaysia", "Bali"],
-  //   "Middle East": ["Dubai", "Abu Dhabi"],
-  //   "Europe": ["Switzerland", "France", "Italy"]
-  // }
 };
 
 export default function Header() {
@@ -62,31 +58,48 @@ export default function Header() {
                     <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
                   </button>
 
-                  {/* Mega Menu Content */}
                   <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
-                    <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 min-w-[800px] grid grid-cols-4 gap-8 border border-white/10">
-                      {Object.entries(megaMenuData[category as keyof typeof megaMenuData]).map(([subcat, places]) => (
+                    <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 min-w-[1000px] grid grid-cols-5 gap-8 border border-white/10">
+                      {Object.entries(megaMenuData[category as keyof typeof megaMenuData]).map(([subcat, data]) => (
                         <div key={subcat} className="flex flex-col gap-4">
                           <h3 className="text-lg font-black border-b border-white/20 pb-2 mb-2">{subcat}</h3>
-                          <ul className="flex flex-col gap-2">
-                            {places.map((place) => {
-                              const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
-                              const href = isPilgrimage
-                                ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
-                                : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
-                              return (
-                                <li key={place}>
-                                  <Link
-                                    href={href}
-                                    className="text-white/80 hover:text-white flex items-center gap-2 text-sm transition-colors group/item"
-                                  >
-                                    <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100">double_arrow</span>
-                                    {place}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
+                          {Array.isArray(data) ? (
+                            <ul className="flex flex-col gap-2">
+                              {data.map((place) => {
+                                const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
+                                const href = isPilgrimage
+                                  ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
+                                  : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
+                                return (
+                                  <li key={place}>
+                                    <Link
+                                      href={href}
+                                      className="text-white/80 hover:text-white flex items-center gap-2 text-sm transition-colors group/item"
+                                    >
+                                      <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100">double_arrow</span>
+                                      {place}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          ) : (
+                            <div className="flex flex-col gap-4">
+                              <div className="size-12 rounded-2xl bg-white/20 flex items-center justify-center text-white">
+                                <span className="material-symbols-outlined text-3xl">{(data as any).icon}</span>
+                              </div>
+                              <p className="text-sm text-white/70 font-medium leading-relaxed">
+                                Ready to explore the world?
+                              </p>
+                              <Link
+                                href="/contact?type=international"
+                                className="inline-flex items-center gap-2 bg-white text-primary px-4 py-2.5 rounded-xl text-xs font-black hover:bg-orange-50 transition-colors w-fit shadow-lg shadow-black/10"
+                              >
+                                <span>{(data as any).buttonText}</span>
+                                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                              </Link>
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -95,8 +108,12 @@ export default function Header() {
               ))}
 
               <Link href="/packages" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Packages</Link>
-              <Link href="/college-trip" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">College Trip</Link>
-              <Link href="/taxi-tariff" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Taxi Tariff</Link>
+              <Link href="/packages?type=couples" className="text-pink-500 text-sm font-bold hover:text-pink-600 transition-colors flex items-center gap-1">
+                <span className="material-symbols-outlined text-lg">favorite</span>
+                Couples Special
+              </Link>
+              {/* <Link href="/college-trip" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">College Trip</Link>
+              <Link href="/taxi-tariff" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Taxi Tariff</Link> */}
               <Link href="/contact" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Contact Us</Link>
             </nav>
             <a
@@ -129,30 +146,49 @@ export default function Header() {
         <div className="flex flex-col p-6 gap-6 h-full overflow-y-auto">
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Home</Link>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">About Us</Link>
+          <Link href="/packages?type=couples" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4 text-pink-500 flex items-center gap-2">
+            <span className="material-symbols-outlined">favorite</span>
+            Couples Special
+          </Link>
 
           {Object.entries(megaMenuData).map(([category, subcats]) => (
             <div key={category} className="flex flex-col gap-4 border-b pb-4">
               <h3 className="text-xl font-bold text-primary">{category}</h3>
-              <div className="grid grid-cols-2 gap-4 pl-4">
-                {Object.entries(subcats).map(([subcat, places]) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pl-4">
+                {Object.entries(subcats).map(([subcat, data]) => (
                   <div key={subcat} className="flex flex-col gap-2">
                     <h4 className="font-bold text-sm text-slate-500">{subcat}</h4>
-                    {places.map(place => {
-                      const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
-                      const href = isPilgrimage
-                        ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
-                        : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
-                      return (
+                    {Array.isArray(data) ? (
+                      <div className="flex flex-col gap-2">
+                        {data.map(place => {
+                          const isPilgrimage = ['Madurai', 'Rameswaram', 'Velankanni', 'Tiruchendur', 'Palani'].includes(place);
+                          const href = isPilgrimage
+                            ? `/pilgrimage/${place.toLowerCase().replace(/\s+/g, '-')}`
+                            : `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
+                          return (
+                            <Link
+                              key={place}
+                              href={href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="text-sm text-slate-700 hover:text-primary transition-colors"
+                            >
+                              {place}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col gap-3 mt-1">
                         <Link
-                          key={place}
-                          href={href}
+                          href="/contact?type=international"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="text-sm text-slate-700"
+                          className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl text-xs font-bold w-fit"
                         >
-                          {place}
+                          <span className="material-symbols-outlined text-sm">{(data as any).icon}</span>
+                          {(data as any).buttonText}
                         </Link>
-                      );
-                    })}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

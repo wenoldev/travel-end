@@ -99,10 +99,56 @@ const Reviews = () => {
         return (
             <section className="w-full bg-[#f8f9fa] py-24 relative overflow-hidden">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Header Skeleton */}
+                    <div className="flex flex-col items-center mb-16 px-4 animate-pulse">
+                        <div className="h-6 w-32 bg-slate-200 rounded-full mb-6" />
+                        <div className="h-12 w-3/4 sm:w-1/2 bg-slate-200 rounded-2xl mb-4" />
+                        <div className="h-1.5 w-24 bg-primary/20 rounded-full mb-6" />
+                        <div className="h-4 w-full max-w-2xl bg-slate-200 rounded-lg mb-2" />
+                        <div className="h-4 w-2/3 max-w-md bg-slate-200 rounded-lg" />
+                    </div>
+
+                    {/* Cards Skeleton */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                         {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="bg-white rounded-[2.5rem] p-8 h-64 animate-pulse border border-slate-100 shadow-sm" />
+                            <div key={i} className="bg-white rounded-[2.5rem] p-8 h-[400px] animate-pulse border border-slate-100 shadow-sm flex flex-col">
+                                <div className="flex justify-between mb-6">
+                                    <div className="h-6 w-24 bg-slate-100 rounded-lg" />
+                                    <div className="h-6 w-32 bg-slate-100 rounded-full" />
+                                </div>
+                                <div className="space-y-3 mb-8">
+                                    <div className="h-4 w-full bg-slate-50 rounded" />
+                                    <div className="h-4 w-full bg-slate-50 rounded" />
+                                    <div className="h-4 w-2/3 bg-slate-50 rounded" />
+                                </div>
+                                <div className="h-20 w-full bg-slate-50 rounded-2xl mb-8" />
+                                <div className="mt-auto flex items-center gap-4 pt-6 border-t border-slate-50">
+                                    <div className="size-14 rounded-2xl bg-slate-100" />
+                                    <div className="space-y-2">
+                                        <div className="h-4 w-32 bg-slate-100 rounded" />
+                                        <div className="h-3 w-20 bg-slate-100 rounded" />
+                                    </div>
+                                </div>
+                            </div>
                         ))}
+                    </div>
+
+                    <div className="flex justify-center mb-16">
+                        <div className="h-14 w-48 bg-slate-200 rounded-2xl animate-pulse" />
+                    </div>
+
+                    {/* CTA Skeleton */}
+                    <div className="bg-white rounded-[3rem] p-8 sm:p-10 border border-slate-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 animate-pulse">
+                        <div className="space-y-3">
+                            <div className="h-8 w-64 bg-slate-100 rounded-lg" />
+                            <div className="h-4 w-80 bg-slate-50 rounded-lg" />
+                        </div>
+                        <div className="h-16 w-48 bg-slate-200 rounded-2xl" />
+                    </div>
+
+                    {/* Badge Skeleton */}
+                    <div className="mt-20 flex justify-center">
+                        <div className="h-16 w-80 bg-white rounded-2xl border border-slate-100 animate-pulse" />
                     </div>
                 </div>
             </section>

@@ -4,6 +4,8 @@ import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Reviews from "@/components/Reviews";
 import TripPlannerCards from "@/components/TripPlannerCards";
+import TaxiBanner from "@/components/TaxiBanner";
+import CouplesBanner from "@/components/CouplesBanner";
 
 export default function Home() {
   return (
@@ -103,8 +105,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="pt-4">
-                  <Link 
-                    href="/college-trip" 
+                  <Link
+                    href="/college-trip"
                     className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white rounded-[2rem] font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-primary/20 group"
                   >
                     <span>Book Your IV Trip</span>
@@ -117,32 +119,32 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-4">
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
-                      <img 
-                        src="./iv-2.jpg" 
-                        alt="College Students Trip" 
+                      <img
+                        src="./iv-2.jpg"
+                        alt="College Students Trip"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
-                      <img 
-                        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800" 
-                        alt="Campus Life" 
+                      <img
+                        src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800"
+                        alt="Campus Life"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                   </div>
                   <div className="space-y-4 pt-12">
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
-                      <img 
-                        src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800" 
-                        alt="Students Group" 
+                      <img
+                        src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800"
+                        alt="Students Group"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                     <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
-                      <img 
-                        src="./iv-3.jpg" 
-                        alt="Industrial Visit" 
+                      <img
+                        src="./iv-3.jpg"
+                        alt="Industrial Visit"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
@@ -217,6 +219,12 @@ export default function Home() {
             </div>
           </div>
         </section> */}
+
+        {/* Taxi & Self-Drive Banner */}
+        <TaxiBanner />
+
+        {/* Couples Special Banner */}
+        <CouplesBanner />
 
         {/* Reviews Section */}
         <Reviews />

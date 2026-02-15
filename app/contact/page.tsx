@@ -157,15 +157,15 @@ export default function ContactPage() {
                         />
                       </label>
                       <label className="flex flex-col gap-2">
-                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Email Address</span>
+                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Email or Phone Number</span>
                         <input
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           required
                           className="w-full rounded-lg border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white h-12 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors placeholder:text-slate-400 outline-none"
-                          placeholder="Enter your email address"
-                          type="email"
+                          placeholder="Email address or mobile number"
+                          type="text"
                         />
                       </label>
                       <label className="flex flex-col gap-2">

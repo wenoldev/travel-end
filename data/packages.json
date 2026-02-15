@@ -5,6 +5,7 @@
       "title": "Spiritual Madurai",
       "subtitle": "Temple City Experience",
       "price": "8,999",
+      "type": "normal",
       "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
       "duration": "3 Days",
       "accommodation": "3 Star Hotel",
@@ -38,6 +39,7 @@
       "title": "Relaxing Kodaikanal",
       "subtitle": "Princess of Hill Stations",
       "price": "12,499",
+      "type": "normal",
       "image": "https://images.unsplash.com/photo-1594411136458-1f486927500d?auto=format&fit=crop&q=80&w=800",
       "duration": "4 Days",
       "accommodation": "Transfers Included",
@@ -84,10 +86,57 @@
       ]
     },
     {
+      "id": "romantic-kerala",
+      "title": "Romantic Kerala",
+      "subtitle": "Munnar & Alleppey Special",
+      "price": "24,999",
+      "type": "couples",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=800",
+      "duration": "5 Days",
+      "accommodation": "Honeymoon Suite",
+      "tag": "Honeymoon Special",
+      "spots": [
+        "Tea Gardens",
+        "Houseboat",
+        "Candlelight Dinner"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Munnar",
+          "details": "Drive to Munnar, the emerald tea capital. Candlelight dinner at the resort."
+        }
+      ]
+    },
+    {
+      "id": "goa-escape",
+      "title": "Sun & Sea Escape",
+      "subtitle": "Goa Beach Retreat",
+      "price": "18,499",
+      "type": "couples",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=800",
+      "duration": "4 Days",
+      "accommodation": "Beachfront Resort",
+      "tag": "Popular",
+      "spots": [
+        "Baga Beach",
+        "Sunset Cruise",
+        "Dolphin Trip"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Beach Vibes",
+          "details": "Arrival in Goa. Evening walk at the beach followed by a beach shack dinner."
+        }
+      ]
+    },
+    {
       "id": "historic-thanjavur",
       "title": "Historic Thanjavur",
       "subtitle": "Great Living Chola Temples",
       "price": "6,999",
+      "type": "normal",
       "image": "https://images.unsplash.com/photo-1582103287241-2762adba6c36?auto=format&fit=crop&q=80&w=800",
       "duration": "2 Days",
       "accommodation": "Meals Included",

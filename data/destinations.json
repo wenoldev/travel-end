@@ -1,8 +1,8 @@
 {
   "destinations": [
     {
-      "id": "ooty-coonoor",
-      "name": "Ooty & Coonoor",
+      "id": "ooty",
+      "name": "Ooty",
       "category": "Tamilnadu",
       "description": "The Queen of Hill Stations, known for its sprawling tea gardens and colonial charm.",
       "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=1200",
@@ -11,33 +11,7 @@
         "Lake",
         "Train Trip"
       ],
-      "fullDescription": "Nestled in the Nilgiri Hills, Ooty is one of the most popular hill stations in South India. Coonoor, its quieter neighbor, offers breathtaking views of tea estates."
-    },
-    {
-      "id": "wayanad",
-      "name": "Wayanad",
-      "category": "Kerala",
-      "description": "A green paradise with spice plantations, waterfalls, and ancient caves.",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA9pqoaFKdNaYqeAom9AlcntGbqZJG4Hz7RiyiU7r1B69ZUeYZUbxGV8pPYviQhXYCfit3kN6Sa0TPWnoR7ZS3sulcwkDYzPqUrL1fNNPxv9bxcmIYb9jyBssbWxwqoN8Qfm2nREvCurvn5bE7Avtl11dXR2leeKKFokVGGtMuarCwEj0pWy-XEkW_MeqfjYPlXViIo69FPYwfgqcvxy2LJZ2ar4m3j6mUFyeQnIex5aKXP7oTUDEDqoqMNxE6wVrBQsjBxf_AWWSPN",
-      "highlights": [
-        "Banasura Sagar Dam",
-        "Edakkal Caves",
-        "Chembra Peak"
-      ],
-      "fullDescription": "Wayanad is known for its pristine beauty and rich tribal heritage. It's a perfect destination for nature lovers and adventure enthusiasts."
-    },
-    {
-      "id": "munnar",
-      "name": "Munnar",
-      "category": "Kerala",
-      "description": "The emerald tea capital of South India.",
-      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
-      "highlights": [
-        "Tea Museum",
-        "Eravikulam National Park",
-        "Mattupetty Dam"
-      ],
-      "fullDescription": "Munnar is a must-visit for its rolling hills covered in tea plantations. The mist-covered mountains provide a romantic and peaceful atmosphere."
+      "fullDescription": "Nestled in the Nilgiri Hills, Ooty is one of the most popular hill stations in South India. It is famous for its tea plantations, pleasant climate, and the historic Nilgiri Mountain Railway."
     },
     {
       "id": "kodaikanal",
@@ -47,88 +21,361 @@
       "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
         "Kodai Lake",
-        "Cois Walk",
+        "Coakers Walk",
         "Pillar Rocks"
       ],
-      "fullDescription": "Located in the Palani Hills, Kodaikanal is famous for its cool climate, beautiful gardens, and scenic viewpoints."
+      "fullDescription": "Located in the Palani Hills, Kodaikanal is a peaceful retreat known for its misty mountains, lush forests, and the beautiful star-shaped Kodai Lake."
+    },
+    {
+      "id": "pondy",
+      "name": "Pondy",
+      "category": "Tamilnadu",
+      "description": "The French Riviera of the East with cobbled streets and colonial villas.",
+      "image": "https://images.unsplash.com/photo-1588623598822-9ff0cd048b8a?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Rock Beach",
+        "Auroville",
+        "French Colony"
+      ],
+      "fullDescription": "Pondicherry (Puducherry) is a charming coastal town that blends French colonial heritage with spiritual calm, famous for its colorful streets and serene beaches."
+    },
+    {
+      "id": "yercaud",
+      "name": "Yercaud",
+      "category": "Tamilnadu",
+      "description": "Jewel of the South, nestled in the Shevaroy Hills.",
+      "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Emerald Lake",
+        "Lady's Seat",
+        "Coffee Plantations"
+      ],
+      "fullDescription": "Yercaud is a quiet hill station in the Eastern Ghats, renowned for its orange groves, spice plantations, and the tranquil Emerald Lake."
+    },
+    {
+      "id": "valparai",
+      "name": "Valparai",
+      "category": "Tamilnadu",
+      "description": "A pollution-free paradise with vast tea estates and dense forests.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Aliyar Dam",
+        "Tea Estates",
+        "Sholayar Dam"
+      ],
+      "fullDescription": "Valparai is a hidden gem in the Anaimalai Hills, offering pristine nature, rich wildlife, and some of the best tea and coffee estates in South India."
+    },
+    {
+      "id": "courtallam",
+      "name": "Courtallam",
+      "category": "Tamilnadu",
+      "description": "The Spa of South India, famous for its medicinal waterfalls.",
+      "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Main Falls",
+        "Five Falls",
+        "Medicinal Waters"
+      ],
+      "fullDescription": "Courtallam is famous for its numerous waterfalls that flow over forest herbs, believed to have healing properties."
+    },
+    {
+      "id": "kanyakumari",
+      "name": "Kanyakumari",
+      "category": "Tamilnadu",
+      "description": "The southernmost tip of India, where three oceans meet.",
+      "image": "https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Vivekananda Memorial",
+        "Thiruvalluvar Statue",
+        "Sunset View"
+      ],
+      "fullDescription": "Kanyakumari is a major pilgrimage and spiritual site where you can witness the confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean."
+    },
+    {
+      "id": "wayanad",
+      "name": "Wayanad",
+      "category": "Kerala",
+      "description": "A green paradise with spice plantations, waterfalls, and ancient caves.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Banasura Sagar Dam",
+        "Edakkal Caves",
+        "Chembra Peak"
+      ],
+      "fullDescription": "Wayanad offers a unique blend of adventure and relaxation with its high mountains, dense forests, and rich spice plantations."
+    },
+    {
+      "id": "munnar",
+      "name": "Munnar",
+      "category": "Kerala",
+      "description": "The emerald tea capital of South India.",
+      "image": "/munnar.jpeg",
+      "highlights": [
+        "Tea Museum",
+        "Eravikulam National Park",
+        "Mattupetty Dam"
+      ],
+      "fullDescription": "Munnar is one of the most romantic destinations in India, famous for its rolling hills covered in endless carpets of tea leaves."
+    },
+    {
+      "id": "alappuzha",
+      "name": "Alappuzha",
+      "category": "Kerala",
+      "description": "Venice of the East, famous for its backwater houseboats.",
+      "image": "https://images.unsplash.com/photo-1602216056322-824b05a76e93?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Houseboat Stay",
+        "Backwaters",
+        "Marari Beach"
+      ],
+      "fullDescription": "Alappuzha (Alleppey) is the gateway to Kerala's world-famous backwaters, where luxury houseboats cruise through tranquil canals and lagoons."
+    },
+    {
+      "id": "kochi",
+      "name": "Kochi",
+      "category": "Kerala",
+      "description": "The Queen of the Arabian Sea, a blend of heritage and culture.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Fort Kochi",
+        "Chinese Fishing Nets",
+        "Mattancherry Palace"
+      ],
+      "fullDescription": "Kochi is a vibrant port city with a mix of Portuguese, Dutch, British, and local heritage, famous for its historic Fort Kochi area."
+    },
+    {
+      "id": "vagamon",
+      "name": "Vagamon",
+      "category": "Kerala",
+      "description": "Scotland of Asia with pine forests and green meadows.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Pine Forests",
+        "Meadows",
+        "Kurisumala"
+      ],
+      "fullDescription": "Vagamon is an offbeat hill station in Kerala, known for its misty hills, pine forests, and breathtaking meadows."
+    },
+    {
+      "id": "varkala",
+      "name": "Varkala",
+      "category": "Kerala",
+      "description": "A coastal cliff town with spiritual vibes and pristine beaches.",
+      "image": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Varkala Cliffs",
+        "Papanasam Beach",
+        "Sunsets"
+      ],
+      "fullDescription": "Varkala is famous for its unique cliffs adjacent to the Arabian Sea and its spiritual significance as home to the Janardanaswamy Temple."
+    },
+    {
+      "id": "coorg",
+      "name": "Coorg",
+      "category": "Karnataka",
+      "description": "The Scotland of India, famous for coffee and misty hills.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Abbey Falls",
+        "Coffee Plantations",
+        "Monastery"
+      ],
+      "fullDescription": "Coorg (Kodagu) is a lush hill station in Karnataka, famous for its coffee estates, Kodava culture, and misty mountain landscapes."
+    },
+    {
+      "id": "chikkamagaluru",
+      "name": "Chikkamagaluru",
+      "category": "Karnataka",
+      "description": "The coffee land of Karnataka with scenic trekking trails.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Mullayanagiri",
+        "Baba Budangiri",
+        "Coffee Estates"
+      ],
+      "fullDescription": "Chikkamagaluru is the birthplace of coffee in India, offering beautiful hills and challenging trekking trails like Mullayanagiri peaks."
+    },
+    {
+      "id": "dandeli",
+      "name": "Dandeli",
+      "category": "Karnataka",
+      "description": "The adventure hub for river rafting and wildlife.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "River Rafting",
+        "Wildlife",
+        "Supa Dam"
+      ],
+      "fullDescription": "Dandeli is a premier adventure destination in Karnataka, famous for white-water rafting on the Kali River and its diverse wildlife."
+    },
+    {
+      "id": "gokarna",
+      "name": "Gokarna",
+      "category": "Karnataka",
+      "description": "A spiritual temple town with pristine secluded beaches.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Om Beach",
+        "Mahabaleshwar Temple",
+        "Trekking"
+      ],
+      "fullDescription": "Gokarna offers a mix of spiritual heritage and laid-back beach life, famous for its unique Om-shaped beach."
+    },
+    {
+      "id": "mysuru",
+      "name": "Mysuru",
+      "category": "Karnataka",
+      "description": "The City of Palaces, rich in royal heritage and grand architecture.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Mysore Palace",
+        "Chamundi Hills",
+        "Brindavan Gardens"
+      ],
+      "fullDescription": "Mysuru is the cultural capital of Karnataka, famous for its magnificent Mysore Palace and vibrant Dasara celebrations."
+    },
+    {
+      "id": "hampi",
+      "name": "Hampi",
+      "category": "Karnataka",
+      "description": "A UNESCO World Heritage site with ancient ruins and temples.",
+      "image": "https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Virupaksha Temple",
+        "Vittala Temple",
+        "Stone Chariot"
+      ],
+      "fullDescription": "Hampi is an architectural marvel featuring the ruins of the Vijayanagara Empire amidst a unique boulder-strewn landscape."
     },
     {
       "id": "goa",
       "name": "Goa",
-      "category": "North India",
+      "category": "Other Places",
       "description": "Sun, sand, and serenity on the shores of the Arabian Sea.",
       "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
         "Baga Beach",
-        "Basilica of Bom Jesus",
+        "Basilica",
         "Old Goa"
       ],
-      "fullDescription": "Goa is a kaleidoscope of cultures, with its Portuguese heritage and vibrant beach life. It offers something for every traveler."
+      "fullDescription": "Goa is a kaleidoscope of cultures and vibrant beach life, offering a perfect mix of colonial history and tropical relaxation."
+    },
+    {
+      "id": "manali",
+      "name": "Manali",
+      "category": "Other Places",
+      "description": "The adventure capital of Himachal Pradesh.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Solang Valley",
+        "Rohtang Pass",
+        "Adventure Sports"
+      ],
+      "fullDescription": "Manali is a beautiful valley in the Himalayas, offering snow-capped mountains and thrilling adventure activities year-round."
+    },
+    {
+      "id": "ladakh",
+      "name": "Ladakh",
+      "category": "Other Places",
+      "description": "The Land of High Passes with stunning high-altitude landscapes.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Pangong Lake",
+        "Nubra Valley",
+        "Monasteries"
+      ],
+      "fullDescription": "Ladakh is a paradise for adventurers, known for its high-altitude deserts, blue lakes, and ancient Buddhist monasteries."
+    },
+    {
+      "id": "delhi",
+      "name": "Delhi",
+      "category": "Other Places",
+      "description": "The vibrant capital city of India.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Red Fort",
+        "India Gate",
+        "Qutub Minar"
+      ],
+      "fullDescription": "Delhi is a historic city that serves as the heart of India, featuring magnificent monuments and a rich culinary culture."
+    },
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "category": "Other Places",
+      "description": "The city of dreams and financial capital of India.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Gateway of India",
+        "Marine Drive",
+        "Bollywood"
+      ],
+      "fullDescription": "Mumbai is a bustling metropolis on the west coast of India, known for its colonial library, Bollywood fame, and vibrant energy."
+    },
+    {
+      "id": "kashmir",
+      "name": "Kashmir",
+      "category": "Other Places",
+      "description": "Heaven on Earth with its serene lakes and snowy hills.",
+      "image": "https://images.unsplash.com/photo-1512789172734-7b09931290c4?auto=format&fit=crop&q=80&w=1200",
+      "highlights": [
+        "Dal Lake",
+        "Gulmarg",
+        "Pahalgam"
+      ],
+      "fullDescription": "Kashmir is world-renowned for its breathtaking natural beauty, featuring snowy peaks, lush valleys, and serene shikara rides on Dal Lake."
     },
     {
       "id": "madurai",
       "name": "Madurai",
       "category": "Pilgrimage",
-      "description": "The Athens of the East, home to the magnificent Meenakshi Amman Temple.",
+      "description": "Athens of the East, home to Meenakshi Amman Temple.",
       "image": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
         "Meenakshi Temple",
-        "Thirumalai Nayakkar Mahal",
-        "Alagar Koyil"
+        "Nayakkar Mahal",
+        "Heritage"
       ],
-      "fullDescription": "Madurai is one of the oldest continuously inhabited cities in the world. Its life revolves around the Meenakshi Amman Temple, a masterpiece of Dravidian architecture."
+      "fullDescription": "One of the oldest continuously inhabited cities in the world, focused around its majestic temple and rich Dravidian history."
     },
     {
       "id": "rameswaram",
       "name": "Rameswaram",
       "category": "Pilgrimage",
-      "description": "One of the Char Dham pilgrimage sites, located on a beautiful island.",
+      "description": "One of the Char Dham pilgrimage sites on a beautiful island.",
       "image": "https://images.unsplash.com/photo-1590050752117-23a9d7fc6f8a?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
-        "Ramanathaswamy Temple",
+        "Temple",
         "Dhanushkodi",
         "Pamban Bridge"
       ],
-      "fullDescription": "Rameswaram is a holy city for Hindus. It is believed that Lord Rama built a bridge from here to Lanka. The temple is famous for its long corridors."
+      "fullDescription": "Rameswaram is a holy city believed to be where Lord Rama built a bridge to Lanka, connected by the engineering marvel of Pamban Bridge."
     },
     {
       "id": "velankanni",
       "name": "Velankanni",
       "category": "Pilgrimage",
-      "description": "The Lourdes of the East, a major Catholic pilgrimage center.",
+      "description": "The Lourdes of the East, a major Catholic center.",
       "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
-        "Basilica of Our Lady",
-        "Velankanni Beach",
-        "Museum of Offerings"
+        "Basilica",
+        "Beach",
+        "Offerings"
       ],
-      "fullDescription": "Velankanni is famous for the Basilica of Our Lady of Good Health. It attracts millions of pilgrims of all faiths from around the world."
+      "fullDescription": "Famous for the Basilica of Our Lady of Good Health, attracting millions of pilgrims from all faiths annually."
     },
     {
       "id": "tiruchendur",
       "name": "Tiruchendur",
       "category": "Pilgrimage",
-      "description": "One of the six abodes of Lord Murugan, located right on the seashore.",
-      "image": "https://images.unsplash.com/photo-1588623598822-9ff0cd048b8a?q=80&w=1200",
+      "description": "Abode of Lord Murugan located on the seashore.",
+      "image": "https://images.unsplash.com/photo-1588623598822-9ff0cd048b8a?auto=format&fit=crop&q=80&w=1200",
       "highlights": [
         "Murugan Temple",
         "Sea Bathing",
         "Valli's Cave"
       ],
-      "fullDescription": "Tiruchendur is unique as the only abode of Murugan located on the seashore. It is a place of immense spiritual power and natural beauty."
-    },
-    {
-      "id": "france",
-      "name": "France",
-      "category": "International",
-      "description": "The world's most visited country, a hub of art, fashion, and gastronomy.",
-      "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1200",
-      "highlights": [
-        "Eiffel Tower",
-        "Louvre Museum",
-        "French Riviera"
-      ],
-      "fullDescription": "From the romantic streets of Paris to the glamorous beaches of the Cote d'Azur, France offers an unparalleled European experience."
+      "fullDescription": "A unique coastal temple dedicated to Lord Murugan, offering a serene and powerful spiritual experience by the sea."
     }
   ]
 }

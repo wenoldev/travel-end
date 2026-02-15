@@ -20,6 +20,10 @@
       "href": "/packages"
     },
     {
+      "name": "Couples Special",
+      "href": "/packages?type=couples"
+    },
+    {
       "name": "Destinations",
       "href": "/destinations"
     },

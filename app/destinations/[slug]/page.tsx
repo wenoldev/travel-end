@@ -89,7 +89,7 @@ export default async function DestinationPage({ params }: PageProps) {
                                     <p className="text-white/60 text-lg">Our experts will help you plan the perfect itinerary for your trip.</p>
                                     <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <input type="text" placeholder="Your Name" className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none" />
-                                        <input type="email" placeholder="Your Email" className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none" />
+                                        <input type="text" placeholder="Email or Phone Number" className="bg-white/10 border border-white/20 rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none" />
                                         <button className="sm:col-span-2 bg-primary text-white font-black py-4 rounded-xl hover:scale-[1.02] transition-transform">
                                             Send Enquiry
                                         </button>
