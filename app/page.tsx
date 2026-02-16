@@ -67,6 +67,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Taxi & Self-Drive Banner */}
+        <TaxiBanner />
+
         {/* Trip Planner Section */}
         <TripPlannerCards />
 
@@ -219,9 +222,6 @@ export default function Home() {
             </div>
           </div>
         </section> */}
-
-        {/* Taxi & Self-Drive Banner */}
-        <TaxiBanner />
 
         {/* Couples Special Banner */}
         <CouplesBanner />
