@@ -1,13 +1,17 @@
 import siteConfig from "@/data/siteConfig.json";
-import packagesData from "@/data/packages.json";
 import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 import Reviews from "@/components/Reviews";
 import TripPlannerCards from "@/components/TripPlannerCards";
 import TaxiBanner from "@/components/TaxiBanner";
 import CouplesBanner from "@/components/CouplesBanner";
+import { getDestinations, getPackages } from "@/lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const [packages] = await Promise.all([
+    getPackages()
+  ]);
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white">
       <main className="flex-grow w-full">
@@ -121,14 +125,14 @@ export default function Home() {
               <div className="flex-1 w-full">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-4">
-                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
+                    <div className="rounded-4xl overflow-hidden shadow-lg h-64">
                       <img
                         src="./iv-2.jpg"
                         alt="College Students Trip"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
-                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
+                    <div className="rounded-4xl overflow-hidden shadow-lg h-48">
                       <img
                         src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800"
                         alt="Campus Life"
@@ -137,14 +141,14 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="space-y-4 pt-12">
-                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-48">
+                    <div className="rounded-4xl overflow-hidden shadow-lg h-48">
                       <img
                         src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=800"
                         alt="Students Group"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
                     </div>
-                    <div className="rounded-[2rem] overflow-hidden shadow-lg h-64">
+                    <div className="rounded-4xl overflow-hidden shadow-lg h-64">
                       <img
                         src="./iv-3.jpg"
                         alt="Industrial Visit"
@@ -158,8 +162,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Popular Destinations */}
-        {/* <section className="w-full bg-white py-24">
+        {/* Popular Destinations / Trending Packages */}
+        <section className="w-full bg-white py-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-16 px-4">
               <div className="max-w-xl">
@@ -174,14 +178,14 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {packagesData.packages.map((pkg: any) => (
+              {packages.map((pkg: any) => (
                 <div key={pkg.id} className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
-                  <div className="w-full aspect-[4/5] overflow-hidden relative">
+                  <div className="w-full aspect-4/5 overflow-hidden relative">
                     <div
                       className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                       style={{ backgroundImage: `url("${pkg.image}")` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                     {pkg.tag && (
                       <div className="absolute top-6 right-6 bg-primary/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black text-white shadow-lg uppercase tracking-widest leading-none">
                         {pkg.tag}
@@ -210,7 +214,7 @@ export default function Home() {
                       </div>
                     </div>
                     <Link
-                      href={`/packages/${pkg.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/packages/${pkg.id}`}
                       className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-3.5 sm:py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
                     >
                       View Trip Details
@@ -221,10 +225,10 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Couples Special Banner */}
-        <CouplesBanner />
+        <CouplesBanner imageUrl={packages.find(p => p.type === 'couples')?.image} />
 
         {/* Reviews Section */}
         <Reviews />
@@ -232,7 +236,7 @@ export default function Home() {
         {/* CTA Section */}
         <section className="w-full bg-white pb-24">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-full bg-primary rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col items-center text-center">
+            <div className="w-full bg-primary rounded-4xl p-8 sm:p-20 relative overflow-hidden flex flex-col items-center text-center">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
               <div className="relative z-10 max-w-2xl">
                 <h2 className="text-white text-3xl sm:text-6xl font-black mb-6 sm:mb-8 leading-tight italic">Ready to Start Your Journey?</h2>

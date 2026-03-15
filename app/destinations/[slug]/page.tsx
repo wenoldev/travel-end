@@ -1,6 +1,5 @@
 
-
-import destinationsData from "@/data/destinations.json";
+import { getDestinations } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +11,8 @@ interface PageProps {
 
 export default async function DestinationPage({ params }: PageProps) {
     const { slug } = await params;
-    const destination = destinationsData.destinations.find(
+    const destinations = await getDestinations();
+    const destination = (destinations as any[]).find(
         (d) => d.name.toLowerCase().replace(/\s+/g, '-') === slug || d.id === slug
     );
 
@@ -72,7 +72,7 @@ export default async function DestinationPage({ params }: PageProps) {
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                {destination.highlights.map((highlight, idx) => (
+                                {destination.highlights.map((highlight: string, idx: number) => (
                                     <div key={idx} className="bg-secondary p-8 rounded-[2rem] border border-slate-100 flex flex-col items-center text-center gap-4 group hover:bg-white hover:shadow-xl transition-all">
                                         <div className="size-16 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
                                             <span className="material-symbols-outlined text-3xl">verified</span>

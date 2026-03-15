@@ -1,4 +1,5 @@
-import destinationsData from "@/data/destinations.json";
+
+import { getDestinations } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,8 @@ interface PageProps {
 
 export default async function PilgrimageDetailPage({ params }: PageProps) {
     const { slug } = await params;
-    const destination = destinationsData.destinations.find(
+    const destinations = await getDestinations();
+    const destination = (destinations as any[]).find(
         (d) => d.name.toLowerCase().replace(/\s+/g, '-') === slug || d.id === slug
     );
 
@@ -39,7 +41,7 @@ export default async function PilgrimageDetailPage({ params }: PageProps) {
                             </div>
 
                             {/* Breadcrumbs */}
-                            <nav className="flex items-center gap-3 text-white/90 text-[10px] sm:text-xs font-black bg-white/10 backdrop-blur-xl w-fit px-8 py-4 rounded-[2rem] border border-white/20 uppercase tracking-widest shadow-2xl transition-all hover:bg-white/20">
+                            <nav className="flex items-center gap-3 text-white/90 text-[10px] sm:text-xs font-black bg-white/10 backdrop-blur-xl w-fit px-8 py-4 rounded-4xl border border-white/20 uppercase tracking-widest shadow-2xl transition-all hover:bg-white/20">
                                 <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                                 <span className="material-symbols-outlined text-[10px] opacity-40">chevron_right</span>
                                 <Link href="/pilgrimage" className="hover:text-primary transition-colors">Pilgrimage Places</Link>
@@ -73,8 +75,8 @@ export default async function PilgrimageDetailPage({ params }: PageProps) {
 
                             {/* Highlights Grid */}
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                {destination.highlights.map((highlight, idx) => (
-                                    <div key={idx} className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center gap-6 group hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                                {destination.highlights.map((highlight: string, idx: number) => (
+                                    <div key={idx} className="bg-slate-50 p-8 rounded-4xl border border-slate-100 flex flex-col items-center text-center gap-6 group hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
                                         <div className="size-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500">
                                             <span className="material-symbols-outlined text-3xl">verified</span>
                                         </div>
@@ -109,7 +111,7 @@ export default async function PilgrimageDetailPage({ params }: PageProps) {
                                         <h4 className="text-2xl font-black text-slate-900">Inquiry Now</h4>
                                     </div>
                                     <div className="flex flex-col gap-6">
-                                        <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-[2rem] hover:bg-white hover:shadow-md transition-all">
+                                        <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-4xl hover:bg-white hover:shadow-md transition-all">
                                             <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
                                                 <span className="material-symbols-outlined text-3xl">call</span>
                                             </div>
@@ -118,7 +120,7 @@ export default async function PilgrimageDetailPage({ params }: PageProps) {
                                                 <span className="text-xl font-black text-slate-900">{siteConfig.contact.phone}</span>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-[2rem] hover:bg-white hover:shadow-md transition-all">
+                                        <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-4xl hover:bg-white hover:shadow-md transition-all">
                                             <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
                                                 <span className="material-symbols-outlined text-3xl">mail</span>
                                             </div>

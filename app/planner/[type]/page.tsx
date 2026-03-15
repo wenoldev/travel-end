@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import siteConfig from '@/data/siteConfig.json';
 import tripPlanner from '@/data/tripPlanner.json';
-import packagesData from '@/data/packages.json';
 import touristSpots from '@/data/touristSpots.json';
+import { getPackages, Package } from '@/lib/data';
 
 // --- Types & Data ---
 
@@ -57,6 +57,12 @@ export default function PlannerPage() {
     const [roomCount, setRoomCount] = useState(1);
     const [accommodationType, setAccommodationType] = useState('hotel'); // homestay, hotel, 3star
     const [pickupTime, setPickupTime] = useState('');
+    const [packages, setPackages] = useState<Package[]>([]);
+    
+    // Fetch packages on mount
+    useEffect(() => {
+        getPackages().then(setPackages).catch(console.error);
+    }, []);
     
     // Suggestion state
     const [destinationInput, setDestinationInput] = useState('');
@@ -80,9 +86,9 @@ export default function PlannerPage() {
     // Combine locations, packages and ALL_SPOTS for total suggestions
     const suggestionList = useMemo(() => {
         const locations = baseLocations.map(l => l.name);
-        const packages = packagesData.packages.map(p => p.title);
-        return [...new Set([...locations, ...packages, ...ALL_PLACE_NAMES])];
-    }, [baseLocations]);
+        const packageTitles = packages.map(p => p.title);
+        return [...new Set([...locations, ...packageTitles, ...ALL_PLACE_NAMES])];
+    }, [baseLocations, packages]);
 
     // Display Name for Trip Type
     const tripTitle = useMemo(() => {

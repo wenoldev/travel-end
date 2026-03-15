@@ -1,10 +1,12 @@
 
-
-import destinationsData from "@/data/destinations.json";
+import { getDestinations } from "@/lib/data";
 import Link from "next/link";
 
-export default function DestinationsPage() {
-  const generalDestinations = destinationsData.destinations.filter(
+export default async function DestinationsPage() {
+  const destinationsData = await getDestinations();
+  console.log({destinationsData});
+  
+  const generalDestinations = destinationsData.filter(
     (dest) => dest.category !== "Pilgrimage"
   );
 

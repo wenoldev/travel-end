@@ -1,6 +1,5 @@
 
-
-import packagesData from "@/data/packages.json";
+import { getPackages } from "@/lib/data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import siteConfig from "@/data/siteConfig.json";
@@ -26,7 +25,8 @@ interface Package {
 
 export default async function PackageDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const pkg = (packagesData.packages as Package[]).find(p => p.id === slug || p.title.toLowerCase().replace(/\s+/g, '-') === slug);
+  const packages = await getPackages();
+  const pkg = (packages as Package[]).find(p => p.id === slug || p.title.toLowerCase().replace(/\s+/g, '-') === slug);
 
   if (!pkg) {
     notFound();
@@ -109,7 +109,7 @@ export default async function PackageDetailsPage({ params }: { params: Promise<{
 
                   <div className="space-y-6">
                     {pkg.itinerary.map((day: ItineraryItem) => (
-                      <div key={day.day} className="group flex gap-6 bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                      <div key={day.day} className="group flex gap-6 bg-white p-8 rounded-4xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                         <div className="flex flex-col items-center shrink-0">
                           <div className="size-14 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-lg shadow-primary/20">
                             {day.day}

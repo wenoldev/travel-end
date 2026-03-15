@@ -4,13 +4,19 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function CouplesBanner() {
+interface CouplesBannerProps {
+    imageUrl?: string;
+}
+
+export default function CouplesBanner({ imageUrl }: CouplesBannerProps) {
+    const displayImage = imageUrl || "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=2000";
+    
     return (
         <section className="w-full bg-white py-12">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] rounded-[2rem] sm:rounded-[3rem] overflow-hidden group shadow-2xl">
                     <img
-                        src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=2000"
+                        src={displayImage}
                         alt="Couples Special Packages"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
