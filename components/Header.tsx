@@ -110,7 +110,7 @@ export default function Header() {
               <Link href="/packages" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Packages</Link>
               <Link href="/packages?type=couples" className="text-pink-500 text-sm font-bold hover:text-pink-600 transition-colors flex items-center gap-1">
                 <span className="material-symbols-outlined text-lg">favorite</span>
-                Couples Special
+                Couples Package
               </Link>
               {/* <Link href="/college-trip" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">College Trip</Link>
               <Link href="/taxi-tariff" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Taxi Tariff</Link> */}
@@ -148,7 +148,7 @@ export default function Header() {
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">About Us</Link>
           <Link href="/packages?type=couples" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4 text-pink-500 flex items-center gap-2">
             <span className="material-symbols-outlined">favorite</span>
-            Couples Special
+            Couples Package
           </Link>
 
           {Object.entries(megaMenuData).map(([category, subcats]) => (

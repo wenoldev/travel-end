@@ -227,7 +227,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Couples Special Banner */}
+        {/* Couples Package Banner */}
         <CouplesBanner imageUrl={packages.find(p => p.type === 'couples')?.image} />
 
         {/* Reviews Section */}

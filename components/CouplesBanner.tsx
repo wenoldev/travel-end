@@ -17,7 +17,7 @@ export default function CouplesBanner({ imageUrl }: CouplesBannerProps) {
                 <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] rounded-[2rem] sm:rounded-[3rem] overflow-hidden group shadow-2xl">
                     <img
                         src={displayImage}
-                        alt="Couples Special Packages"
+                        alt="Couples Package Packages"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/70 sm:via-slate-900/40 to-transparent" />

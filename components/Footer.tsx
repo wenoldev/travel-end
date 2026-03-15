@@ -25,14 +25,16 @@ export default function Footer() {
               {siteConfig.description} We specialize in creating unforgettable journeys through the rich heritage of South India.
             </p>
             <div className="flex gap-4">
-              {['facebook', 'instagram', 'twitter'].map((social) => (
+              {Object.entries(siteConfig.socials).map(([platform, url]) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="size-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-primary transition-all group"
                 >
-                  <span className="sr-only">{social}</span>
-                  <i className={`fab fa-${social} text-lg group-hover:scale-110 transition-transform`}></i>
+                  <span className="sr-only">{platform}</span>
+                  <i className={`fab fa-${platform} text-lg group-hover:scale-110 transition-transform`}></i>
                 </a>
               ))}
             </div>
