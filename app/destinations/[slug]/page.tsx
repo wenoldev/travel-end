@@ -118,7 +118,7 @@ export default async function DestinationPage({ params }: PageProps) {
                                         </div>
                                     </div>
                                     <a
-                                        href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in visiting ${destination.name}`}
+                                        href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in visiting ${destination.name}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full bg-primary text-white py-5 rounded-2xl font-black text-lg shadow-lg shadow-primary/20 hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-2"

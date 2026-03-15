@@ -117,7 +117,7 @@ export default function Header() {
               <Link href="/contact" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Contact Us</Link>
             </nav>
             <a
-              href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking a tour with ${siteConfig.siteName}`}
+              href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking a tour with ${siteConfig.siteName}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full h-11 px-6 bg-primary hover:bg-orange-600 transition-all text-white text-sm font-bold shadow-lg shadow-primary/20"
@@ -201,7 +201,7 @@ export default function Header() {
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Contact Us</Link>
 
           <a
-            href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking a tour with ${siteConfig.siteName}`}
+            href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking a tour with ${siteConfig.siteName}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-white text-lg font-bold"

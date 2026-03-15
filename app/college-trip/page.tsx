@@ -47,7 +47,7 @@ export default function CollegeTripPage() {
 _Generated via TravelEnd College Planner_`;
 
         const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, '')}?text=${encodedMessage}`, '_blank');
+        window.open(`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${encodedMessage}`, '_blank');
     };
 
     const suggestions = useMemo(() => {

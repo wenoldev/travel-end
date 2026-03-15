@@ -3,7 +3,7 @@
 import siteConfig from '@/data/siteConfig.json';
 
 export default function WhatsAppButton() {
-    const whatsappNumber = siteConfig.contact.phone.replace(/\s+/g, '').replace('+', '');
+    const whatsappNumber = siteConfig.contact.whatsapp.replace(/\s+/g, '').replace('+', '');
 
     return (
         <a

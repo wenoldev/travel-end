@@ -156,7 +156,7 @@ export default async function PackageDetailsPage({ params }: { params: Promise<{
                 </div>
 
                 <a
-                  href={`https://wa.me/${siteConfig.contact.phone.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} package`}
+                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} package`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-primary hover:bg-[#6c193d] text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl shadow-primary/20 text-center block"
