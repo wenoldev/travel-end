@@ -14,7 +14,7 @@ export default function CouplesBanner({ imageUrl }: CouplesBannerProps) {
     return (
         <section className="w-full bg-white py-12">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] rounded-[2rem] sm:rounded-[3rem] overflow-hidden group shadow-2xl">
+                <div className="relative w-full aspect-[4/5] sm:aspect-auto sm:min-h-[500px] md:aspect-[21/9] rounded-[2rem] sm:rounded-[3rem] overflow-hidden group shadow-2xl">
                     <img
                         src={displayImage}
                         alt="Couples Package Packages"

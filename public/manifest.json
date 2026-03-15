@@ -1,21 +1,24 @@
 {
-  "name": "Travel End.in",
-  "short_name": "TravelEnd.in",
+  "name": "TravelEnd.in - Tours & Travels",
+  "short_name": "TravelEnd",
+  "description": "Providing unforgettable journeys across South India.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#0f172a",
+  "theme_color": "#f97316",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icons/icon.png",
+      "src": "/favicon.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/favicon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

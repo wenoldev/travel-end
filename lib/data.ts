@@ -31,36 +31,38 @@ export interface Package {
   }[];
 }
 
+import siteConfig from "@/data/siteConfig.json";
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://eylza-services.vercel.app";
-const DESTINATIONS_CMS_ID = "ffdfa167-aa38-4dba-97d4-05516b74ada5";
-const PACKAGES_CMS_ID = "8f7fddd6-e8f7-4bce-af3b-a718df788d1d";
+
+export const cmsIds = siteConfig.cmsIds;
 
 async function fetchCMSContent(cmsId: string) {
+  const url = `${API_BASE_URL}/api/v1/public/cms/${cmsId}`;
   try {
-    const res = await fetch(`${API_BASE_URL}/api/v1/public/cms/${cmsId}`, {
-      cache: 'no-store',
-      headers: {
-        'Cache-Control': 'no-cache'
-      }
+    const res = await fetch(url, {
+      next: { revalidate: 3600 }, // Cache for 1 hour but allow revalidation
     });
 
     if (!res.ok) {
-      console.error(`Failed to fetch CMS content for ${cmsId}: ${res.status} ${res.statusText}`);
+      console.error(`Failed to fetch CMS content for ${cmsId} (${url}): ${res.status} ${res.statusText}`);
       return [];
     }
 
-    const { data } = await res.json();
-    return data || [];
-  } catch (error) {
-    console.error(`Error fetching CMS content for ${cmsId}:`, error);
+    const json = await res.json();
+    return json.data || [];
+  } catch (error: any) {
+    console.error(`Error fetching CMS content for ${cmsId} (${url}):`, error.message);
+    // Return empty array to prevent page crash
     return [];
   }
 }
 
-export async function getDestinations(): Promise<Destination[]> {
-  return fetchCMSContent(DESTINATIONS_CMS_ID);
+export async function getDestinations(cmsId?: string): Promise<Destination[]> {
+  return fetchCMSContent(cmsId || cmsIds.special);
 }
 
-export async function getPackages(): Promise<Package[]> {
-  return fetchCMSContent(PACKAGES_CMS_ID);
+export async function getPackages(cmsId?: string): Promise<Package[]> {
+  return fetchCMSContent(cmsId || cmsIds.packages);
 }
+
