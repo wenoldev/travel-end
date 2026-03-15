@@ -32,8 +32,8 @@ export interface Package {
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://eylza-services.vercel.app";
-const DESTINATIONS_CMS_ID = "0d847f3f-5e99-440b-b156-4d76bcb86e5a";
-const PACKAGES_CMS_ID = "bd377161-f77c-4a25-ae21-72c4ca66a386";
+const DESTINATIONS_CMS_ID = "ffdfa167-aa38-4dba-97d4-05516b74ada5";
+const PACKAGES_CMS_ID = "8f7fddd6-e8f7-4bce-af3b-a718df788d1d";
 
 async function fetchCMSContent(cmsId: string) {
   try {
