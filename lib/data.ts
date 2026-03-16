@@ -41,7 +41,7 @@ async function fetchCMSContent(cmsId: string) {
   const url = `${API_BASE_URL}/api/v1/public/cms/${cmsId}`;
   try {
     const res = await fetch(url, {
-      next: { revalidate: 3600 }, // Cache for 1 hour but allow revalidation
+      cache: 'no-store',
     });
 
     if (!res.ok) {
