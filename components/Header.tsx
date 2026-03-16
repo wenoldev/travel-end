@@ -19,17 +19,15 @@ export default function Header() {
     // Fetch CMS data for mega menu
     const fetchDomestic = async () => {
         try {
-            const [tamilnadu, kerala, karnataka, other] = await Promise.all([
+            const [tamilnadu, kerala, karnataka] = await Promise.all([
                 getDestinations(cmsIds.tamilnadu),
                 getDestinations(cmsIds.kerala),
                 getDestinations(cmsIds.karnataka),
-                getDestinations(cmsIds.otherPlaces),
             ]);
             setDomesticData({
                 "Tamilnadu": tamilnadu.map(d => d.name),
                 "Kerala": kerala.map(d => d.name),
                 "Karnataka": karnataka.map(d => d.name),
-                "Other Places": other.map(d => d.name),
                 "International": { type: 'cta', icon: 'public', title: 'Global Tours', buttonText: 'Enquire for Details' }
             });
         } catch (error) {
@@ -72,7 +70,7 @@ export default function Header() {
                 </button>
 
                 <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
-                  <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 min-w-[1000px] grid grid-cols-5 gap-8 border border-white/10">
+                  <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 min-w-175 grid grid-cols-5 gap-8 border border-white/10">
                     {Object.entries(categories).map(([subcat, data]) => (
                       <div key={subcat} className="flex flex-col gap-4">
                         <h3 className="text-lg font-black border-b border-white/20 pb-2 mb-2">{subcat}</h3>

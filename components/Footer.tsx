@@ -6,19 +6,19 @@ import siteConfig from '@/data/siteConfig.json';
 import { getDestinations, cmsIds } from '@/lib/data';
 
 export default function Footer() {
-  const [pilgrims, setPilgrims] = useState<any[]>([]);
-  const [specialPlaces, setSpecialPlaces] = useState<any[]>([]);
+  const [kerala, setKerala] = useState<any[]>([]);
+  const [tamilnadu, setTamilnadu] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchFooterData() {
       try {
-        const [p, s] = await Promise.all([
-          getDestinations(cmsIds.pilgrim),
-          getDestinations(cmsIds.special),
+        const [k, t] = await Promise.all([
+          getDestinations(cmsIds.kerala),
+          getDestinations(cmsIds.tamilnadu),
         ]);
-        setPilgrims(p);
-        setSpecialPlaces(s);
+        setKerala(k);
+        setTamilnadu(t);
       } catch (error) {
         console.error("Error fetching footer data:", error);
       } finally {
@@ -69,7 +69,8 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors">
+                  <Link href={link.href} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
+                    <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
                     {link.name}
                   </Link>
                 </li>
@@ -77,9 +78,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Special Places - Fully Dynamic */}
+          {/* Tamil Nadu - Fully Dynamic */}
           <div className="flex flex-col gap-8">
-            <h4 className="text-white font-bold text-lg uppercase tracking-tight">Special Places</h4>
+            <h4 className="text-white font-bold text-lg uppercase tracking-tight">Tamil Nadu</h4>
             <div className="h-[2px] w-12 bg-white/10 -mt-6" />
             <ul className="flex flex-col gap-4">
               {loading ? (
@@ -87,10 +88,10 @@ export default function Footer() {
                     <li key={i} className="h-4 w-24 bg-white/5 animate-pulse rounded" />
                 ))
               ) : (
-                specialPlaces.slice(0, 8).map((dest) => (
+                tamilnadu.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
-                    <Link href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-3 group">
-                      <span className="text-white/20 group-hover:text-primary transition-colors text-xs font-black">≫</span>
+                    <Link href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
+                      <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
                       {dest.name}
                     </Link>
                   </li>
@@ -99,9 +100,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Pilgrimage Places - Fully Dynamic */}
+          {/* Kerala - Fully Dynamic */}
           <div className="flex flex-col gap-8">
-            <h4 className="text-white font-bold text-lg uppercase tracking-tight">Pilgrimage Places</h4>
+            <h4 className="text-white font-bold text-lg uppercase tracking-tight">Kerala</h4>
             <div className="h-[2px] w-12 bg-white/10 -mt-6" />
             <ul className="flex flex-col gap-4">
               {loading ? (
@@ -109,10 +110,10 @@ export default function Footer() {
                     <li key={i} className="h-4 w-24 bg-white/5 animate-pulse rounded" />
                 ))
               ) : (
-                pilgrims.slice(0, 8).map((dest) => (
+                kerala.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
-                    <Link href={`/pilgrimage/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-3 group">
-                      <span className="text-white/20 group-hover:text-primary transition-colors text-xs font-black">≫</span>
+                    <Link href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
+                      <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
                       {dest.name}
                     </Link>
                   </li>

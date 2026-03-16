@@ -10,14 +10,13 @@ export default async function DestinationPage({ params }: PageProps) {
     const { slug } = await params;
     
     // Fetch from all domestic categories to find the correct destination
-    const [tamilnadu, kerala, karnataka, other] = await Promise.all([
+    const [tamilnadu, kerala, karnataka] = await Promise.all([
         getDestinations(cmsIds.tamilnadu),
         getDestinations(cmsIds.kerala),
-        getDestinations(cmsIds.karnataka),
-        getDestinations(cmsIds.otherPlaces),
+        getDestinations(cmsIds.karnataka)
     ]);
 
-    const allDestinations = [...tamilnadu, ...kerala, ...karnataka, ...other];
+    const allDestinations = [...tamilnadu, ...kerala, ...karnataka];
     
     const destination = allDestinations.find(
         (d) => d.name.toLowerCase().replace(/\s+/g, '-') === slug || d.id === slug

@@ -25,14 +25,6 @@
       "href": "/packages?type=couples"
     },
     {
-      "name": "Destinations",
-      "href": "/destinations"
-    },
-    {
-      "name": "Pilgrimage Places",
-      "href": "/pilgrimage"
-    },
-    {
       "name": "About Us",
       "href": "/about"
     },
@@ -47,12 +39,9 @@
   ],
   "cmsIds": {
     "packages": "8f7fddd6-e8f7-4bce-af3b-a718df788d1d",
-    "couplesPackages": "c89bc0b6-1186-490f-9da1-f4a30e620920",
+    "couplesPackages": "e9ccb4e9-7f85-4bef-961c-48fb1f4ce461",
     "tamilnadu": "c7ad31db-345f-4d1f-bf57-1c263722290b",
     "kerala": "c5e116c0-8c19-4208-8a62-0370f5e8478e",
-    "karnataka": "e03c2658-abf2-4171-9af1-36019b97459b",
-    "otherPlaces": "35d6347c-75c5-47cd-a883-8d24f3041cc5",
-    "pilgrim": "1322db91-ab3b-45fb-9abd-6cb038eabe09",
-    "special": "ffdfa167-aa38-4dba-97d4-05516b74ada5"
+    "karnataka": "e03c2658-abf2-4171-9af1-36019b97459b"
   }
 }

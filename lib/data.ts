@@ -59,7 +59,7 @@ async function fetchCMSContent(cmsId: string) {
 }
 
 export async function getDestinations(cmsId?: string): Promise<Destination[]> {
-  return fetchCMSContent(cmsId || cmsIds.special);
+  return fetchCMSContent(cmsId || cmsIds.tamilnadu);
 }
 
 export async function getPackages(cmsId?: string): Promise<Package[]> {
