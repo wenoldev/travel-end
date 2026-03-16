@@ -20,7 +20,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
         <section className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${isCouples ? "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=1920" : "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=1440"})` }}
+            style={{ backgroundImage: `url(${isCouples ? "/romantic-couple.png" : "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=1440"})` }}
           />
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" />
           <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 flex flex-col justify-center">

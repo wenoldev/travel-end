@@ -5,6 +5,9 @@ import Reviews from "@/components/Reviews";
 import TripPlannerCards from "@/components/TripPlannerCards";
 import TaxiBanner from "@/components/TaxiBanner";
 import CouplesBanner from "@/components/CouplesBanner";
+import PilgrimBanner from "@/components/PilgrimBanner";
+import InternationalBanner from "@/components/InternationalBanner";
+import BookingBanner from "@/components/BookingBanner";
 import { getDestinations, getPackages } from "@/lib/data";
 
 export default async function Home() {
@@ -76,6 +79,74 @@ export default async function Home() {
 
         {/* Trip Planner Section */}
         <TripPlannerCards />
+
+        {/* Pilgrimage Banner */}
+        <PilgrimBanner />
+
+        {/* Popular Destinations / Trending Packages */}
+        {/* <section className="w-full bg-white py-24">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-16 px-4">
+              <div className="max-w-xl">
+                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">Trending Packages</h2>
+                <div className="h-1.5 w-24 bg-primary rounded-full mb-6" />
+                <p className="text-slate-500 text-lg font-medium">Explore our most booked packages this season, curated just for you.</p>
+              </div>
+              <Link className="text-primary font-bold text-lg hover:underline flex items-center gap-2 group" href="/packages">
+                All Destinations
+                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {packages.map((pkg: any) => (
+                <div key={pkg.id} className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
+                  <div className="w-full aspect-4/5 overflow-hidden relative">
+                    <div
+                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                      style={{ backgroundImage: `url("${pkg.image}")` }}
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                    {pkg.tag && (
+                      <div className="absolute top-6 right-6 bg-primary/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black text-white shadow-lg uppercase tracking-widest leading-none">
+                        {pkg.tag}
+                      </div>
+                    )}
+                    <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
+                      <h3 className="text-2xl font-black mb-1 drop-shadow-md">{pkg.title}</h3>
+                      <div className="flex items-center gap-2 text-white/90 text-sm font-bold">
+                        <span className="material-symbols-outlined text-sm">location_on</span>
+                        {pkg.subtitle}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-8 flex flex-col gap-6">
+                    <div className="flex justify-between items-center">
+                      <div className="flex flex-col">
+                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Starting from</span>
+                        <span className="text-primary text-3xl font-black">₹{pkg.price}</span>
+                      </div>
+                      <div className="text-right flex flex-col items-end">
+                        <div className="flex items-center gap-1 text-slate-700 font-bold mb-1">
+                          <span className="material-symbols-outlined text-lg">schedule</span>
+                          {pkg.duration}
+                        </div>
+                        <span className="text-xs text-slate-400">{pkg.accommodation} included</span>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/packages/${pkg.id}`}
+                      className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-3.5 sm:py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
+                    >
+                      View Trip Details
+                      <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">double_arrow</span>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section> */}
 
         {/* College & IV Trips Special Section */}
         <section className="w-full bg-[#f8f9fa] py-24">
@@ -162,73 +233,14 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Popular Destinations / Trending Packages */}
-        <section className="w-full bg-white py-24">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mb-16 px-4">
-              <div className="max-w-xl">
-                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">Trending Packages</h2>
-                <div className="h-1.5 w-24 bg-primary rounded-full mb-6" />
-                <p className="text-slate-500 text-lg font-medium">Explore our most booked packages this season, curated just for you.</p>
-              </div>
-              <Link className="text-primary font-bold text-lg hover:underline flex items-center gap-2 group" href="/packages">
-                All Destinations
-                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {packages.map((pkg: any) => (
-                <div key={pkg.id} className="group relative flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500">
-                  <div className="w-full aspect-4/5 overflow-hidden relative">
-                    <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url("${pkg.image}")` }}
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
-                    {pkg.tag && (
-                      <div className="absolute top-6 right-6 bg-primary/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black text-white shadow-lg uppercase tracking-widest leading-none">
-                        {pkg.tag}
-                      </div>
-                    )}
-                    <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
-                      <h3 className="text-2xl font-black mb-1 drop-shadow-md">{pkg.title}</h3>
-                      <div className="flex items-center gap-2 text-white/90 text-sm font-bold">
-                        <span className="material-symbols-outlined text-sm">location_on</span>
-                        {pkg.subtitle}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-8 flex flex-col gap-6">
-                    <div className="flex justify-between items-center">
-                      <div className="flex flex-col">
-                        <span className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Starting from</span>
-                        <span className="text-primary text-3xl font-black">₹{pkg.price}</span>
-                      </div>
-                      <div className="text-right flex flex-col items-end">
-                        <div className="flex items-center gap-1 text-slate-700 font-bold mb-1">
-                          <span className="material-symbols-outlined text-lg">schedule</span>
-                          {pkg.duration}
-                        </div>
-                        <span className="text-xs text-slate-400">{pkg.accommodation} included</span>
-                      </div>
-                    </div>
-                    <Link
-                      href={`/packages/${pkg.id}`}
-                      className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-3.5 sm:py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
-                    >
-                      View Trip Details
-                      <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">double_arrow</span>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Couples Package Banner */}
         <CouplesBanner imageUrl={packages.find(p => p.type === 'couples')?.image} />
+
+        {/* International Trip Banner */}
+        <InternationalBanner />
+
+        {/* General Booking Banner */}
+        <BookingBanner />
 
         {/* Reviews Section */}
         <Reviews />

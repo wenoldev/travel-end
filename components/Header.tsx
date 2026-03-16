@@ -100,7 +100,7 @@ export default function Header() {
                               Ready to explore the world?
                             </p>
                             <Link
-                              href="/contact?type=international"
+                              href="/international-trip"
                               className="inline-flex items-center gap-2 bg-white text-primary px-4 py-2.5 rounded-xl text-xs font-black hover:bg-orange-50 transition-colors w-fit shadow-lg shadow-black/10"
                             >
                               <span>{(data as any).buttonText}</span>
