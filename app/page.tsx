@@ -9,14 +9,69 @@ import PilgrimBanner from "@/components/PilgrimBanner";
 import InternationalBanner from "@/components/InternationalBanner";
 import BookingBanner from "@/components/BookingBanner";
 import { getDestinations, getPackages } from "@/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Travels in Thoothukudi | Cab Booking & Tour Packages",
+  description: "Experience the best travel service in Thoothukudi and Tuticorin. We provide reliable cab bookings, temple tours, and custom holiday packages with 24/7 support.",
+  alternates: {
+    canonical: "https://travelend.in",
+  },
+};
+
 
 export default async function Home() {
   const [packages] = await Promise.all([
     getPackages()
   ]);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Travelend",
+    "image": "https://travelend.in/favicon.png",
+    "@id": "https://travelend.in",
+    "url": "https://travelend.in",
+    "telephone": "+919345605097",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6b, 6th street, Toovipuram",
+      "addressLocality": "Thoothukudi",
+      "postalCode": "628003",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 8.8053,
+      "longitude": 78.1348
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "sameAs": [
+      "https://www.instagram.com/travel_end.in/"
+    ],
+    "priceRange": "$$"
+  };
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <main className="flex-grow w-full">
         {/* Hero Section */}
         <section className="w-full bg-white">
@@ -36,11 +91,11 @@ export default async function Home() {
                   </span>
                   About Us
                 </div>
-                <h2 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-                  Crafting Your Perfect <span className="text-primary italic">Travel Story</span>
-                </h2>
+                <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+                  Premium <span className="text-primary italic">Thoothukudi Travels</span> & Cab Booking
+                </h1>
                 <p className="text-slate-600 text-lg font-medium leading-relaxed">
-                  Your trusted partner for exploring the hidden gems and heritage of South India. We specialize in creating unforgettable journeys through the rich culture, spicy cuisine, and diverse landscapes of the region.
+                  Your trusted partner for exploring the hidden gems and heritage of South India. As the leading travel agency in Thoothukudi and Tuticorin, we specialize in creating unforgettable journeys through rich culture, spicy cuisine, and diverse landscapes.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link className="flex-1 sm:flex-none px-6 py-3.5 sm:px-8 sm:py-4 bg-primary text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform text-center" href="/about">

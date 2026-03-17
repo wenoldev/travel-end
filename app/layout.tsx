@@ -13,10 +13,35 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Travelend - Your travel friend",
-  description: "Curated experiences across ancient temples, serene beaches, and misty hill stations.",
+  title: {
+    default: "Travelend - Best Travels in Thoothukudi & Tuticorin",
+    template: "%s | Travelend"
+  },
+  description: "Travelend is the leading travel agency in Thoothukudi and Tuticorin. We offer premium cab bookings, custom tour packages, and reliable taxi services across Tamil Nadu.",
+  keywords: ["Thoothukudi travels", "Tuticorin travel booking", "cab booking Thoothukudi", "taxi service Tuticorin", "South India tours"],
+  authors: [{ name: "Travelend" }],
+  creator: "Travelend",
+  publisher: "Travelend",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: "/favicon.png",
+  },
+  openGraph: {
+    title: "Travelend - Best Travels in Thoothukudi & Tuticorin",
+    description: "Reliable cab bookings and custom tour packages in Thoothukudi and Tuticorin.",
+    url: "https://travelend.in",
+    siteName: "Travelend",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Travelend - Best Travels in Thoothukudi & Tuticorin",
+    description: "Reliable cab bookings and custom tour packages in Thoothukudi and Tuticorin.",
   },
 };
 
