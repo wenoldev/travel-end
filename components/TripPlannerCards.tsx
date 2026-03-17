@@ -71,7 +71,7 @@ export default function TripPlannerCards() {
                                     <span className="material-symbols-outlined text-4xl">{trip.icon}</span>
                                 </div>
 
-                                <h3 className={`text-2xl font-black mb-4 ${trip.featured ? 'text-white' : 'text-slate-900'}`}>{trip.title}</h3>
+                                <h3 className={`text-2xl font-black mb-4 ${trip.featured ? 'text-slate-900' : 'text-slate-900'}`}>{trip.title}</h3>
                                 <p className={`leading-relaxed mb-8 ${trip.featured ? 'text-slate-400' : 'text-slate-500'}`}>{trip.description}</p>
 
                                 <div className="flex items-center gap-2 text-primary font-bold">

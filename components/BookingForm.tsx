@@ -9,11 +9,12 @@ export default function BookingForm() {
     const [formData, setFormData] = useState({
         name: '',
         mobile: '',
-        ticketType: 'Flight', // Flight, Train
+        ticketType: 'Flight', // Flight, Train, Bus
         hotelType: '4 Star', // 5 Star, 4 Star, 3 Star
         foodType: 'Veg', // Veg, Non-Veg
         date: '',
-        destination: '',
+        from: '',
+        to: '',
         passengers: 1
     });
 
@@ -30,12 +31,14 @@ export default function BookingForm() {
         
         if (bookingType === 'ticket') {
             message += `*Ticket For:* ${formData.ticketType}\n`;
+            message += `*From:* ${formData.from}\n`;
+            message += `*To:* ${formData.to}\n`;
         } else {
             message += `*Hotel Category:* ${formData.hotelType}\n`;
             message += `*Food Preference:* ${formData.foodType}\n`;
+            message += `*Location:* ${formData.to}\n`; // Use 'to' as location for hotels
         }
         
-        message += `*Destination/Route:* ${formData.destination}\n`;
         message += `*Date:* ${formData.date}\n`;
         message += `*Passengers/Adults:* ${formData.passengers}\n`;
         message += `\n_Generated via TravelEnd Booking System_`;
@@ -44,7 +47,7 @@ export default function BookingForm() {
         window.open(`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=${encodedMessage}`, '_blank');
     };
 
-    const isFormValid = formData.name && formData.mobile && formData.destination && formData.date;
+    const isFormValid = formData.name && formData.mobile && formData.from && formData.to && formData.date;
 
     return (
         <div className="bg-white rounded-[2.5rem] p-8 sm:p-12 border border-slate-100 shadow-sm space-y-8">
@@ -101,7 +104,7 @@ export default function BookingForm() {
                         <div className="flex flex-col gap-4">
                             <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Ticket Type</label>
                             <div className="flex gap-4">
-                                {['Flight', 'Train'].map((type) => (
+                                {['Flight', 'Train', 'Bus'].map((type) => (
                                     <label key={type} className="flex items-center gap-3 cursor-pointer group">
                                         <div className="relative flex items-center justify-center">
                                             <input
@@ -163,15 +166,27 @@ export default function BookingForm() {
                 )}
             </AnimatePresence>
 
-            <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Destination / Route</label>
-                <input
-                    type="text"
-                    value={formData.destination}
-                    onChange={(e) => handleInputChange('destination', e.target.value)}
-                    placeholder="e.g. Chennai to Dubai, Ooty Hotel, etc."
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl h-14 px-6 font-bold text-slate-900 focus:border-primary outline-none transition-all"
-                />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2">
+                    <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">{bookingType === 'ticket' ? 'From (Origin)' : 'Guest Count (Kids)'}</label>
+                    <input
+                        type="text"
+                        value={formData.from}
+                        onChange={(e) => handleInputChange('from', e.target.value)}
+                        placeholder={bookingType === 'ticket' ? "Entering city" : "No. of kids (if any)"}
+                        className="w-full bg-slate-50 border border-slate-100 rounded-2xl h-14 px-6 font-bold text-slate-900 focus:border-primary outline-none transition-all"
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">{bookingType === 'ticket' ? 'To (Destination)' : 'Hotel Location'}</label>
+                    <input
+                        type="text"
+                        value={formData.to}
+                        onChange={(e) => handleInputChange('to', e.target.value)}
+                        placeholder={bookingType === 'ticket' ? "Destination city" : "City or Area"}
+                        className="w-full bg-slate-50 border border-slate-100 rounded-2xl h-14 px-6 font-bold text-slate-900 focus:border-primary outline-none transition-all"
+                    />
+                </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
