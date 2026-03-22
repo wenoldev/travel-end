@@ -62,58 +62,61 @@ export default function Header() {
               <Link href="/" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Home</Link>
               <Link href="/about" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">About Us</Link>
 
-              {/* Mega Menu Trigger - Domestic */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-slate-700 text-sm font-bold hover:text-primary transition-colors py-2">
-                  Domestic
-                  <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
-                </button>
+          {/* Mega Menu Trigger - Domestic */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 text-slate-700 text-sm font-bold hover:text-primary transition-colors py-2">
+              Domestic
+              <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+            </button>
 
-                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
-                  <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 min-w-175 grid grid-cols-5 gap-8 border border-white/10">
-                    {Object.entries(categories).map(([subcat, data]) => (
-                      <div key={subcat} className="flex flex-col gap-4">
-                        <h3 className="text-lg font-black border-b border-white/20 pb-2 mb-2">{subcat}</h3>
-                        {Array.isArray(data) ? (
-                          <ul className="flex flex-col gap-2">
-                            {data.map((place: string) => {
-                               const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
-                               const href = `/destinations/${categoryKey}/${slugify(place)}`;
-                               return (
-                                <li key={place}>
-                                  <Link
-                                    href={href}
-                                    className="text-white/80 hover:text-white flex items-center gap-2 text-sm transition-colors group/item"
-                                  >
-                                    <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100">double_arrow</span>
-                                    {place}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        ) : (
-                          <div className="flex flex-col gap-4">
-                            <div className="size-12 rounded-2xl bg-white/20 flex items-center justify-center text-white">
-                              <span className="material-symbols-outlined text-3xl">{(data as any).icon}</span>
-                            </div>
-                            <p className="text-sm text-white/70 font-medium leading-relaxed">
-                              Ready to explore the world?
-                            </p>
-                            <Link
-                              href="/international-trip"
-                              className="inline-flex items-center gap-2 bg-white text-primary px-4 py-2.5 rounded-xl text-xs font-black hover:bg-orange-50 transition-colors w-fit shadow-lg shadow-black/10"
-                            >
-                              <span>{(data as any).buttonText}</span>
-                              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </Link>
-                          </div>
-                        )}
+            <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
+              <div className="bg-primary text-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-10 w-[900px] lg:w-[1100px] grid grid-cols-4 gap-12 border border-white/10">
+                {Object.entries(categories).map(([subcat, data]) => (
+                  <div key={subcat} className="flex flex-col gap-4">
+                    <h3 className="text-xl font-black border-b border-white/20 pb-2 mb-2 tracking-tight">{subcat}</h3>
+                    {Array.isArray(data) ? (
+                      <ul className="flex flex-col gap-2.5">
+                        {data.map((place: string) => {
+                           const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
+                           const href = `/destinations/${categoryKey}/${slugify(place)}`;
+                           return (
+                            <li key={place}>
+                              <Link
+                                href={href}
+                                className="text-white/80 hover:text-white flex items-center gap-2 text-sm font-bold transition-colors group/item"
+                              >
+                                <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100 transition-opacity">double_arrow</span>
+                                {place}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    ) : (
+                      <div className="flex flex-col gap-6 h-full justify-center">
+                        <div className="size-16 rounded-2xl bg-white/20 flex items-center justify-center text-white shadow-lg backdrop-blur-sm border border-white/20">
+                          <span className="material-symbols-outlined text-4xl">{(data as any).icon}</span>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-base text-white font-black leading-tight">
+                            Ready to explore the world?
+                          </p>
+                          <p className="text-sm text-white/60 font-medium">Get curated international tours tailored for you.</p>
+                        </div>
+                        <Link
+                          href="/international-trip"
+                          className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3.5 rounded-2xl text-xs font-black hover:bg-orange-50 transition-all w-fit shadow-xl shadow-black/20 group/cta"
+                        >
+                          <span>{(data as any).buttonText}</span>
+                          <span className="material-symbols-outlined text-sm transition-transform group-hover/cta:translate-x-1">arrow_forward</span>
+                        </Link>
                       </div>
-                    ))}
+                    )}
                   </div>
-                </div>
+                ))}
               </div>
+            </div>
+          </div>
 
               <Link href="/packages" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Packages</Link>
               <Link href="/couples-packages" className="text-pink-500 text-sm font-bold hover:text-pink-600 transition-colors flex items-center gap-1">

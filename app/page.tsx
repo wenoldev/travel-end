@@ -8,8 +8,9 @@ import CouplesBanner from "@/components/CouplesBanner";
 import PilgrimBanner from "@/components/PilgrimBanner";
 import InternationalBanner from "@/components/InternationalBanner";
 import BookingBanner from "@/components/BookingBanner";
-import { getDestinations, getPackages } from "@/lib/data";
+import { getDestinations, getPackages, cmsIds } from "@/lib/data";
 import { Metadata } from "next";
+import StateDestinationSection from "@/components/StateDestinationSection";
 
 export const metadata: Metadata = {
   title: "Best Travels in Thoothukudi | Cab Booking & Tour Packages",
@@ -21,8 +22,11 @@ export const metadata: Metadata = {
 
 
 export default async function Home() {
-  const [packages] = await Promise.all([
-    getPackages()
+  const [packages, tamilnadu, kerala, karnataka] = await Promise.all([
+    getPackages(),
+    getDestinations(cmsIds.tamilnadu),
+    getDestinations(cmsIds.kerala),
+    getDestinations(cmsIds.karnataka)
   ]);
 
   const jsonLd = {
@@ -134,6 +138,29 @@ export default async function Home() {
 
         {/* Trip Planner Section */}
         <TripPlannerCards />
+
+        {/* State-wise Destination Sections */}
+        <StateDestinationSection 
+          stateName="Tamil Nadu" 
+          stateId="tamilnadu"
+          destinations={tamilnadu}
+          subtitle="From the ancient temples of Madurai to the misty hills of Kodaikanal, experience the rich heritage of the land of Tamils."
+        />
+
+        <StateDestinationSection 
+          stateName="Kerala" 
+          stateId="kerala"
+          destinations={kerala}
+          subtitle="Explore God's Own Country, where emerald backwaters meet pristine beaches and lush tea plantations of Munnar."
+          reverse={true}
+        />
+
+        <StateDestinationSection 
+          stateName="Karnataka" 
+          stateId="karnataka"
+          destinations={karnataka}
+          subtitle="A land of diverse landscapes, from the royal heritage of Mysore to the coffee-scented hills of Coorg."
+        />
 
         {/* Pilgrimage Banner */}
         <PilgrimBanner />
