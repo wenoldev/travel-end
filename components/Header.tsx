@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
-import { getDestinations, cmsIds } from '@/lib/data';
+import { getDestinations, cmsIds, slugify, categoryMapping } from '@/lib/data';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -77,8 +77,9 @@ export default function Header() {
                         {Array.isArray(data) ? (
                           <ul className="flex flex-col gap-2">
                             {data.map((place: string) => {
-                              const href = `/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`;
-                              return (
+                               const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
+                               const href = `/destinations/${categoryKey}/${slugify(place)}`;
+                               return (
                                 <li key={place}>
                                   <Link
                                     href={href}
@@ -168,7 +169,7 @@ export default function Header() {
                       {data.map((place: string) => (
                         <Link
                           key={place}
-                          href={`/destinations/${place.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/destinations/${categoryMapping[subcat] || subcat.toLowerCase()}/${slugify(place)}`}
                           onClick={() => setIsMobileMenuOpen(false)}
                           className="text-sm text-slate-700 hover:text-primary transition-colors"
                         >

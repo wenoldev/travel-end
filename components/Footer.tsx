@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
-import { getDestinations, cmsIds } from '@/lib/data';
+import { getDestinations, cmsIds, slugify } from '@/lib/data';
 
 export default function Footer() {
   const [kerala, setKerala] = useState<any[]>([]);
@@ -90,7 +90,7 @@ export default function Footer() {
               ) : (
                 tamilnadu.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
-                    <Link href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
+                    <Link href={`/destinations/tamilnadu/${slugify(dest.name)}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
                       <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
                       {dest.name}
                     </Link>
@@ -112,7 +112,7 @@ export default function Footer() {
               ) : (
                 kerala.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
-                    <Link href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
+                    <Link href={`/destinations/kerala/${slugify(dest.name)}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
                       <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
                       {dest.name}
                     </Link>
