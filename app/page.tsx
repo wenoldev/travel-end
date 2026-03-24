@@ -23,8 +23,11 @@ export const metadata: Metadata = {
 
 
 export default async function Home() {
-  const [packages] = await Promise.all([
-    getAllPackages()
+  const [packages, tamilnadu, kerala, karnataka] = await Promise.all([
+    getAllPackages(),
+    getDestinations(siteConfig.cmsIds.tamilnadu),
+    getDestinations(siteConfig.cmsIds.kerala),
+    getDestinations(siteConfig.cmsIds.karnataka)
   ]);
 
   const jsonLd = {
