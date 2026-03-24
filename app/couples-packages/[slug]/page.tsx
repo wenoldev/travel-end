@@ -14,7 +14,7 @@ interface Package extends DataPackage {
   itinerary?: ItineraryItem[];
 }
 
-export default async function PackageDetailsPage({ 
+export default async function CouplesPackageDetailsPage({ 
   params,
   searchParams 
 }: { 
@@ -59,10 +59,10 @@ export default async function PackageDetailsPage({
               <Link href="/" className="hover:text-white">Home</Link>
               <span className="material-symbols-outlined text-xs">chevron_right</span>
               <Link 
-                href={pkg.type === 'couples' ? "/couples-packages" : pkg.type === 'runner' ? "/runner-packages" : "/packages"} 
+                href={pkg.type === 'couples' ? "/couples-packages" : "/packages"} 
                 className="hover:text-white"
               >
-                {pkg.type === 'couples' ? "Romantic Packages" : pkg.type === 'runner' ? "Runner Packages" : "Packages"}
+                {pkg.type === 'couples' ? "Romantic Packages" : "Packages"}
               </Link>
               <span className="material-symbols-outlined text-xs">chevron_right</span>
               <span className="text-white">{pkg.title}</span>

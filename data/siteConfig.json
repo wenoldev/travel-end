@@ -4,7 +4,7 @@
   "description": "Curated experiences across ancient temples, serene beaches, and misty hill stations.",
   "contact": {
     "phone": "+91 93456 05097",
-    "whatsapp":"+91 9344605097",
+    "whatsapp": "+91 9344605097",
     "email": "travelend.in@gmail.com",
     "address": "Raj Hotel back side, 6b, 6th street,Toovipuram, Thoothukudi"
   },
@@ -43,6 +43,7 @@
     "tamilnadu": "c7ad31db-345f-4d1f-bf57-1c263722290b",
     "kerala": "c5e116c0-8c19-4208-8a62-0370f5e8478e",
     "karnataka": "e03c2658-abf2-4171-9af1-36019b97459b",
-    "pilgrim": "9617e5eb-6a02-41f7-8198-7148437ceefd"
+    "pilgrim": "9617e5eb-6a02-41f7-8198-7148437ceefd",
+    "runnerPackages": "5088194a-c1ae-4eda-8541-03991be3b912"
   }
 }

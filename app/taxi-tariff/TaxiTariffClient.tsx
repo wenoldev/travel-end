@@ -74,7 +74,7 @@ _Generated via TravelEnd Taxi Tariff_`;
                     <div className="flex-1 max-w-md">
                         <div className="rounded-[2.5rem] overflow-hidden shadow-2xl-soft border-4 border-white shadow-xl">
                             <img 
-                                src="https://images.unsplash.com/photo-1449965022632-6a1a6b0ef68a?auto=format&fit=crop&q=80&w=800" 
+                                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" 
                                 alt="Thoothukudi Taxi Service" 
                                 className="w-full h-48 object-cover"
                             />

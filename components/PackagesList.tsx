@@ -2,16 +2,16 @@
 
 import React from 'react';
 import Link from "next/link";
-import CouplesBanner from '@/components/CouplesBanner';
 import { motion } from 'framer-motion';
 
 interface PackagesListProps {
   packages: any[];
-  type: 'normal' | 'couples';
+  type: 'normal' | 'couples' | 'runner';
 }
 
 export default function PackagesList({ packages, type }: PackagesListProps) {
   const isCouples = type === 'couples';
+  const isRunner = type === 'runner';
 
   return (
     <div className="bg-white flex flex-col min-h-screen overflow-x-hidden">
@@ -30,22 +30,17 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-white text-5xl sm:text-7xl font-black mb-4">
-                {isCouples ? 'Romantic Packages' : 'Tour Packages'}
+                {isCouples ? 'Romantic Packages' : isRunner ? 'Runner Packages' : 'Tour Packages'}
               </h1>
               <p className="text-white/80 text-xl max-w-2xl font-medium">
                 {isCouples
                   ? 'Dreamy getaways for your special moments.'
-                  : 'Carefully curated experiences for every kind of traveler.'}
+                  : isRunner ? 'Recent festivals and local trip experiences.' : 'Carefully curated experiences for every kind of traveler.'}
               </p>
             </motion.div>
           </div>
         </section>
 
-        {isCouples && (
-          <div className="mt-8">
-            <CouplesBanner />
-          </div>
-        )}
 
         {/* Packages Grid */}
         <section className="max-w-[1280px] mx-auto px-4 py-16">
@@ -86,7 +81,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
                     </div>
                   </div>
                   <Link
-                    href={`/packages/${pkg.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`${isCouples ? '/couples-packages' : isRunner ? '/runner-packages' : '/packages'}/${pkg.title.toLowerCase().replace(/\s+/g, '-')}?id=${pkg.id}`}
                     className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2"
                   >
                     View Details

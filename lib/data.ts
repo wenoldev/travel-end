@@ -22,7 +22,7 @@ export interface Package {
   duration: string;
   accommodation: string;
   tag?: string;
-  type: 'normal' | 'couples';
+  type?: 'normal' | 'couples' | 'runner';
   spots?: string[];
   itinerary?: {
     day: number;
@@ -66,3 +66,20 @@ export async function getPackages(cmsId?: string): Promise<Package[]> {
   return fetchCMSContent(cmsId || cmsIds.packages);
 }
 
+export async function getAllPackages(): Promise<Package[]> {
+  const normalPromises = getPackages(cmsIds.packages);
+  const couplesPromises = (cmsIds as any).couplesPackages ? getPackages((cmsIds as any).couplesPackages) : Promise.resolve([]);
+  const runnerPromises = (cmsIds as any).runnerPackages ? getPackages((cmsIds as any).runnerPackages) : Promise.resolve([]);
+
+  const [normalPackages, couplesPackages, runnerPackages] = await Promise.all([
+    normalPromises,
+    couplesPromises,
+    runnerPromises
+  ]);
+
+  return [
+    ...normalPackages.map(p => ({ ...p, type: 'normal' as const })),
+    ...couplesPackages.map(p => ({ ...p, type: 'couples' as const })),
+    ...runnerPackages.map(p => ({ ...p, type: 'runner' as const }))
+  ];
+}

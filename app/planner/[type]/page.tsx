@@ -55,7 +55,7 @@ export default function PlannerPage() {
     const [nights, setNights] = useState(0);
     const [personCount, setPersonCount] = useState(1);
     const [roomCount, setRoomCount] = useState(1);
-    const [accommodationType, setAccommodationType] = useState('hotel'); // homestay, hotel, 3star
+    const [accommodationType, setAccommodationType] = useState('hotel'); // homestay, hotel, dormitory, adventure
     const [pickupTime, setPickupTime] = useState('');
     const [packages, setPackages] = useState<Package[]>([]);
     
@@ -393,14 +393,29 @@ _Generated via TravelEnd Planner_`;
                                         {/* Accommodation Sub-options */}
                                         {opt.id === 'accommodation' && selectedExpenses.includes('accommodation') && (
                                             <div className="flex flex-wrap gap-2">
-                                                {['homestay', 'hotel', '3star'].map(type => (
-                                                    <button
-                                                        key={type}
-                                                        onClick={() => setAccommodationType(type)}
-                                                        className={`px-3 py-2 rounded-xl border-2 font-bold text-xs transition-all ${accommodationType === type ? 'border-primary bg-primary text-white' : 'border-slate-100 bg-white text-slate-500 hover:border-slate-200'}`}
-                                                    >
-                                                        {type === 'homestay' ? 'Home' : type === 'hotel' ? 'Hotel' : '3 Star'}
-                                                    </button>
+                                                {['homestay', 'hotel', 'dormitory', 'adventure'].map(type => (
+                                                    <div key={type} className="flex flex-col gap-2">
+                                                        <button
+                                                            onClick={() => setAccommodationType(type)}
+                                                            className={`px-3 py-2 rounded-xl border-2 font-bold text-xs transition-all ${accommodationType.startsWith(type) ? 'border-primary bg-primary text-white' : 'border-slate-100 bg-white text-slate-500 hover:border-slate-200'}`}
+                                                        >
+                                                            {type === 'homestay' ? 'Home Stay' : type === 'hotel' ? 'Hotel' : type === 'dormitory' ? 'Dormitory' : 'Adventure'}
+                                                        </button>
+                                                        
+                                                        {type === 'hotel' && accommodationType.startsWith('hotel') && (
+                                                            <div className="flex gap-2 pl-2">
+                                                                {['3 Star', '4 Star', '5 Star'].map(star => (
+                                                                    <button
+                                                                        key={star}
+                                                                        onClick={() => setAccommodationType(`hotel-${star.toLowerCase().replace(' ', '')}`)}
+                                                                        className={`px-2 py-1 rounded-lg border font-bold text-[10px] transition-all ${accommodationType.includes(star.toLowerCase().replace(' ', '')) ? 'border-primary bg-primary/10 text-primary' : 'border-slate-100 bg-white text-slate-400'}`}
+                                                                    >
+                                                                        {star}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 ))}
                                             </div>
                                         )}

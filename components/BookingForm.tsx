@@ -10,7 +10,7 @@ export default function BookingForm() {
         name: '',
         mobile: '',
         ticketType: 'Flight', // Flight, Train, Bus
-        hotelType: '4 Star', // 5 Star, 4 Star, 3 Star
+        hotelType: 'Hotel', // Hotel, Home Stay, Dormitory, Adventure
         foodType: 'Veg', // Veg, Non-Veg
         date: '',
         from: '',
@@ -134,15 +134,35 @@ export default function BookingForm() {
                             <div className="flex flex-col gap-4">
                                 <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Hotel Category</label>
                                 <div className="flex flex-col gap-3">
-                                    {['5 Star', '4 Star', '3 Star'].map((star) => (
-                                        <button
-                                            key={star}
-                                            onClick={() => handleInputChange('hotelType', star)}
-                                            className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.hotelType === star ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
-                                        >
-                                            <span className="material-symbols-outlined">stars</span>
-                                            {star}
-                                        </button>
+                                    {['Home Stay', 'Hotel', 'Dormitory', 'Adventure'].map((category) => (
+                                        <React.Fragment key={category}>
+                                            <button
+                                                onClick={() => handleInputChange('hotelType', category)}
+                                                className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.hotelType.startsWith(category) ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
+                                            >
+                                                <span className="material-symbols-outlined">
+                                                    {category === 'Home Stay' ? 'home' : category === 'Hotel' ? 'hotel' : category === 'Dormitory' ? 'groups' : 'terrain'}
+                                                </span>
+                                                {category}
+                                            </button>
+                                            
+                                            {category === 'Hotel' && formData.hotelType.startsWith('Hotel') && (
+                                                <div className="flex flex-wrap gap-2 pl-4 py-2 border-l-2 border-slate-100 ml-4 animate-in fade-in slide-in-from-left-4 duration-300">
+                                                    {['3 Star', '4 Star', '5 Star'].map((star) => (
+                                                        <button
+                                                            key={star}
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleInputChange('hotelType', `Hotel (${star})`);
+                                                            }}
+                                                            className={`px-4 py-2 rounded-xl border-2 text-xs font-bold transition-all ${formData.hotelType.includes(star) ? 'border-primary bg-primary text-white' : 'border-slate-50 bg-white text-slate-400 hover:border-slate-200'}`}
+                                                        >
+                                                            {star}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </React.Fragment>
                                     ))}
                                 </div>
                             </div>

@@ -7,8 +7,9 @@ import TaxiBanner from "@/components/TaxiBanner";
 import CouplesBanner from "@/components/CouplesBanner";
 import PilgrimBanner from "@/components/PilgrimBanner";
 import InternationalBanner from "@/components/InternationalBanner";
+import RunnerBanner from "@/components/RunnerBanner";
 import BookingBanner from "@/components/BookingBanner";
-import { getDestinations, getPackages } from "@/lib/data";
+import { getDestinations, getAllPackages } from "@/lib/data";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const [packages] = await Promise.all([
-    getPackages()
+    getAllPackages()
   ]);
 
   const jsonLd = {
@@ -253,7 +254,7 @@ export default async function Home() {
                   <div className="space-y-4">
                     <div className="rounded-4xl overflow-hidden shadow-lg h-64">
                       <img
-                        src="./iv-2.jpg"
+                        src="/iv-2.jpg"
                         alt="College Students Trip"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
@@ -276,7 +277,7 @@ export default async function Home() {
                     </div>
                     <div className="rounded-4xl overflow-hidden shadow-lg h-64">
                       <img
-                        src="./iv-3.jpg"
+                        src="/iv-3.jpg"
                         alt="Industrial Visit"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       />
@@ -287,6 +288,9 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        {/* Runner Special Banner */}
+        <RunnerBanner imageUrl={packages.find(p => p.type === 'runner')?.image} />
 
         {/* Couples Package Banner */}
         <CouplesBanner imageUrl={packages.find(p => p.type === 'couples')?.image} />

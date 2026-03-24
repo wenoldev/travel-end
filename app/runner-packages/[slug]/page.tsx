@@ -1,8 +1,8 @@
-
 import { getAllPackages, Package as DataPackage } from "@/lib/data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import siteConfig from "@/data/siteConfig.json";
+import { Metadata } from 'next';
 
 interface ItineraryItem {
   day: number;
@@ -14,7 +14,30 @@ interface Package extends DataPackage {
   itinerary?: ItineraryItem[];
 }
 
-export default async function PackageDetailsPage({ 
+export async function generateMetadata({ 
+  params,
+  searchParams 
+}: { 
+  params: Promise<{ slug: string }>,
+  searchParams: Promise<{ id?: string }> 
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const { id } = await searchParams;
+  const packages = await getAllPackages();
+  
+  const pkg = (packages as Package[]).find(p => 
+    (id && p.id === id) || 
+    p.id === slug || 
+    p.title.toLowerCase().replace(/\s+/g, '-') === slug
+  );
+
+  return {
+    title: pkg ? `${pkg.title} | Runner Packages | TravelEnd` : 'Runner Package Details',
+    description: pkg ? `Explore the details of the ${pkg.title} runner package.` : 'Package details page.',
+  };
+}
+
+export default async function RunnerPackageDetailsPage({ 
   params,
   searchParams 
 }: { 
@@ -36,9 +59,9 @@ export default async function PackageDetailsPage({
   }
 
   return (
-    <div className="bg-white font-sans text-slate-900 antialiased">
+    <div className="bg-white font-sans text-slate-900 antialiased pt-20">
       <main className="w-full">
-        {/* Banner Section - Match Image 2 Pattern */}
+        {/* Banner Section */}
         <section className="relative w-full h-[400px] overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 transform scale-105"
@@ -48,7 +71,7 @@ export default async function PackageDetailsPage({
 
           <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 flex flex-col justify-center">
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-12 w-1.5 bg-white rounded-full" />
+              <div className="h-12 w-1.5 bg-primary rounded-full" />
               <h1 className="text-white text-5xl sm:text-6xl font-black tracking-tight drop-shadow-xl uppercase">
                 {pkg.title}
               </h1>
@@ -59,10 +82,10 @@ export default async function PackageDetailsPage({
               <Link href="/" className="hover:text-white">Home</Link>
               <span className="material-symbols-outlined text-xs">chevron_right</span>
               <Link 
-                href={pkg.type === 'couples' ? "/couples-packages" : pkg.type === 'runner' ? "/runner-packages" : "/packages"} 
+                href="/runner-packages" 
                 className="hover:text-white"
               >
-                {pkg.type === 'couples' ? "Romantic Packages" : pkg.type === 'runner' ? "Runner Packages" : "Packages"}
+                Runner Packages
               </Link>
               <span className="material-symbols-outlined text-xs">chevron_right</span>
               <span className="text-white">{pkg.title}</span>
@@ -81,7 +104,7 @@ export default async function PackageDetailsPage({
               <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
                 <div className="flex flex-col gap-4 mb-8">
                   <span className="text-primary font-black uppercase tracking-widest text-sm">Experience</span>
-                  <h2 className="text-3xl font-black italic">Package Overview</h2>
+                  <h2 className="text-3xl font-black italic">Runner Special Overview</h2>
                   <div className="h-1 w-20 bg-primary rounded-full" />
                 </div>
                 <p className="text-slate-600 text-lg leading-relaxed mb-8">
@@ -107,7 +130,7 @@ export default async function PackageDetailsPage({
                 )}
               </section>
 
-              {/* Itinerary - Day by Day Driven by JSON */}
+              {/* Itinerary */}
               {pkg.itinerary && (
                 <section className="space-y-8">
                   <div className="flex flex-col gap-4">
@@ -164,16 +187,13 @@ export default async function PackageDetailsPage({
                 </div>
 
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} package`}
+                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} runner package`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-primary hover:bg-[#6c193d] text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl shadow-primary/20 text-center block"
                 >
                   Book This Experience
                 </a>
-                <button className="w-full bg-transparent border-2 border-white/20 hover:bg-white/5 text-white py-5 rounded-2xl font-black text-lg transition-all">
-                  Request Callback
-                </button>
               </div>
             </div>
           </div>
