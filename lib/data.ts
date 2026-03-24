@@ -1,4 +1,11 @@
 
+export const slugify = (text: string) => 
+  text.toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
 export interface Destination {
   id: string;
   name: string;
@@ -36,6 +43,14 @@ import siteConfig from "@/data/siteConfig.json";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://eylza-services.vercel.app";
 
 export const cmsIds = siteConfig.cmsIds;
+
+export const categoryMapping: Record<string, string> = {
+  "Tamil Nadu": "tamilnadu",
+  "Kerala": "kerala",
+  "Karnataka": "karnataka",
+  "Tamilnadu": "tamilnadu", // Some places might use this
+  "Pilgrimage": "pilgrim"
+};
 
 async function fetchCMSContent(cmsId: string) {
   const url = `${API_BASE_URL}/api/v1/public/cms/${cmsId}`;
