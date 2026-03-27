@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import siteConfig from '@/data/siteConfig.json';
 import touristSpots from '@/data/touristSpots.json';
+import { ChevronRight, Minus, Plus, Map, Utensils, Ticket, Check, Home, Star, Bed, Send } from 'lucide-react';
 
 // Flatten tourist spots for easy searching
 const ALL_SPOTS = [
@@ -64,7 +65,7 @@ _Generated via TravelEnd College Planner_`;
                 <div className="mb-12">
                     <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold mb-4">
                         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                        <span className="material-symbols-outlined text-xs">chevron_right</span>
+                        <ChevronRight size={14} />
                         <span className="text-slate-600">IV & College Trip</span>
                     </nav>
                     <div className="flex flex-col lg:flex-row gap-8 items-start justify-between">
@@ -137,11 +138,11 @@ _Generated via TravelEnd College Planner_`;
                             <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Approximate Strength</label>
                             <div className="flex items-center gap-4">
                                 <button onClick={() => setPersonCount(Math.max(1, personCount - 5))} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                    <span className="material-symbols-outlined">remove</span>
+                                    <Minus size={20} />
                                 </button>
                                 <span className="text-2xl font-black text-slate-900 w-12 text-center">{personCount}</span>
                                 <button onClick={() => setPersonCount(personCount + 5)} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                    <span className="material-symbols-outlined">add</span>
+                                    <Plus size={20} />
                                 </button>
                             </div>
                         </div>
@@ -149,11 +150,11 @@ _Generated via TravelEnd College Planner_`;
                             <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Duration (Days)</label>
                             <div className="flex items-center gap-4">
                                 <button onClick={() => setDays(Math.max(1, days - 1))} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                    <span className="material-symbols-outlined">remove</span>
+                                    <Minus size={20} />
                                 </button>
                                 <span className="text-2xl font-black text-slate-900 w-8 text-center">{days}</span>
                                 <button onClick={() => setDays(days + 1)} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                    <span className="material-symbols-outlined">add</span>
+                                    <Plus size={20} />
                                 </button>
                             </div>
                         </div>
@@ -191,7 +192,7 @@ _Generated via TravelEnd College Planner_`;
                                                 }}
                                                 className="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors font-bold text-slate-700 flex items-center gap-3"
                                             >
-                                                <span className="material-symbols-outlined text-slate-400 text-lg">map</span>
+                                                <Map size={18} className="text-slate-400" />
                                                 <div className="flex flex-col overflow-hidden">
                                                     <span className="truncate">{item}</span>
                                                     {ALL_SPOTS.find(s => s.name === item)?.district && (
@@ -215,11 +216,11 @@ _Generated via TravelEnd College Planner_`;
                                     className={`w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${includeFood ? 'border-primary bg-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
                                 >
                                     <div className="flex items-center gap-3 font-bold text-slate-700">
-                                        <span className="material-symbols-outlined text-primary">restaurant</span>
+                                        <Utensils size={20} className="text-primary" />
                                         Include Food
                                     </div>
                                     <div className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${includeFood ? 'border-primary bg-primary' : 'border-slate-200'}`}>
-                                        {includeFood && <span className="material-symbols-outlined text-white text-[16px] font-bold">check</span>}
+                                        {includeFood && <Check size={14} className="text-white font-bold" />}
                                     </div>
                                 </button>
                                 <button 
@@ -227,11 +228,11 @@ _Generated via TravelEnd College Planner_`;
                                     className={`w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${includeTickets ? 'border-primary bg-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
                                 >
                                     <div className="flex items-center gap-3 font-bold text-slate-700">
-                                        <span className="material-symbols-outlined text-primary">confirmation_number</span>
+                                        <Ticket size={20} className="text-primary" />
                                         Entry Tickets
                                     </div>
                                     <div className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${includeTickets ? 'border-primary bg-primary' : 'border-slate-200'}`}>
-                                        {includeTickets && <span className="material-symbols-outlined text-white text-[16px] font-bold">check</span>}
+                                        {includeTickets && <Check size={14} className="text-white font-bold" />}
                                     </div>
                                 </button>
                             </div>
@@ -246,9 +247,7 @@ _Generated via TravelEnd College Planner_`;
                                         onClick={() => setAccommodation(type)}
                                         className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${accommodation === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                                     >
-                                        <span className="material-symbols-outlined">
-                                            {type === 'homestay' ? 'home' : type === '3-star' ? 'stars' : 'hotel'}
-                                        </span>
+                                        {type === 'homestay' ? <Home size={20} /> : type === '3-star' ? <Star size={20} /> : <Bed size={20} />}
                                         <span className="capitalize">{type === '3-star' ? '3-Star Hotel' : type === 'hotel' ? 'Standard Hotel' : 'Home Stay'}</span>
                                     </button>
                                 ))}
@@ -261,7 +260,7 @@ _Generated via TravelEnd College Planner_`;
                         disabled={!name || !mobile || !institution || !destination}
                         className="w-full bg-primary hover:bg-[#6c193d] disabled:opacity-50 disabled:cursor-not-allowed text-white min-h-16 py-4 rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 mt-8"
                     >
-                        <span className="material-symbols-outlined shrink-0">send</span>
+                        <Send size={24} />
                         <span className="text-center">Get Custom Quote via WhatsApp</span>
                     </button>
                     

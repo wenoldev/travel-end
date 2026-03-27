@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import siteConfig from '@/data/siteConfig.json';
+import { Ticket, Hotel, Home, Users, Mountain, Utensils, Minus, Plus, CalendarCheck } from 'lucide-react';
 
 export default function BookingForm() {
     const [bookingType, setBookingType] = useState('ticket'); // ticket, hotel
@@ -83,9 +84,7 @@ export default function BookingForm() {
                             onClick={() => setBookingType(type)}
                             className={`flex-1 py-4 rounded-2xl border-2 flex items-center justify-center gap-2 font-bold transition-all ${bookingType === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                         >
-                            <span className="material-symbols-outlined">
-                                {type === 'ticket' ? 'confirmation_number' : 'hotel'}
-                            </span>
+                            {type === 'ticket' ? <Ticket size={20} /> : <Hotel size={20} />}
                             {type === 'ticket' ? 'Tickets' : 'Hotels'}
                         </button>
                     ))}
@@ -140,9 +139,7 @@ export default function BookingForm() {
                                                 onClick={() => handleInputChange('hotelType', category)}
                                                 className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.hotelType.startsWith(category) ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                                             >
-                                                <span className="material-symbols-outlined">
-                                                    {category === 'Home Stay' ? 'home' : category === 'Hotel' ? 'hotel' : category === 'Dormitory' ? 'groups' : 'terrain'}
-                                                </span>
+                                                {category === 'Home Stay' ? <Home size={20} /> : category === 'Hotel' ? <Hotel size={20} /> : category === 'Dormitory' ? <Users size={20} /> : <Mountain size={20} />}
                                                 {category}
                                             </button>
                                             
@@ -175,7 +172,7 @@ export default function BookingForm() {
                                             onClick={() => handleInputChange('foodType', food)}
                                             className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.foodType === food ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                                         >
-                                            <span className="material-symbols-outlined">restaurant</span>
+                                            <Utensils size={20} />
                                             {food}
                                         </button>
                                     ))}
@@ -223,11 +220,11 @@ export default function BookingForm() {
                     <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">How many Persons?</label>
                     <div className="flex items-center gap-4">
                         <button onClick={() => handleInputChange('passengers', Math.max(1, formData.passengers - 1))} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                            <span className="material-symbols-outlined">remove</span>
+                            <Minus size={20} />
                         </button>
                         <span className="text-2xl font-black text-slate-900 w-12 text-center">{formData.passengers}</span>
                         <button onClick={() => handleInputChange('passengers', formData.passengers + 1)} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                            <span className="material-symbols-outlined">add</span>
+                            <Plus size={20} />
                         </button>
                     </div>
                 </div>
@@ -238,7 +235,7 @@ export default function BookingForm() {
                 disabled={!isFormValid}
                 className="w-full bg-primary hover:bg-[#6c193d] disabled:opacity-50 disabled:cursor-not-allowed text-white min-h-16 py-4 rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 mt-8"
             >
-                <span className="material-symbols-outlined shrink-0">book_online</span>
+                <CalendarCheck size={24} className="shrink-0" />
                 <span className="text-center">Confirm Booking via WhatsApp</span>
             </button>
         </div>

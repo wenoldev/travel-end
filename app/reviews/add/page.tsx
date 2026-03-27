@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, User, Camera, Star, X, ImagePlus, Loader2, Send, CheckCircle2 } from 'lucide-react';
 
 export default function AddReviewPage() {
     const [name, setName] = useState('');
@@ -141,7 +142,7 @@ export default function AddReviewPage() {
                             href="/"
                             className="inline-flex items-center gap-2 text-slate-500 hover:text-primary font-bold mb-8 transition-colors group"
                         >
-                            <span className="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+                            <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
                             Back to Home
                         </Link>
                         <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4 text-balance">
@@ -162,7 +163,7 @@ export default function AddReviewPage() {
                                         {profilePhoto ? (
                                             <Image src={profilePhoto.preview} alt="Profile" fill className="object-cover" />
                                         ) : (
-                                            <span className="material-symbols-outlined text-4xl text-slate-300">person</span>
+                                            <User size={40} className="text-slate-300" />
                                         )}
                                         <input
                                             type="file"
@@ -172,7 +173,7 @@ export default function AddReviewPage() {
                                         />
                                     </div>
                                     <div className="absolute -bottom-2 -right-2 size-10 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg pointer-events-none transition-transform group-hover:scale-110">
-                                        <span className="material-symbols-outlined text-xl">camera_alt</span>
+                                        <Camera size={20} />
                                     </div>
                                 </div>
                                 <div className="flex flex-col text-center md:text-left">
@@ -253,17 +254,13 @@ export default function AddReviewPage() {
                                                 onMouseLeave={() => setHoveredRating(0)}
                                                 className="focus:outline-none"
                                             >
-                                                <span
-                                                    className={`material-symbols-outlined text-4xl transition-colors duration-200 ${star <= (hoveredRating || rating)
-                                                        ? 'text-yellow-400 fill-current'
+                                                <Star
+                                                    size={36}
+                                                    className={`transition-colors duration-200 ${star <= (hoveredRating || rating)
+                                                        ? 'text-yellow-400 fill-yellow-400'
                                                         : 'text-slate-300'
                                                         }`}
-                                                    style={{
-                                                        fontVariationSettings: star <= (hoveredRating || rating) ? "'FILL' 1" : "'FILL' 0"
-                                                    }}
-                                                >
-                                                    star
-                                                </span>
+                                                />
                                             </motion.button>
                                         ))}
                                         <span className="ml-4 flex items-center text-lg font-black text-slate-900 min-w-[3ch]">
@@ -301,12 +298,12 @@ export default function AddReviewPage() {
                                                 onClick={() => setPlacePhotos(prev => prev.filter((_, i) => i !== idx))}
                                                 className="absolute top-2 right-2 size-8 bg-red-500 text-white rounded-lg flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors z-20"
                                             >
-                                                <span className="material-symbols-outlined text-lg">close</span>
+                                                <X size={18} />
                                             </button>
                                         </div>
                                     ))}
                                     <div className="aspect-square rounded-2xl bg-slate-50 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center relative group transition-colors hover:border-primary hover:bg-primary/5 cursor-pointer overflow-hidden">
-                                        <span className="material-symbols-outlined text-3xl text-slate-300 group-hover:text-primary transition-colors">add_photo_alternate</span>
+                                        <ImagePlus size={30} className="text-slate-300 group-hover:text-primary transition-colors" />
                                         <span className="text-[10px] font-black uppercase text-slate-400 mt-2 group-hover:text-primary transition-colors tracking-widest">Add Photo</span>
                                         <input
                                             type="file"
@@ -327,12 +324,12 @@ export default function AddReviewPage() {
                             >
                                 {isSubmitting ? (
                                     <>
-                                        <span className="material-symbols-outlined animate-spin">sync</span>
+                                        <Loader2 size={24} className="animate-spin" />
                                         Submitting...
                                     </>
                                 ) : (
                                     <>
-                                        <span className="material-symbols-outlined">send</span>
+                                        <Send size={24} />
                                         Post My Review
                                     </>
                                 )}
@@ -362,7 +359,7 @@ export default function AddReviewPage() {
                             <div className="absolute top-0 left-0 w-full h-2 bg-primary" />
                             <div className="mb-6 flex justify-center">
                                 <div className="size-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 shadow-inner">
-                                    <span className="material-symbols-outlined text-4xl font-bold">check_circle</span>
+                                    <CheckCircle2 size={40} className="font-bold" />
                                 </div>
                             </div>
                             <h3 className="text-3xl font-black text-slate-900 mb-4 italic">Thank You!</h3>

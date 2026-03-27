@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import reviewsData from "@/data/reviews.json";
 import Link from 'next/link';
+import { Star, CheckCircle2, MapPin, ArrowRight, MessageSquarePlus } from 'lucide-react';
 
 interface Review {
     id: string | number;
@@ -186,16 +187,18 @@ const Reviews = () => {
                             className="flex flex-col bg-white p-6 sm:p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         >
                             <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-0.5 text-yellow-400">
+                                 <div className="flex items-center gap-0.5 text-yellow-400">
                                     {[...Array(5)].map((_, i) => (
-                                        <span key={i} className={`material-symbols-outlined text-xl ${i < review.rating ? 'fill-current' : 'text-slate-200'}`} style={{ fontVariationSettings: i < review.rating ? "'FILL' 1" : "'FILL' 0" }}>
-                                            star
-                                        </span>
+                                        <Star 
+                                            key={i} 
+                                            size={20} 
+                                            className={`${i < review.rating ? 'fill-current' : 'text-slate-200'}`} 
+                                        />
                                     ))}
                                 </div>
                                 {review.is_verified && (
-                                    <div className="flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-green-100">
-                                        <span className="material-symbols-outlined text-sm font-bold">verified</span>
+                                     <div className="flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-green-100">
+                                        <CheckCircle2 size={14} className="font-bold" />
                                         Verified Booking
                                     </div>
                                 )}
@@ -209,7 +212,7 @@ const Reviews = () => {
                             {(review.visited_place || review.service_type || review.trip_type) && (
                                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6">
                                     <div className="flex items-center gap-1.5 text-slate-400 group">
-                                        <span className="material-symbols-outlined text-lg">location_on</span>
+                                        <MapPin size={18} />
                                         <span className="text-sm font-bold text-slate-600">
                                             {[review.visited_place, review.service_type, review.trip_type].filter(Boolean).join(' · ')}
                                         </span>
@@ -266,7 +269,7 @@ const Reviews = () => {
                         className="px-8 py-3.5 sm:px-10 sm:py-4 bg-white border-2 border-primary/20 text-primary rounded-2xl font-black text-base sm:text-lg hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/5 flex items-center gap-3 group"
                     >
                         View All Reviews
-                        <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
 
@@ -280,7 +283,7 @@ const Reviews = () => {
                         href="/reviews/add"
                         className="px-8 py-4 sm:px-10 sm:py-5 bg-primary text-white rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/20 flex items-center gap-3 w-full md:w-auto justify-center"
                     >
-                        <span className="material-symbols-outlined">add_comment</span>
+                        <MessageSquarePlus size={24} />
                         Add Your Review
                     </Link>
                 </div>
@@ -290,9 +293,9 @@ const Reviews = () => {
                     <div className="flex items-center gap-4 bg-white px-8 py-4 rounded-2xl shadow-lg border border-slate-100">
                         <div className="flex items-center gap-1">
                             <span className="text-2xl font-black text-slate-900">4.9/5</span>
-                            <div className="flex text-primary">
+                             <div className="flex text-primary">
                                 {[...Array(5)].map((_, i) => (
-                                    <span key={i} className="material-symbols-outlined text-sm">star</span>
+                                    <Star key={i} size={14} fill="currentColor" />
                                 ))}
                             </div>
                         </div>

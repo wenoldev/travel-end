@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import siteConfig from "@/data/siteConfig.json";
+import { ChevronRight, Landmark, Compass, CheckCircle2, Phone, Mail, ShieldCheck, Bed, Car } from 'lucide-react';
 
 interface DestinationViewProps {
     destination: any;
@@ -36,11 +37,11 @@ export default function DestinationView({ destination, theme = 'default', breadc
 
                             {/* Breadcrumbs */}
                             <nav className="flex items-center gap-3 text-white/90 text-[10px] sm:text-xs font-black bg-white/10 backdrop-blur-xl w-fit px-8 py-4 rounded-4xl border border-white/20 uppercase tracking-widest shadow-2xl transition-all hover:bg-white/20">
-                                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                                <span className="material-symbols-outlined text-[10px] opacity-40">chevron_right</span>
-                                <Link href={breadcrumbParentHref} className="hover:text-primary transition-colors">{breadcrumbParent}</Link>
-                                <span className="material-symbols-outlined text-[10px] opacity-40">chevron_right</span>
-                                <span className="text-white/60">{destination.name}</span>
+                                 <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                                 <ChevronRight size={10} className="opacity-40" />
+                                 <Link href={breadcrumbParentHref} className="hover:text-primary transition-colors">{breadcrumbParent}</Link>
+                                 <ChevronRight size={10} className="opacity-40" />
+                                 <span className="text-white/60">{destination.name}</span>
                             </nav>
                         </div>
                     </div>
@@ -53,10 +54,10 @@ export default function DestinationView({ destination, theme = 'default', breadc
                         {/* Left Column - Details */}
                         <div className="lg:col-span-7 flex flex-col gap-16">
                             <div className="flex flex-col gap-8">
-                                <div className="flex items-center gap-3 text-primary">
-                                    <span className="material-symbols-outlined text-3xl">{isSpiritual ? 'temple_hindu' : 'explore'}</span>
-                                    <span className="font-black uppercase tracking-[0.2em] text-sm">{isSpiritual ? 'Divine Experience' : destination.category}</span>
-                                </div>
+                                 <div className="flex items-center gap-3 text-primary">
+                                     {isSpiritual ? <Landmark size={30} /> : <Compass size={30} />}
+                                     <span className="font-black uppercase tracking-[0.2em] text-sm">{isSpiritual ? 'Divine Experience' : destination.category}</span>
+                                 </div>
                                 <h2 className="text-slate-900 text-4xl sm:text-5xl font-black">{isSpiritual ? `Spiritual Essence of ${destination.name}` : `About ${destination.name}`}</h2>
                                 <div className="h-2 w-24 bg-primary rounded-full shadow-sm" />
                                 <p className="text-slate-700 text-xl sm:text-2xl leading-relaxed font-bold italic">
@@ -71,9 +72,9 @@ export default function DestinationView({ destination, theme = 'default', breadc
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                                 {(destination.highlights || []).map((highlight: string, idx: number) => (
                                     <div key={idx} className="bg-slate-50 p-8 rounded-4xl border border-slate-100 flex flex-col items-center text-center gap-6 group hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                                        <div className="size-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500">
-                                            <span className="material-symbols-outlined text-3xl">verified</span>
-                                        </div>
+                                         <div className="size-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500">
+                                             <CheckCircle2 size={30} />
+                                         </div>
                                         <span className="font-black text-slate-800 text-sm uppercase tracking-wider">{highlight}</span>
                                     </div>
                                 ))}
@@ -112,18 +113,18 @@ export default function DestinationView({ destination, theme = 'default', breadc
                                     </div>
                                     <div className="flex flex-col gap-6">
                                         <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-4xl hover:bg-white hover:shadow-md transition-all">
-                                            <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
-                                                <span className="material-symbols-outlined text-3xl">call</span>
-                                            </div>
+                                             <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
+                                                 <Phone size={28} />
+                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Speak to Expert</span>
                                                 <span className="text-xl font-black text-slate-900">{siteConfig.contact.phone}</span>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-5 p-6 bg-slate-50 border border-slate-100 rounded-4xl hover:bg-white hover:shadow-md transition-all">
-                                            <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
-                                                <span className="material-symbols-outlined text-3xl">mail</span>
-                                            </div>
+                                             <div className="size-14 rounded-2xl bg-white flex items-center justify-center text-primary shadow-sm">
+                                                 <Mail size={28} />
+                                             </div>
                                             <div className="flex flex-col">
                                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email Support</span>
                                                 <span className="text-lg font-black text-slate-900 truncate">{siteConfig.contact.email}</span>
@@ -151,10 +152,10 @@ export default function DestinationView({ destination, theme = 'default', breadc
                                                 { icon: 'hotel', text: 'Premium Accommodations' },
                                                 { icon: 'directions_car', text: 'Safe & Clean Vehicles' }
                                             ].map((perk, i) => (
-                                                <li key={i} className="flex items-center gap-3 text-white/70 font-medium">
-                                                    <span className="material-symbols-outlined text-primary text-xl">{perk.icon}</span>
-                                                    {perk.text}
-                                                </li>
+                                                 <li key={i} className="flex items-center gap-3 text-white/70 font-medium">
+                                                     {perk.icon === 'verified_user' ? <ShieldCheck size={20} className="text-primary" /> : perk.icon === 'hotel' ? <Bed size={20} className="text-primary" /> : <Car size={20} className="text-primary" />}
+                                                     {perk.text}
+                                                 </li>
                                             ))}
                                         </ul>
                                     </div>

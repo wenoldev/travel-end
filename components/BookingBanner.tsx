@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Ticket } from 'lucide-react';
 
 export default function BookingBanner() {
     return (
@@ -55,7 +56,7 @@ export default function BookingBanner() {
                                     className="inline-flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/20 group/btn"
                                 >
                                     <span>Book Now</span>
-                                    <span className="material-symbols-outlined transition-transform group-hover/btn:translate-x-1 text-xl sm:text-2xl">confirmation_number</span>
+                                    <Ticket size={24} className="transition-transform group-hover/btn:translate-x-1" />
                                 </Link>
                                 <Link
                                     href="/taxi-tariff"

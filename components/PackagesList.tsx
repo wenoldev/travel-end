@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from 'framer-motion';
+import { MapPin, Clock, ChevronsRight, Frown } from 'lucide-react';
 
 interface PackagesListProps {
   packages: any[];
@@ -61,7 +62,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
                   <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
                      <h3 className="text-2xl font-black mb-1 drop-shadow-md">{pkg.title}</h3>
                     <div className="flex items-center gap-2 text-white/90 text-sm font-bold">
-                      <span className="material-symbols-outlined text-sm">location_on</span>
+                      <MapPin size={14} />
                       {pkg.subtitle}
                     </div>
                   </div>
@@ -74,7 +75,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
                     </div>
                     <div className="text-right flex flex-col items-end">
                       <div className="flex items-center gap-1 text-slate-700 font-bold mb-1">
-                        <span className="material-symbols-outlined text-lg">schedule</span>
+                        <Clock size={18} />
                         {pkg.duration}
                       </div>
                       <span className="text-xs text-slate-400">{pkg.accommodation}</span>
@@ -85,7 +86,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
                     className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2"
                   >
                     View Details
-                    <span className="material-symbols-outlined text-lg">double_arrow</span>
+                    <ChevronsRight size={18} />
                   </Link>
                 </div>
               </div>
@@ -94,7 +95,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
 
           {packages.length === 0 && (
             <div className="flex flex-col items-center justify-center py-20 text-center">
-              <span className="material-symbols-outlined text-6xl text-slate-200 mb-4">sentiment_dissatisfied</span>
+              <Frown size={60} className="text-slate-200 mb-4" />
               <h3 className="text-xl font-bold text-slate-900">No packages found</h3>
               <p className="text-slate-500">We're currently updating our {type} collection.</p>
             </div>

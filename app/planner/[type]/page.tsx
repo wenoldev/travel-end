@@ -8,6 +8,7 @@ import siteConfig from '@/data/siteConfig.json';
 import tripPlanner from '@/data/tripPlanner.json';
 import touristSpots from '@/data/touristSpots.json';
 import { getPackages, Package } from '@/lib/data';
+import { ChevronRight, MapPin, Map, Plus, X, Minus, Check, Send } from 'lucide-react';
 
 // --- Types & Data ---
 
@@ -158,7 +159,7 @@ _Generated via TravelEnd Planner_`;
                     <div className="max-w-2xl">
                         <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold mb-4">
                             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                            <span className="material-symbols-outlined text-xs">chevron_right</span>
+                            <ChevronRight size={14} />
                             <span className="text-slate-600">Trip Planner</span>
                         </nav>
                         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
@@ -220,7 +221,7 @@ _Generated via TravelEnd Planner_`;
                                                         }}
                                                         className="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors font-bold text-slate-700 flex items-center gap-3"
                                                     >
-                                                        <span className="material-symbols-outlined text-slate-400 text-lg">location_on</span>
+                                                        <MapPin size={18} className="text-slate-400" />
                                                         <div className="flex flex-col overflow-hidden">
                                                             <span className="truncate">{city}</span>
                                                             {ALL_SPOTS.find(s => s.name === city)?.district && (
@@ -273,7 +274,7 @@ _Generated via TravelEnd Planner_`;
                                                             onClick={() => addDestination(item)}
                                                             className="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors font-bold text-slate-700 flex items-center gap-3"
                                                         >
-                                                            <span className="material-symbols-outlined text-slate-400 text-lg">map</span>
+                                                            <Map size={18} className="text-slate-400" />
                                                             <div className="flex flex-col overflow-hidden">
                                                                 <span className="truncate">{item}</span>
                                                                 {ALL_SPOTS.find(s => s.name === item)?.district && (
@@ -287,7 +288,7 @@ _Generated via TravelEnd Planner_`;
                                                         onClick={() => addDestination(destinationInput.trim())}
                                                         className="w-full text-left px-4 py-3 rounded-xl hover:bg-primary/10 transition-colors font-bold text-primary flex items-center gap-3 border-t border-slate-50 mt-1"
                                                     >
-                                                        <span className="material-symbols-outlined text-lg">add</span>
+                                                        <Plus size={18} />
                                                         Add "{destinationInput}"
                                                     </button>
                                                 )}
@@ -304,7 +305,9 @@ _Generated via TravelEnd Planner_`;
                                 {selectedDestinations.map((name) => (
                                     <div key={name} className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold">
                                         {name}
-                                        <button onClick={() => removeDestination(name)} className="material-symbols-outlined text-sm hover:text-red-500 transition-colors">close</button>
+                                        <button onClick={() => removeDestination(name)} className="hover:text-red-500 transition-colors">
+                                            <X size={14} />
+                                        </button>
                                     </div>
                                 ))}
                             </div>
@@ -336,11 +339,11 @@ _Generated via TravelEnd Planner_`;
                                         <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Persons</label>
                                         <div className="flex items-center gap-3">
                                             <button onClick={() => setPersonCount(Math.max(1, personCount - 1))} className="size-10 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                                <span className="material-symbols-outlined text-sm">remove</span>
+                                                <Minus size={16} />
                                             </button>
                                             <span className="text-xl font-black text-slate-900 w-6 text-center">{personCount}</span>
                                             <button onClick={() => setPersonCount(personCount + 1)} className="size-10 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                                <span className="material-symbols-outlined text-sm">add</span>
+                                                <Plus size={16} />
                                             </button>
                                         </div>
                                     </div>
@@ -348,11 +351,11 @@ _Generated via TravelEnd Planner_`;
                                         <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Days</label>
                                         <div className="flex items-center gap-3">
                                             <button onClick={() => setDays(Math.max(1, days - 1))} className="size-10 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                                <span className="material-symbols-outlined text-sm">remove</span>
+                                                <Minus size={16} />
                                             </button>
                                             <span className="text-xl font-black text-slate-900 w-6 text-center">{days}</span>
                                             <button onClick={() => setDays(days + 1)} className="size-10 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                                                <span className="material-symbols-outlined text-sm">add</span>
+                                                <Plus size={16} />
                                             </button>
                                         </div>
                                     </div>
@@ -382,7 +385,7 @@ _Generated via TravelEnd Planner_`;
                                             />
                                             <div className={`mt-0.5 size-6 rounded-md border-2 flex items-center justify-center transition-all ${selectedExpenses.includes(opt.id) ? 'bg-primary border-primary text-white' : 'bg-white border-slate-200'
                                                 }`}>
-                                                {selectedExpenses.includes(opt.id) && <span className="material-symbols-outlined text-lg font-black">check</span>}
+                                                {selectedExpenses.includes(opt.id) && <Check size={16} className="font-bold" />}
                                             </div>
                                             <div className="flex-grow">
                                                 <span className="font-bold text-slate-800 block">{opt.label}</span>
@@ -432,7 +435,7 @@ _Generated via TravelEnd Planner_`;
                             disabled={selectedDestinations.length === 0}
                             className="w-full max-w-lg bg-primary hover:bg-[#6c193d] disabled:opacity-50 disabled:cursor-not-allowed text-white min-h-16 py-4 rounded-[2rem] font-black text-base sm:text-lg transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3"
                         >
-                            <span className="material-symbols-outlined shrink-0">send</span>
+                            <Send size={24} />
                             <span className="text-center">Request Pricing via WhatsApp</span>
                         </button>
                         <p className="text-slate-400 text-sm font-medium text-center">

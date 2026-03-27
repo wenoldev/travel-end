@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import reviewsData from "@/data/reviews.json";
 import { motion } from 'framer-motion';
+import { ArrowLeft, Star, CheckCircle2, MapPin, MessageSquarePlus } from 'lucide-react';
 
 interface Review {
     id: string | number;
@@ -105,7 +106,7 @@ export default function AllReviewsPage() {
                             href="/"
                             className="inline-flex items-center gap-2 text-slate-500 hover:text-primary font-bold mb-8 transition-colors group"
                         >
-                            <span className="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+                            <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
                             Back to Home
                         </Link>
                         <h1 className="text-slate-900 text-4xl sm:text-6xl font-black leading-tight tracking-tight mb-4 text-balance">
@@ -136,14 +137,16 @@ export default function AllReviewsPage() {
                                     <div className="flex items-center justify-between mb-6">
                                         <div className="flex items-center gap-0.5 text-yellow-400">
                                             {[...Array(5)].map((_, i) => (
-                                                <span key={i} className={`material-symbols-outlined text-xl ${i < review.rating ? 'fill-current' : 'text-slate-200'}`} style={{ fontVariationSettings: i < review.rating ? "'FILL' 1" : "'FILL' 0" }}>
-                                                    star
-                                                </span>
+                                                <Star
+                                                    key={i}
+                                                    size={20}
+                                                    className={i < review.rating ? 'fill-yellow-400' : 'text-slate-200'}
+                                                />
                                             ))}
                                         </div>
                                         {review.is_verified && (
                                             <div className="flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-green-100">
-                                                <span className="material-symbols-outlined text-sm font-bold">verified</span>
+                                                <CheckCircle2 size={14} className="font-bold" />
                                                 Verified Booking
                                             </div>
                                         )}
@@ -158,7 +161,7 @@ export default function AllReviewsPage() {
                                     {(review.visited_place || review.service_type || review.trip_type) && (
                                         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6">
                                             <div className="flex items-center gap-1.5 text-slate-400 group">
-                                                <span className="material-symbols-outlined text-lg">location_on</span>
+                                                <MapPin size={18} />
                                                 <span className="text-sm font-bold text-slate-600">
                                                     {[review.visited_place, review.service_type, review.trip_type].filter(Boolean).join(' · ')}
                                                 </span>
@@ -223,7 +226,7 @@ export default function AllReviewsPage() {
                                 href="/reviews/add"
                                 className="px-8 py-4 sm:px-10 sm:py-5 bg-white text-primary rounded-2xl font-black text-lg sm:text-xl hover:scale-105 transition-transform shadow-xl w-full sm:w-auto flex items-center justify-center gap-3"
                             >
-                                <span className="material-symbols-outlined">add_comment</span>
+                                <MessageSquarePlus size={24} />
                                 Share Your Experience
                             </Link>
                             <Link

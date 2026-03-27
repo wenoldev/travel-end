@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import siteConfig from "@/data/siteConfig.json";
 import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Phone, Mail, Clock, Loader2, Send, CheckCircle2 } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -104,7 +105,7 @@ export default function ContactPage() {
                     {/* Address Card */}
                     <div className="flex gap-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span className="material-symbols-outlined">location_on</span>
+                        <MapPin size={20} />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 dark:text-white">Visit Us</h3>
@@ -114,7 +115,7 @@ export default function ContactPage() {
                     {/* Phone Card */}
                     <div className="flex gap-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span className="material-symbols-outlined">call</span>
+                        <Phone size={20} />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 dark:text-white">Call Us</h3>
@@ -127,7 +128,7 @@ export default function ContactPage() {
                     {/* Email Card */}
                     <div className="flex gap-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span className="material-symbols-outlined">mail</span>
+                        <Mail size={20} />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 dark:text-white">Email Us</h3>
@@ -210,7 +211,7 @@ export default function ContactPage() {
                     </label>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
                       <div className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-[18px]">schedule</span>
+                        <Clock size={18} />
                         <span>We usually reply within 2 hours</span>
                       </div>
                       <button
@@ -219,11 +220,11 @@ export default function ContactPage() {
                         type="submit"
                       >
                         {isSubmitting ? (
-                          <span className="material-symbols-outlined animate-spin">sync</span>
+                          <Loader2 size={18} className="animate-spin" />
                         ) : (
                           <>
                             Send Message
-                            <span className="material-symbols-outlined text-[18px]">send</span>
+                            <Send size={18} />
                           </>
                         )}
                       </button>
@@ -247,7 +248,7 @@ export default function ContactPage() {
               className="grayscale-[0.5] hover:grayscale-0 transition-all duration-700"
             ></iframe>
             <div className="absolute bottom-6 left-6 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 max-w-[90%] border border-slate-100">
-              <span className="material-symbols-outlined text-primary">pin_drop</span>
+              <MapPin size={18} className="text-primary" />
               <span className="text-sm font-bold text-slate-900 dark:text-white truncate">Thoothukudi, Tamil Nadu</span>
             </div>
           </div>
@@ -272,11 +273,11 @@ export default function ContactPage() {
               className="relative w-full max-w-md bg-white rounded-[2.5rem] p-8 text-center shadow-2xl border border-slate-100 overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-primary" />
-              <div className="mb-6 flex justify-center">
-                <div className="size-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 shadow-inner">
-                  <span className="material-symbols-outlined text-4xl font-bold">check_circle</span>
+                <div className="mb-6 flex justify-center">
+                  <div className="size-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 shadow-inner">
+                    <CheckCircle2 size={40} className="font-bold" />
+                  </div>
                 </div>
-              </div>
               <h3 className="text-3xl font-black text-slate-900 mb-4 italic">Thank You!</h3>
               <p className="text-slate-600 text-lg font-medium leading-relaxed mb-8">
                 Your query has been received. Our travel experts will get back to you shortly.

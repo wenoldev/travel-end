@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
 import taxiTariff from '@/data/taxiTariff.json';
+import { ChevronRight, Info, Send } from 'lucide-react';
 
 export default function TaxiTariffClient() {
     // Form State
@@ -61,7 +62,7 @@ _Generated via TravelEnd Taxi Tariff_`;
                     <div className="max-w-2xl">
                         <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold mb-4">
                             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                            <span className="material-symbols-outlined text-xs">chevron_right</span>
+                            <ChevronRight size={14} />
                             <span className="text-slate-600">Taxi Tariff</span>
                         </nav>
                         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
@@ -135,7 +136,7 @@ _Generated via TravelEnd Taxi Tariff_`;
 
                         <div className="mt-8 bg-primary/5 rounded-[2.5rem] p-8 border border-primary/10">
                             <div className="flex gap-4">
-                                <span className="material-symbols-outlined text-primary text-3xl">info</span>
+                                <Info size={30} className="text-primary" />
                                 <div>
                                     <h4 className="font-bold text-slate-900">Important Note</h4>
                                     <p className="text-sm text-slate-600 mt-1">
@@ -250,7 +251,7 @@ _Generated via TravelEnd Taxi Tariff_`;
                                     onClick={shareToWhatsApp}
                                     className="w-full bg-primary hover:bg-orange-600 text-white h-16 rounded-2xl font-black text-lg transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 mt-4"
                                 >
-                                    <span className="material-symbols-outlined">send</span>
+                                    <Send size={24} />
                                     Enquire on WhatsApp
                                 </button>
                             </div>

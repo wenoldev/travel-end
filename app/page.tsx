@@ -12,6 +12,7 @@ import BookingBanner from "@/components/BookingBanner";
 import { getDestinations, getAllPackages, cmsIds } from "@/lib/data";
 import { Metadata } from "next";
 import StateDestinationSection from "@/components/StateDestinationSection";
+import { MapPin, Calendar, Headset, CheckCircle2, ShieldCheck, Bus, Users, ArrowRight, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Best Travels in Thoothukudi | Cab Booking & Tour Packages",
@@ -97,7 +98,7 @@ export default async function Home() {
                   About Us
                 </div>
                 <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-                  Premium <span className="text-primary italic">Thoothukudi Travels</span> & Cab Booking
+                  Premium <span className="text-primary italic">Tamilnadu Travels</span> & Cab Booking
                 </h1>
                 <p className="text-slate-600 text-lg font-medium leading-relaxed">
                   Your trusted partner for exploring the hidden gems and heritage of South India. As the leading travel agency in Thoothukudi and Tuticorin, we specialize in creating unforgettable journeys through rich culture, spicy cuisine, and diverse landscapes.
@@ -114,14 +115,14 @@ export default async function Home() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-auto flex-[1.2]">
                 {[
-                  { icon: 'location_on', title: 'Local Expertise', desc: 'Deep native knowledge of history and culture.' },
-                  { icon: 'calendar_month', title: 'Custom Itineraries', desc: 'Tailor-made trips to suit your travel style.' },
-                  { icon: 'support_agent', title: '24/7 Support', desc: 'Always here to help you during your journey.' },
-                  { icon: 'verified', title: 'Trusted Service', desc: 'Thousands of happy travelers every year.' }
+                  { icon: <MapPin size={30} />, title: 'Local Expertise', desc: 'Deep native knowledge of history and culture.' },
+                  { icon: <Calendar size={30} />, title: 'Custom Itineraries', desc: 'Tailor-made trips to suit your travel style.' },
+                  { icon: <Headset size={30} />, title: '24/7 Support', desc: 'Always here to help you during your journey.' },
+                  { icon: <CheckCircle2 size={30} />, title: 'Trusted Service', desc: 'Thousands of happy travelers every year.' }
                 ].map((feature, idx) => (
                   <div key={idx} className="flex flex-col gap-6 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div className="size-14 rounded-2xl bg-secondary flex items-center justify-center text-primary group">
-                      <span className="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">{feature.icon}</span>
+                      <div className="group-hover:scale-110 transition-transform">{feature.icon}</div>
                     </div>
                     <div className="flex flex-col gap-2">
                       <h3 className="text-slate-900 text-xl font-bold">{feature.title}</h3>
@@ -141,23 +142,23 @@ export default async function Home() {
         <TripPlannerCards />
 
         {/* State-wise Destination Sections */}
-        <StateDestinationSection 
-          stateName="Tamil Nadu" 
+        <StateDestinationSection
+          stateName="Tamil Nadu"
           stateId="tamilnadu"
           destinations={tamilnadu}
           subtitle="From the ancient temples of Madurai to the misty hills of Kodaikanal, experience the rich heritage of the land of Tamils."
         />
 
-        <StateDestinationSection 
-          stateName="Kerala" 
+        <StateDestinationSection
+          stateName="Kerala"
           stateId="kerala"
           destinations={kerala}
           subtitle="Explore God's Own Country, where emerald backwaters meet pristine beaches and lush tea plantations of Munnar."
           reverse={true}
         />
 
-        <StateDestinationSection 
-          stateName="Karnataka" 
+        <StateDestinationSection
+          stateName="Karnataka"
           stateId="karnataka"
           destinations={karnataka}
           subtitle="A land of diverse landscapes, from the royal heritage of Mysore to the coffee-scented hills of Coorg."
@@ -177,7 +178,7 @@ export default async function Home() {
               </div>
               <Link className="text-primary font-bold text-lg hover:underline flex items-center gap-2 group" href="/packages">
                 All Destinations
-                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
@@ -198,7 +199,7 @@ export default async function Home() {
                     <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-2">
                       <h3 className="text-2xl font-black mb-1 drop-shadow-md">{pkg.title}</h3>
                       <div className="flex items-center gap-2 text-white/90 text-sm font-bold">
-                        <span className="material-symbols-outlined text-sm">location_on</span>
+                        <MapPin size={16} />
                         {pkg.subtitle}
                       </div>
                     </div>
@@ -211,7 +212,7 @@ export default async function Home() {
                       </div>
                       <div className="text-right flex flex-col items-end">
                         <div className="flex items-center gap-1 text-slate-700 font-bold mb-1">
-                          <span className="material-symbols-outlined text-lg">schedule</span>
+                          <Calendar size={20} />
                           {pkg.duration}
                         </div>
                         <span className="text-xs text-slate-400">{pkg.accommodation} included</span>
@@ -222,7 +223,7 @@ export default async function Home() {
                       className="w-full bg-secondary hover:bg-primary hover:text-white text-slate-900 py-3.5 sm:py-4 rounded-2xl font-bold transition-all text-center flex items-center justify-center gap-2 group/btn"
                     >
                       View Trip Details
-                      <span className="material-symbols-outlined text-lg transition-transform group-hover/btn:translate-x-1">double_arrow</span>
+                      <ArrowRight size={20} className="transition-transform group-hover/btn:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -248,19 +249,19 @@ export default async function Home() {
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-4 text-slate-700 font-bold">
                     <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined">verified_user</span>
+                      <ShieldCheck size={20} />
                     </div>
                     Student Safety First Priority
                   </div>
                   <div className="flex items-center gap-4 text-slate-700 font-bold">
                     <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined">directions_bus</span>
+                      <Bus size={20} />
                     </div>
                     Premium Bus & Coach Fleet
                   </div>
                   <div className="flex items-center gap-4 text-slate-700 font-bold">
                     <div className="size-10 rounded-full bg-secondary flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined">groups</span>
+                      <Users size={20} />
                     </div>
                     Tailored Packages for Departments
                   </div>
@@ -271,7 +272,7 @@ export default async function Home() {
                     className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white rounded-[2rem] font-black text-lg hover:bg-orange-600 transition-all shadow-xl shadow-primary/20 group"
                   >
                     <span>Book Your IV Trip</span>
-                    <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -343,7 +344,7 @@ export default async function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:w-auto">
                   <a href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-white text-primary rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl w-full sm:w-auto">
-                    <span className="material-symbols-outlined">call</span>
+                    <Phone size={24} />
                     Call Us Now
                   </a>
                   <Link href="/contact" className="flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-primary border-2 border-white/30 text-white rounded-2xl font-black text-base sm:text-lg hover:bg-white/10 transition-all w-full sm:w-auto">

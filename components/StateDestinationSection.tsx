@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Destination, slugify } from '@/lib/data';
+import { ArrowRight, ChevronsRight } from 'lucide-react';
 
 interface StateDestinationSectionProps {
     stateName: string;
@@ -81,7 +82,7 @@ export default function StateDestinationSection({
                                         </p>
                                         <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-4">
                                             <span>Explore Now</span>
-                                            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                            <ArrowRight size={14} />
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +98,7 @@ export default function StateDestinationSection({
                         className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 border-2 border-slate-100 rounded-[2rem] font-black text-lg hover:bg-slate-50 hover:border-primary/20 transition-all group"
                     >
                         <span>View All {stateName} Places</span>
-                        <span className="material-symbols-outlined text-primary transition-transform group-hover:translate-x-1">double_arrow</span>
+                        <ChevronsRight size={24} className="text-primary transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import InternationalTripForm from '@/components/InternationalTripForm';
+import { ChevronRight } from 'lucide-react';
 
 export default function InternationalTripPage() {
     return (
@@ -10,7 +11,7 @@ export default function InternationalTripPage() {
                 <div className="mb-12">
                     <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold mb-4">
                         <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                        <span className="material-symbols-outlined text-xs">chevron_right</span>
+                        <ChevronRight size={14} />
                         <span className="text-slate-600">International Trip</span>
                     </nav>
                     <div className="flex flex-col lg:flex-row gap-8 items-start justify-between">

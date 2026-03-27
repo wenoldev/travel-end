@@ -1,5 +1,5 @@
 
-export const slugify = (text: string) => 
+export const slugify = (text: string) =>
   text.toLowerCase()
     .trim()
     .replace(/[^\w\s-]/g, '')
@@ -31,6 +31,10 @@ export interface Package {
   tag?: string;
   type?: 'normal' | 'couples' | 'runner';
   spots?: string[];
+  cost_options?: {
+    price: string;
+    places: string[];
+  }[];
   itinerary?: {
     day: number;
     title: string;

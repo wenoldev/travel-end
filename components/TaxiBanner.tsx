@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Car, Banknote, CheckCircle2, Headset, ChevronsRight } from 'lucide-react';
 
 export default function TaxiBanner() {
     return (
@@ -19,7 +20,7 @@ export default function TaxiBanner() {
                     <div className="absolute inset-0 flex items-center px-6 sm:px-16 md:px-24">
                         <div className="max-w-2xl flex flex-col gap-4 sm:gap-6">
                             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 backdrop-blur-md text-white border border-white/20 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit">
-                                <span className="material-symbols-outlined text-sm">directions_car</span>
+                                <Car size={14} />
                                 Premium Fleet Available
                             </div>
 
@@ -34,19 +35,19 @@ export default function TaxiBanner() {
                             <div className="flex flex-wrap gap-3 sm:gap-8 items-center pt-2">
                                 <div className="flex items-center gap-2 sm:gap-3 text-white font-bold">
                                     <div className="size-8 sm:size-10 rounded-full bg-primary/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-primary">
-                                        <span className="material-symbols-outlined text-base sm:text-xl">payments</span>
+                                        <Banknote size={16} className="sm:size-5" />
                                     </div>
                                     <span className="text-[10px] sm:text-sm">Best Rates</span>
                                 </div>
                                 <div className="flex items-center gap-2 sm:gap-3 text-white font-bold">
                                     <div className="size-8 sm:size-10 rounded-full bg-primary/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-primary">
-                                        <span className="material-symbols-outlined text-base sm:text-xl">verified</span>
+                                        <CheckCircle2 size={16} className="sm:size-5" />
                                     </div>
                                     <span className="text-[10px] sm:text-sm">Verified</span>
                                 </div>
                                 <div className="flex items-center gap-2 sm:gap-3 text-white font-bold">
                                     <div className="size-8 sm:size-10 rounded-full bg-primary/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-primary">
-                                        <span className="material-symbols-outlined text-base sm:text-xl">support_agent</span>
+                                        <Headset size={16} className="sm:size-5" />
                                     </div>
                                     <span className="text-[10px] sm:text-sm">24/7 Support</span>
                                 </div>
@@ -58,7 +59,7 @@ export default function TaxiBanner() {
                                     className="inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 bg-primary text-white rounded-[2rem] font-black text-base sm:text-lg hover:bg-orange-600 transition-all shadow-xl shadow-primary/20 group/btn"
                                 >
                                     <span>View Taxi Tariff</span>
-                                    <span className="material-symbols-outlined transition-transform group-hover/btn:translate-x-1 text-xl sm:text-2xl">double_arrow</span>
+                                    <ChevronsRight size={20} className="sm:size-6 transition-transform group-hover/btn:translate-x-1" />
                                 </Link>
                                 <Link
                                     href="/contact?type=self-drive"

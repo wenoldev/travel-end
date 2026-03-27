@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Compass, Home, Map } from 'lucide-react';
 
 export default function NotFound() {
     return (
@@ -19,9 +20,7 @@ export default function NotFound() {
                     className="size-40 sm:size-64 bg-secondary/30 rounded-full flex items-center justify-center relative"
                 >
                     <div className="absolute inset-0 animate-ping bg-primary/10 rounded-full" />
-                    <span className="material-symbols-outlined text-7xl sm:text-9xl text-primary animate-bounce">
-                        explore_off
-                    </span>
+                    <Compass size={100} className="text-primary animate-bounce opacity-40" />
                 </motion.div>
 
                 {/* Text Content */}
@@ -63,14 +62,14 @@ export default function NotFound() {
                         href="/"
                         className="px-6 sm:px-10 py-4 sm:py-5 bg-primary text-white rounded-[2rem] font-black text-base sm:text-lg shadow-xl shadow-primary/25 hover:scale-105 transition-transform flex items-center justify-center gap-3"
                     >
-                        <span className="material-symbols-outlined">home</span>
+                        <Home size={24} />
                         Back to Home
                     </Link>
                     <Link
                         href="/packages"
                         className="px-6 sm:px-10 py-4 sm:py-5 bg-white border-2 border-slate-100 text-slate-900 rounded-[2rem] font-black text-base sm:text-lg hover:bg-slate-50 transition-all shadow-lg shadow-black/5 flex items-center justify-center gap-3"
                     >
-                        <span className="material-symbols-outlined">map</span>
+                        <Map size={24} />
                         Explore Packages
                     </Link>
                 </motion.div>
@@ -88,9 +87,7 @@ export default function NotFound() {
 
             {/* Rotating Compass Decoration (Bottom Right) */}
             <div className="fixed -bottom-20 -right-20 pointer-events-none opacity-5 lg:opacity-10">
-                <span className="material-symbols-outlined text-[300px] text-slate-900 animate-spin-slow">
-                    explore
-                </span>
+                <Compass size={300} className="text-slate-900 animate-spin-slow" />
             </div>
 
             <style jsx>{`

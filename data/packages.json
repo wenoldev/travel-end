@@ -16,6 +16,16 @@
         "Alagar Koyil",
         "Gandhi Memorial Museum"
       ],
+      "cost_options": [
+        {
+          "price": "2000",
+          "places": ["Meenakshi Temple Night Ceremony", "Local Food Tour", "Handicraft Market"]
+        },
+        {
+          "price": "3500",
+          "places": ["Private Heritage Walk", "Special Darshan Entry", "Traditional Lunch"]
+        }
+      ],
       "itinerary": [
         {
           "day": 1,

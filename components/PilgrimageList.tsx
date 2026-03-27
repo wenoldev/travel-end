@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Landmark, ChevronsRight, Map } from 'lucide-react';
 
 interface PilgrimageListProps {
     pilgrimagePlaces: any[];
@@ -75,7 +76,7 @@ export default function PilgrimageList({ pilgrimagePlaces }: PilgrimageListProps
 
                                     <div className="absolute top-8 left-8">
                                         <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20">
-                                            <span className="material-symbols-outlined text-white text-sm">temple_hindu</span>
+                                            <Landmark size={14} className="text-white" />
                                             <span className="text-[10px] font-black text-white uppercase tracking-widest leading-none">
                                                 {dest.category}
                                             </span>
@@ -91,10 +92,10 @@ export default function PilgrimageList({ pilgrimagePlaces }: PilgrimageListProps
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center gap-2 text-white font-black text-sm group/btn">
                                                 Explore Pilgrimage
-                                                <span className="material-symbols-outlined text-primary transition-transform group-hover/btn:translate-x-2">double_arrow</span>
+                                                <ChevronsRight size={18} className="text-primary transition-transform group-hover/btn:translate-x-2" />
                                             </div>
                                             <div className="size-12 rounded-2xl bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/20 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
-                                                <span className="material-symbols-outlined">map</span>
+                                                <Map size={24} />
                                             </div>
                                         </div>
                                     </div>

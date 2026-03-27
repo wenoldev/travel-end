@@ -4,11 +4,24 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
 import { getDestinations, cmsIds, slugify, categoryMapping } from '@/lib/data';
+import { 
+  Compass, 
+  ChevronDown, 
+  ChevronUp, 
+  ChevronsRight, 
+  ArrowRight, 
+  Heart, 
+  Headset, 
+  X, 
+  Menu, 
+  Globe 
+} from 'lucide-react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [domesticData, setDomesticData] = useState<any>({});
+  const [isDomesticOpen, setIsDomesticOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +61,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 text-slate-900 cursor-pointer">
             <div className="size-10 text-primary flex items-center justify-center">
-              <span className="material-symbols-outlined text-4xl">travel_explore</span>
+              <Compass size={36} />
             </div>
             <div className="flex flex-col">
               <h2 className="text-2xl font-black leading-none tracking-tight text-primary">TravelEnd<span className="text-slate-900">.in</span></h2>
@@ -62,65 +75,76 @@ export default function Header() {
               <Link href="/" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Home</Link>
               <Link href="/about" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">About Us</Link>
 
-          {/* Mega Menu Trigger - Domestic */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-slate-700 text-sm font-bold hover:text-primary transition-colors py-2">
-              Domestic
-              <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
-            </button>
+              {/* Mega Menu Trigger - Domestic */}
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsDomesticOpen(true)}
+                onMouseLeave={() => setIsDomesticOpen(false)}
+              >
+                <button className="flex items-center gap-1 text-slate-700 text-sm font-bold hover:text-primary transition-colors py-2 cursor-pointer">
+                  Domestic
+                  {isDomesticOpen ? (
+                    <ChevronUp size={16} className="text-primary transition-all" />
+                  ) : (
+                    <ChevronDown size={16} className="transition-all" />
+                  )}
+                </button>
 
-            <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
-              <div className="bg-primary text-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-10 w-[900px] lg:w-[1100px] grid grid-cols-4 gap-12 border border-white/10">
-                {Object.entries(categories).map(([subcat, data]) => (
-                  <div key={subcat} className="flex flex-col gap-4">
-                    <h3 className="text-xl font-black border-b border-white/20 pb-2 mb-2 tracking-tight">{subcat}</h3>
-                    {Array.isArray(data) ? (
-                      <ul className="flex flex-col gap-2.5">
-                        {data.map((place: string) => {
-                           const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
-                           const href = `/destinations/${categoryKey}/${slugify(place)}`;
-                           return (
-                            <li key={place}>
-                              <Link
-                                href={href}
-                                className="text-white/80 hover:text-white flex items-center gap-2 text-sm font-bold transition-colors group/item"
-                              >
-                                <span className="material-symbols-outlined text-xs opacity-50 group-hover/item:opacity-100 transition-opacity">double_arrow</span>
-                                {place}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    ) : (
-                      <div className="flex flex-col gap-6 h-full justify-center">
-                        <div className="size-16 rounded-2xl bg-white/20 flex items-center justify-center text-white shadow-lg backdrop-blur-sm border border-white/20">
-                          <span className="material-symbols-outlined text-4xl">{(data as any).icon}</span>
-                        </div>
-                        <div className="space-y-2">
-                          <p className="text-base text-white font-black leading-tight">
-                            Ready to explore the world?
-                          </p>
-                          <p className="text-sm text-white/60 font-medium">Get curated international tours tailored for you.</p>
-                        </div>
-                        <Link
-                          href="/international-trip"
-                          className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3.5 rounded-2xl text-xs font-black hover:bg-orange-50 transition-all w-fit shadow-xl shadow-black/20 group/cta"
-                        >
-                          <span>{(data as any).buttonText}</span>
-                          <span className="material-symbols-outlined text-sm transition-transform group-hover/cta:translate-x-1">arrow_forward</span>
-                        </Link>
+                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0`}>
+                  <div className="bg-primary text-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-10 w-[900px] lg:w-[1100px] grid grid-cols-4 gap-12 border border-white/10">
+                    {Object.entries(categories).map(([subcat, data]) => (
+                      <div key={subcat} className="flex flex-col gap-4">
+                        <h3 className="text-xl font-black border-b border-white/20 pb-2 mb-2 tracking-tight">{subcat}</h3>
+                        {Array.isArray(data) ? (
+                          <ul className="flex flex-col gap-2.5">
+                            {data.map((place: string) => {
+                               const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
+                               const href = `/destinations/${categoryKey}/${slugify(place)}`;
+                               return (
+                                <li key={place}>
+                                  <Link
+                                    href={href}
+                                    className="text-white/80 hover:text-white flex items-center gap-2 text-sm font-bold transition-colors group/item"
+                                  >
+                                    <ChevronsRight size={12} className="opacity-50 group-hover/item:opacity-100 transition-opacity" />
+                                    {place}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : (
+                          <div className="flex flex-col gap-6 h-full justify-center">
+                            <div className="size-16 rounded-2xl bg-white/20 flex items-center justify-center text-white shadow-lg backdrop-blur-sm border border-white/20">
+                              {(() => {
+                                const Icon = (data as any).icon === 'public' ? Globe : Compass;
+                                return <Icon size={36} />;
+                              })()}
+                            </div>
+                            <div className="space-y-2">
+                              <p className="text-base text-white font-black leading-tight">
+                                Ready to explore the world?
+                              </p>
+                              <p className="text-sm text-white/60 font-medium">Get curated international tours tailored for you.</p>
+                            </div>
+                            <Link
+                              href="/international-trip"
+                              className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3.5 rounded-2xl text-xs font-black hover:bg-orange-50 transition-all w-fit shadow-xl shadow-black/20 group/cta"
+                            >
+                              <span>{(data as any).buttonText}</span>
+                              <ArrowRight size={14} className="transition-transform group-hover/cta:translate-x-1" />
+                            </Link>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </div>
 
               <Link href="/packages" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Packages</Link>
               <Link href="/couples-packages" className="text-pink-500 text-sm font-bold hover:text-pink-600 transition-colors flex items-center gap-1">
-                <span className="material-symbols-outlined text-lg">favorite</span>
+                <Heart size={18} />
                 Couples Package
               </Link>
               <Link href="/contact" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">Contact Us</Link>
@@ -131,7 +155,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full h-11 px-6 bg-primary hover:bg-orange-600 transition-all text-white text-sm font-bold shadow-lg shadow-primary/20"
             >
-              <span className="material-symbols-outlined text-lg">headset_mic</span>
+              <Headset size={18} />
               <span>Enquire Now!</span>
             </a>
           </div>
@@ -140,11 +164,9 @@ export default function Header() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-900 p-2"
+              className="text-slate-900 p-2 cursor-pointer"
             >
-              <span className="material-symbols-outlined text-3xl">
-                {isMobileMenuOpen ? 'close' : 'menu'}
-              </span>
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </header>
@@ -156,7 +178,7 @@ export default function Header() {
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Home</Link>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">About Us</Link>
           <Link href="/couples-packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4 text-pink-500 flex items-center gap-2">
-            <span className="material-symbols-outlined">favorite</span>
+            <Heart size={20} />
             Couples Package
           </Link>
 
@@ -187,7 +209,10 @@ export default function Header() {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl text-xs font-bold w-fit"
                       >
-                        <span className="material-symbols-outlined text-sm">{(data as any).icon}</span>
+                         {(() => {
+                           const Icon = (data as any).icon === 'public' ? Globe : Compass;
+                           return <Icon size={14} />;
+                         })()}
                         {(data as any).buttonText}
                       </Link>
                     </div>
@@ -196,7 +221,6 @@ export default function Header() {
               ))}
             </div>
           </div>
-
 
           <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Packages</Link>
           <Link href="/college-trip" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">College Trip</Link>
@@ -209,7 +233,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-white text-lg font-bold"
           >
-            <span className="material-symbols-outlined">headset_mic</span>
+            <Headset size={24} />
             Enquire Now!
           </a>
         </div>

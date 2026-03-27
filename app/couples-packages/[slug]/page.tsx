@@ -3,6 +3,7 @@ import { getAllPackages, Package as DataPackage } from "@/lib/data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import siteConfig from "@/data/siteConfig.json";
+import { ChevronRight, MapPin, CheckCircle2, Clock, Bed } from 'lucide-react';
 
 interface ItineraryItem {
   day: number;
@@ -57,14 +58,14 @@ export default async function CouplesPackageDetailsPage({
             {/* Breadcrumbs */}
             <nav className="flex items-center gap-3 text-white/90 text-sm font-bold bg-white/10 backdrop-blur-md w-fit px-6 py-3 rounded-full border border-white/20">
               <Link href="/" className="hover:text-white">Home</Link>
-              <span className="material-symbols-outlined text-xs">chevron_right</span>
+              <ChevronRight size={14} />
               <Link 
                 href={pkg.type === 'couples' ? "/couples-packages" : "/packages"} 
                 className="hover:text-white"
               >
                 {pkg.type === 'couples' ? "Romantic Packages" : "Packages"}
               </Link>
-              <span className="material-symbols-outlined text-xs">chevron_right</span>
+              <ChevronRight size={14} />
               <span className="text-white">{pkg.title}</span>
             </nav>
           </div>
@@ -92,14 +93,52 @@ export default async function CouplesPackageDetailsPage({
                 {pkg.spots && (
                   <div className="space-y-6">
                     <h3 className="text-xl font-bold flex items-center gap-2">
-                      <span className="material-symbols-outlined text-primary">location_on</span>
+                      <MapPin size={20} className="text-primary" />
                       Spots in this tour:
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {pkg.spots.map((spot: string, i: number) => (
                         <div key={i} className="bg-secondary px-6 py-3 rounded-2xl border border-slate-100 font-bold text-slate-700 flex items-center gap-2">
-                          <span className="material-symbols-outlined text-sm">verified</span>
+                          <CheckCircle2 size={16} className="text-primary" />
                           {spot}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Cost Based Options */}
+                {pkg.cost_options && pkg.cost_options.length > 0 && (
+                  <div className="pt-10 space-y-8 border-t border-slate-100 mt-10">
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-2xl font-black italic">Select Your Package Tier</h3>
+                      <p className="text-slate-500 font-medium">Choose a package based on your budget and preferred spots.</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {pkg.cost_options.map((option, idx) => (
+                        <div key={idx} className="bg-white border-2 border-slate-100 rounded-3xl p-6 hover:border-primary/30 transition-all group">
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                              Tier {idx + 1}
+                            </div>
+                            <div className="text-right">
+                              <span className="text-slate-400 text-[10px] font-black uppercase block">Price</span>
+                              <span className="text-2xl font-black text-slate-900">₹{option.price}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Included Spots</p>
+                            <div className="flex flex-col gap-2">
+                              {option.places.map((place, pIdx) => (
+                                <div key={pIdx} className="flex items-center gap-2 text-sm font-bold text-slate-600">
+                                  <div className="size-1.5 rounded-full bg-primary" />
+                                  {place}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -148,14 +187,14 @@ export default async function CouplesPackageDetailsPage({
 
                 <div className="space-y-6">
                   <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-4">
-                    <span className="material-symbols-outlined text-primary text-3xl">schedule</span>
+                    <Clock size={32} className="text-primary" />
                     <div>
                       <p className="text-xs text-white/40 font-bold uppercase">Duration</p>
                       <p className="font-black text-white">{pkg.duration}</p>
                     </div>
                   </div>
                   <div className="p-4 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-4">
-                    <span className="material-symbols-outlined text-primary text-3xl">hotel</span>
+                    <Bed size={32} className="text-primary" />
                     <div>
                       <p className="text-xs text-white/40 font-bold uppercase">Stay</p>
                       <p className="font-black text-white">{pkg.accommodation}</p>

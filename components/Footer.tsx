@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
 import { getDestinations, cmsIds, slugify } from '@/lib/data';
+import { Compass, ChevronsRight, Phone, Mail } from 'lucide-react';
 
 export default function Footer() {
   const [kerala, setKerala] = useState<any[]>([]);
@@ -37,7 +38,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3">
               <div className="size-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="material-symbols-outlined text-3xl text-white">travel_explore</span>
+                <Compass size={30} className="text-white" />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-xl font-black text-white tracking-tight leading-none">TravelEnd<span className="text-primary italic">.in</span></h3>
@@ -70,7 +71,7 @@ export default function Footer() {
               {siteConfig.navLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
-                    <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
+                    <ChevronsRight size={10} className="opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all" />
                     {link.name}
                   </Link>
                 </li>
@@ -91,7 +92,7 @@ export default function Footer() {
                 tamilnadu.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
                     <Link href={`/destinations/tamilnadu/${slugify(dest.name)}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
-                      <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
+                      <ChevronsRight size={10} className="opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all" />
                       {dest.name}
                     </Link>
                   </li>
@@ -113,7 +114,7 @@ export default function Footer() {
                 kerala.slice(0, 8).map((dest) => (
                   <li key={dest.id}>
                     <Link href={`/destinations/kerala/${slugify(dest.name)}`} className="text-white/60 hover:text-primary text-sm font-semibold transition-colors flex items-center gap-2 group">
-                      <span className="material-symbols-outlined text-[10px] opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all">double_arrow</span>
+                      <ChevronsRight size={10} className="opacity-20 group-hover:opacity-100 group-hover:text-primary transition-all" />
                       {dest.name}
                     </Link>
                   </li>
@@ -129,7 +130,7 @@ export default function Footer() {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4 group">
                 <div className="size-11 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0 border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <span className="material-symbols-outlined text-2xl">call</span>
+                  <Phone size={24} />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-white/40 uppercase font-black tracking-widest leading-none mb-1">Call support</span>
@@ -138,7 +139,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="size-11 rounded-xl bg-white/5 flex items-center justify-center text-primary shrink-0 border border-white/10 group-hover:border-primary/30 transition-colors">
-                  <span className="material-symbols-outlined text-2xl">mail</span>
+                  <Mail size={24} />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] text-white/40 uppercase font-black tracking-widest leading-none mb-1">Email us</span>

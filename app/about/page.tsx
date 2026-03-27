@@ -1,5 +1,6 @@
 import siteConfig from "@/data/siteConfig.json";
 import Link from "next/link";
+import { PlayCircle, CheckCircle2, ShieldCheck, Landmark, IndianRupee } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -24,7 +25,7 @@ export default function AboutPage() {
                     Explore Our Packages
                   </Link>
                   <button className="flex h-12 items-center gap-2 rounded-lg border border-slate-200 bg-transparent px-6 text-base font-bold text-slate-700 hover:bg-slate-50">
-                    <span className="material-symbols-outlined text-primary">play_circle</span>
+                    <PlayCircle size={20} className="text-primary" />
                     Watch Our Story
                   </button>
                 </div>
@@ -39,7 +40,7 @@ export default function AboutPage() {
                 {/* Floating Badge */}
                 <div className="absolute -bottom-6 -left-6 hidden md:flex flex-col gap-1 rounded-xl bg-white p-6 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-2 text-primary">
-                    <span className="material-symbols-outlined text-3xl">verified</span>
+                    <CheckCircle2 size={24} />
                     <span className="text-xs font-bold uppercase tracking-wide text-slate-400">Certified</span>
                   </div>
                   <p className="text-2xl font-bold text-slate-900">#1 Agency</p>
@@ -89,7 +90,7 @@ export default function AboutPage() {
                   <div className="aspect-[3/4] overflow-hidden rounded-xl bg-slate-200 translate-y-12">
                     <div
                       className="h-full w-full bg-cover bg-center"
-                      style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYYQi3l7ewKAJu1WMld6WeiZgXK4_6w4zZWPYqon4ZvigVRZ56MiFScyA6aSf98GnvuiYmF0qW5NXqal6z3fA5stQtYTGTlUchYUp7q9vSI97bmRIEjX9sBQnhgMjlH_qMV6fBfcIkEI7PFCUXTY2QT95hsig7Kns4HBsGSb0w0bn5pYelttbJlbs3ENOdED_weUThk2a0W4zIvnnkCvq-D6nRU6dQ1Of3u4SX6QzbIuiOMWQnYF-FlrJOB36LACIjEeq5VUM0pjMB")` }}
+                      style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYYQi3l7ewKAJu1WMld6WeiZgXK_6w4zZWPYqon4ZvigVRZ56MiFScyA6aSf98GnvuiYmF0qW5NXqal6z3fA5stQtYTGTlUchYUp7q9vSI97bmRIEjX9sBQnhgMjlH_qMV6fBfcIkEI7PFCUXTY2QT95hsig7Kns4HBsGSb0w0bn5pYelttbJlbs3ENOdED_weUThk2a0W4zIvnnkCvq-D6nRU6dQ1Of3u4SX6QzbIuiOMWQnYF-FlrJOB36LACIjEeq5VUM0pjMB")` }}
                     ></div>
                   </div>
                 </div>
@@ -118,7 +119,7 @@ export default function AboutPage() {
             <div className="grid gap-8 md:grid-cols-3">
               <div className="group rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="material-symbols-outlined text-3xl">health_and_safety</span>
+                  <ShieldCheck size={30} />
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-slate-900">Safety First</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -127,7 +128,7 @@ export default function AboutPage() {
               </div>
               <div className="group rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="material-symbols-outlined text-3xl">temple_hindu</span>
+                  <Landmark size={30} />
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-slate-900">Authentic Experiences</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -136,7 +137,7 @@ export default function AboutPage() {
               </div>
               <div className="group rounded-2xl bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-6 inline-flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="material-symbols-outlined text-3xl">savings</span>
+                  <IndianRupee size={30} />
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-slate-900">Best Price Guarantee</h3>
                 <p className="text-slate-600 leading-relaxed">

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import siteConfig from '@/data/siteConfig.json';
+import { Minus, Plus, Plane, Train, Ship, Star, Award, Bed, Utensils, Ticket, Check, Send } from 'lucide-react';
 
 export default function InternationalTripForm() {
     const [formData, setFormData] = useState({
@@ -101,11 +102,11 @@ _Generated via TravelEnd International Planner_`;
                     <label className="text-sm font-bold text-slate-400 uppercase tracking-wider">Duration (Days)</label>
                     <div className="flex items-center gap-4">
                         <button onClick={() => handleInputChange('days', Math.max(1, formData.days - 1))} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                            <span className="material-symbols-outlined">remove</span>
+                            <Minus size={20} />
                         </button>
                         <span className="text-2xl font-black text-slate-900 w-12 text-center">{formData.days}</span>
                         <button onClick={() => handleInputChange('days', formData.days + 1)} className="size-12 rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-600">
-                            <span className="material-symbols-outlined">add</span>
+                            <Plus size={20} />
                         </button>
                     </div>
                 </div>
@@ -120,9 +121,7 @@ _Generated via TravelEnd International Planner_`;
                             onClick={() => handleInputChange('needsTicket', type)}
                             className={`px-6 py-3 rounded-2xl border-2 flex items-center gap-2 font-bold transition-all ${formData.needsTicket === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                         >
-                            <span className="material-symbols-outlined text-xl">
-                                {type === 'Flight' ? 'flight' : type === 'Train' ? 'train' : 'directions_boat'}
-                            </span>
+                            {type === 'Flight' ? <Plane size={20} /> : type === 'Train' ? <Train size={20} /> : <Ship size={20} />}
                             {type}
                         </button>
                     ))}
@@ -139,9 +138,7 @@ _Generated via TravelEnd International Planner_`;
                                 onClick={() => handleInputChange('hotelType', type)}
                                 className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.hotelType === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                             >
-                                <span className="material-symbols-outlined">
-                                    {type === '5 Star' ? 'stars' : type === '4 Star' ? 'hotel_class' : 'hotel'}
-                                </span>
+                                {type === '5 Star' ? <Star size={20} /> : type === '4 Star' ? <Award size={20} /> : <Bed size={20} />}
                                 {type}
                             </button>
                         ))}
@@ -158,7 +155,7 @@ _Generated via TravelEnd International Planner_`;
                                     onClick={() => handleInputChange('foodType', type)}
                                     className={`p-4 rounded-2xl border-2 flex items-center gap-3 font-bold transition-all ${formData.foodType === type ? 'border-primary bg-primary/5 text-primary' : 'border-slate-100 text-slate-500 hover:border-slate-200'}`}
                                 >
-                                    <span className="material-symbols-outlined">restaurant</span>
+                                    <Utensils size={20} />
                                     {type}
                                 </button>
                             ))}
@@ -168,11 +165,11 @@ _Generated via TravelEnd International Planner_`;
                             className={`w-full p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${formData.needsEntryTickets ? 'border-primary bg-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
                         >
                             <div className="flex items-center gap-3 font-bold text-slate-700">
-                                <span className="material-symbols-outlined text-primary">confirmation_number</span>
+                                <Ticket size={20} className="text-primary" />
                                 Entry Tickets
                             </div>
                             <div className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${formData.needsEntryTickets ? 'border-primary bg-primary' : 'border-slate-200'}`}>
-                                {formData.needsEntryTickets && <span className="material-symbols-outlined text-white text-[16px] font-bold">check</span>}
+                                {formData.needsEntryTickets && <Check size={14} className="text-white font-bold" />}
                             </div>
                         </button>
                     </div>
@@ -194,7 +191,7 @@ _Generated via TravelEnd International Planner_`;
                 disabled={!isFormValid}
                 className="w-full bg-primary hover:bg-[#6c193d] disabled:opacity-50 disabled:cursor-not-allowed text-white min-h-16 py-4 rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 mt-8"
             >
-                <span className="material-symbols-outlined shrink-0">send</span>
+                <Send size={24} className="shrink-0" />
                 <span className="text-center">Enquire for Details via WhatsApp</span>
             </button>
         </div>

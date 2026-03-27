@@ -1,5 +1,6 @@
 import { getDestinations, cmsIds, slugify } from "@/lib/data";
 import Link from "next/link";
+import { ChevronRight } from 'lucide-react';
 
 export default async function DestinationsPage() {
   const [tamilnadu, kerala, karnataka] = await Promise.all([
@@ -64,7 +65,7 @@ export default async function DestinationsPage() {
                       <p className="text-white/70 text-sm line-clamp-2 mb-6 font-medium">{dest.description}</p>
                       <div className="flex items-center gap-2 text-white font-black text-sm group/btn">
                         Explore Now
-                        <span className="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                        <ChevronRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                       </div>
                     </div>
                   </Link>

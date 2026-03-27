@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { MapPin, Car, ArrowRight } from 'lucide-react';
 
 interface TripType {
     id: string;
@@ -19,7 +20,7 @@ const tripTypes: TripType[] = [
         id: 'local',
         title: 'Local Trip',
         description: 'Explore Thoothukudi and surrounding areas with ease.',
-        icon: 'location_on',
+        icon: 'MapPin',
         color: 'bg-blue-500',
         link: '/planner/local',
         featured: false
@@ -28,7 +29,7 @@ const tripTypes: TripType[] = [
         id: 'outstation',
         title: 'Outstation Trip',
         description: 'Venture beyond to Madurai, Kanyakumari, and more.',
-        icon: 'directions_car',
+        icon: 'Car',
         color: 'bg-primary',
         link: '/planner/outstation',
         featured: true
@@ -68,7 +69,10 @@ export default function TripPlannerCards() {
                                     </div>
                                 )}
                                 <div className={`size-16 rounded-2xl ${trip.color} text-white flex items-center justify-center mb-8 shadow-lg shadow-current/20 group-hover:scale-110 transition-transform`}>
-                                    <span className="material-symbols-outlined text-4xl">{trip.icon}</span>
+                                    {(() => {
+                                        const Icon = trip.icon === 'MapPin' ? MapPin : Car;
+                                        return <Icon size={36} />;
+                                    })()}
                                 </div>
 
                                 <h3 className={`text-2xl font-black mb-4 ${trip.featured ? 'text-slate-900' : 'text-slate-900'}`}>{trip.title}</h3>
@@ -76,7 +80,7 @@ export default function TripPlannerCards() {
 
                                 <div className="flex items-center gap-2 text-primary font-bold">
                                     Start Planning
-                                    <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </div>
 
                                 {/* Decorative background circle */}
