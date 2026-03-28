@@ -181,7 +181,7 @@ export default async function CouplesPackageDetailsPage({
                   <p className="text-white/40 text-xs font-black uppercase tracking-widest mb-2">Starting from</p>
                   <div className="flex items-baseline gap-2">
                     <h3 className="text-5xl font-black text-white">₹{pkg.price}</h3>
-                    <span className="text-white/60 font-medium">/person</span>
+                    <span className="text-white/60 font-medium">/couple</span>
                   </div>
                 </div>
 
