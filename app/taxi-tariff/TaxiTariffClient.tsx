@@ -69,14 +69,14 @@ _Generated via TravelEnd Taxi Tariff_`;
                             Taxi <span className="text-primary italic">Tariff Sheet</span>
                         </h1>
                         <p className="text-slate-500 mt-4 font-medium text-lg leading-relaxed">
-                            Transparent pricing for all your travel needs. Select a vehicle and check our competitive hourly and kilometer-based rates for cab booking in Thoothukudi and Tuticorin.
+                            Transparent pricing for all your travel needs. Select a vehicle and check our competitive hourly and kilometer-based rates for cab booking across Tamil Nadu.
                         </p>
                     </div>
                     <div className="flex-1 max-w-md">
                         <div className="rounded-[2.5rem] overflow-hidden shadow-2xl-soft border-4 border-white shadow-xl">
                             <img 
                                 src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" 
-                                alt="Thoothukudi Taxi Service" 
+                                alt="Tamil Nadu Taxi Service" 
                                 className="w-full h-48 object-cover"
                             />
                         </div>

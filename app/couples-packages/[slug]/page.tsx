@@ -15,20 +15,20 @@ interface Package extends DataPackage {
   itinerary?: ItineraryItem[];
 }
 
-export default async function CouplesPackageDetailsPage({ 
+export default async function CouplesPackageDetailsPage({
   params,
-  searchParams 
-}: { 
+  searchParams
+}: {
   params: Promise<{ slug: string }>,
-  searchParams: Promise<{ id?: string }> 
+  searchParams: Promise<{ id?: string }>
 }) {
   const { slug } = await params;
   const { id } = await searchParams;
   const packages = await getAllPackages();
-  
-  const pkg = (packages as Package[]).find(p => 
-    (id && p.id === id) || 
-    p.id === slug || 
+
+  const pkg = (packages as Package[]).find(p =>
+    (id && p.id === id) ||
+    p.id === slug ||
     p.title.toLowerCase().replace(/\s+/g, '-') === slug
   );
 
@@ -59,8 +59,8 @@ export default async function CouplesPackageDetailsPage({
             <nav className="flex items-center gap-3 text-white/90 text-sm font-bold bg-white/10 backdrop-blur-md w-fit px-6 py-3 rounded-full border border-white/20">
               <Link href="/" className="hover:text-white">Home</Link>
               <ChevronRight size={14} />
-              <Link 
-                href={pkg.type === 'couples' ? "/couples-packages" : "/packages"} 
+              <Link
+                href={pkg.type === 'couples' ? "/couples-packages" : "/packages"}
                 className="hover:text-white"
               >
                 {pkg.type === 'couples' ? "Romantic Packages" : "Packages"}
@@ -79,7 +79,7 @@ export default async function CouplesPackageDetailsPage({
             <div className="lg:col-span-2 space-y-12">
 
               {/* Overview */}
-              <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
+              <section className="bg-white p-0 sm:p-8 rounded-[2.5rem] border-0 sm:border border-slate-100 shadow-none sm:shadow-sm">
                 <div className="flex flex-col gap-4 mb-8">
                   <span className="text-primary font-black uppercase tracking-widest text-sm">Experience</span>
                   <h2 className="text-3xl font-black italic">Package Overview</h2>
@@ -109,15 +109,15 @@ export default async function CouplesPackageDetailsPage({
 
                 {/* Cost Based Options */}
                 {pkg.cost_options && pkg.cost_options.length > 0 && (
-                  <div className="pt-10 space-y-8 border-t border-slate-100 mt-10">
+                  <div className="pt-6 mt-6 sm:pt-10 sm:mt-10 space-y-8 border-t border-slate-100">
                     <div className="flex flex-col gap-2">
                       <h3 className="text-2xl font-black italic">Select Your Package Tier</h3>
                       <p className="text-slate-500 font-medium">Choose a package based on your budget and preferred spots.</p>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {pkg.cost_options.map((option, idx) => (
-                        <div key={idx} className="bg-white border-2 border-slate-100 rounded-3xl p-6 hover:border-primary/30 transition-all group">
+                        <div key={idx} className="bg-white border-2 border-slate-100 rounded-3xl p-4 sm:p-6 hover:border-primary/30 transition-all group">
                           <div className="flex justify-between items-start mb-6">
                             <div className="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
                               Tier {idx + 1}
@@ -127,13 +127,13 @@ export default async function CouplesPackageDetailsPage({
                               <span className="text-2xl font-black text-slate-900">₹{option.price}</span>
                             </div>
                           </div>
-                          
+
                           <div className="space-y-3">
                             <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Included Spots</p>
                             <div className="flex flex-col gap-2">
                               {option.places.map((place, pIdx) => (
                                 <div key={pIdx} className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                                  <div className="size-1.5 rounded-full bg-primary" />
+                                  <div className="size-1.5 rounded-full bg-primary shrink-0" />
                                   {place}
                                 </div>
                               ))}

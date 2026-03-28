@@ -15,8 +15,8 @@ import StateDestinationSection from "@/components/StateDestinationSection";
 import { MapPin, Calendar, Headset, CheckCircle2, ShieldCheck, Bus, Users, ArrowRight, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Best Travels in Thoothukudi | Cab Booking & Tour Packages",
-  description: "Experience the best travel service in Thoothukudi and Tuticorin. We provide reliable cab bookings, temple tours, and custom holiday packages with 24/7 support.",
+  title: "Best Travels in Tamil Nadu | Cab Booking & Tour Packages",
+  description: "Experience the best travel service across Tamil Nadu. We provide reliable cab bookings, temple tours, and custom holiday packages with 24/7 support.",
   alternates: {
     canonical: "https://travelend.in",
   },
@@ -97,11 +97,11 @@ export default async function Home() {
                   </span>
                   About Us
                 </div>
-                <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-                  Premium <span className="text-primary italic">Tamilnadu Travels</span> & Cab Booking
+                <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight uppercase">
+                  Your Trusted <span className="text-primary italic">Tamil Nadu Tour Planner</span> & Cab Booking Agency
                 </h1>
                 <p className="text-slate-600 text-lg font-medium leading-relaxed">
-                  Your trusted partner for exploring the hidden gems and heritage of South India. As the leading travel agency in Thoothukudi and Tuticorin, we specialize in creating unforgettable journeys through rich culture, spicy cuisine, and diverse landscapes.
+                  Discover the vibrant heritage and scenic beauty of South India with the experts. From curated holiday packages to reliable taxi services, we are your dedicated travel partner for exploring every corner of Tamil Nadu with comfort and local expertise.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link className="flex-1 sm:flex-none px-6 py-3.5 sm:px-8 sm:py-4 bg-primary text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform text-center" href="/about">

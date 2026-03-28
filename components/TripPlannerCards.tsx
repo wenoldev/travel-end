@@ -19,7 +19,7 @@ const tripTypes: TripType[] = [
     {
         id: 'local',
         title: 'Local Trip',
-        description: 'Explore Thoothukudi and surrounding areas with ease.',
+        description: 'Explore local attractions and surrounding areas with ease.',
         icon: 'MapPin',
         color: 'bg-blue-500',
         link: '/planner/local',
@@ -43,7 +43,7 @@ export default function TripPlannerCards() {
                 <div className="text-center mb-16">
                     <h2 className="text-slate-900 text-4xl sm:text-5xl font-black mb-4">Plan Your <span className="text-primary italic">Perfect Trip</span></h2>
                     <p className="text-slate-500 text-lg font-medium max-w-2xl mx-auto">
-                        Select your trip type and get an instant price estimation for your next adventure starting from Thoothukudi.
+                        Select your trip type and get an instant price estimation for your next adventure starting from your city.
                     </p>
                 </div>
 
