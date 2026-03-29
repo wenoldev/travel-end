@@ -42,8 +42,8 @@ export default function RunnerBanner({ imageUrl }: RunnerBannerProps) {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-white text-3xl sm:text-5xl md:text-6xl font-black leading-tight">
-                                    Runner <span className="text-primary italic">Special</span> Packages
+                                <h2 className="text-white text-3xl sm:text-5xl md:text-6xl font-black leading-tight uppercase">
+                                    <span className="text-primary italic">Special</span> Packages
                                 </h2>
                                 <p className="text-white/80 text-sm sm:text-lg md:text-xl font-medium mt-2 sm:mt-4 max-w-lg">
                                     Experience the vibrant culture and local celebrations. Carefully timed for recent festivals and unique regional events.
@@ -61,7 +61,7 @@ export default function RunnerBanner({ imageUrl }: RunnerBannerProps) {
                                     href="/runner-packages"
                                     className="inline-flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/20 group/btn"
                                 >
-                                    <span>View Runner Packages</span>
+                                    <span>View Special Packages</span>
                                     <PartyPopper size={24} className="transition-transform group-hover/btn:translate-x-1" />
                                 </Link>
                                 <Link

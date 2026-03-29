@@ -4,17 +4,17 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import siteConfig from '@/data/siteConfig.json';
 import { getDestinations, cmsIds, slugify, categoryMapping } from '@/lib/data';
-import { 
-  Compass, 
-  ChevronDown, 
-  ChevronUp, 
-  ChevronsRight, 
-  ArrowRight, 
-  Heart, 
-  Headset, 
-  X, 
-  Menu, 
-  Globe 
+import {
+  Compass,
+  ChevronDown,
+  ChevronUp,
+  ChevronsRight,
+  ArrowRight,
+  Heart,
+  Headset,
+  X,
+  Menu,
+  Globe
 } from 'lucide-react';
 
 export default function Header() {
@@ -28,24 +28,24 @@ export default function Header() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    
+
     // Fetch CMS data for mega menu
     const fetchDomestic = async () => {
-        try {
-            const [tamilnadu, kerala, karnataka] = await Promise.all([
-                getDestinations(cmsIds.tamilnadu),
-                getDestinations(cmsIds.kerala),
-                getDestinations(cmsIds.karnataka),
-            ]);
-            setDomesticData({
-                "Tamilnadu": tamilnadu.map(d => d.name),
-                "Kerala": kerala.map(d => d.name),
-                "Karnataka": karnataka.map(d => d.name),
-                "International": { type: 'cta', icon: 'public', title: 'Global Tours', buttonText: 'Enquire for Details' }
-            });
-        } catch (error) {
-            console.error("Error fetching header data:", error);
-        }
+      try {
+        const [tamilnadu, kerala, karnataka] = await Promise.all([
+          getDestinations(cmsIds.tamilnadu),
+          getDestinations(cmsIds.kerala),
+          getDestinations(cmsIds.karnataka),
+        ]);
+        setDomesticData({
+          "Tamilnadu": tamilnadu.map(d => d.name),
+          "Kerala": kerala.map(d => d.name),
+          "Karnataka": karnataka.map(d => d.name),
+          "International": { type: 'cta', icon: 'public', title: 'Global Tours', buttonText: 'Enquire for Details' }
+        });
+      } catch (error) {
+        console.error("Error fetching header data:", error);
+      }
     };
     fetchDomestic();
 
@@ -76,7 +76,7 @@ export default function Header() {
               <Link href="/about" className="text-slate-700 text-sm font-bold hover:text-primary transition-colors">About Us</Link>
 
               {/* Mega Menu Trigger - Domestic */}
-              <div 
+              <div
                 className="relative group"
                 onMouseEnter={() => setIsDomesticOpen(true)}
                 onMouseLeave={() => setIsDomesticOpen(false)}
@@ -98,9 +98,9 @@ export default function Header() {
                         {Array.isArray(data) ? (
                           <ul className="flex flex-col gap-2.5">
                             {data.map((place: string) => {
-                               const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
-                               const href = `/destinations/${categoryKey}/${slugify(place)}`;
-                               return (
+                              const categoryKey = categoryMapping[subcat] || subcat.toLowerCase();
+                              const href = `/destinations/${categoryKey}/${slugify(place)}`;
+                              return (
                                 <li key={place}>
                                   <Link
                                     href={href}
@@ -164,7 +164,7 @@ export default function Header() {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-900 p-2 cursor-pointer"
+              className="text-slate-700 p-2 cursor-pointer"
             >
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -173,17 +173,17 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu Content */}
-      <div className={`lg:hidden fixed inset-0 top-[73px] bg-white text-slate-900 z-50 transition-transform duration-300 transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`lg:hidden fixed inset-0 top-[73px] bg-white text-slate-700 z-50 transition-transform duration-300 transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col p-6 gap-6 h-full overflow-y-auto">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Home</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">About Us</Link>
-          <Link href="/couples-packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4 text-pink-500 flex items-center gap-2">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">Home</Link>
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">About Us</Link>
+          <Link href="/couples-packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4 text-pink-500 flex items-center gap-2">
             <Heart size={20} />
             Couples Package
           </Link>
 
           {/* Mobile Domestic Menu */}
-          <div className="flex flex-col gap-4 border-b pb-4">
+          <div className="flex flex-col gap-4 border-b border-slate-100 pb-4">
             <h3 className="text-xl font-bold text-primary">Domestic</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pl-4">
               {Object.entries(categories).map(([subcat, data]) => (
@@ -209,10 +209,10 @@ export default function Header() {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl text-xs font-bold w-fit"
                       >
-                         {(() => {
-                           const Icon = (data as any).icon === 'public' ? Globe : Compass;
-                           return <Icon size={14} />;
-                         })()}
+                        {(() => {
+                          const Icon = (data as any).icon === 'public' ? Globe : Compass;
+                          return <Icon size={14} />;
+                        })()}
                         {(data as any).buttonText}
                       </Link>
                     </div>
@@ -222,16 +222,16 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Packages</Link>
-          <Link href="/college-trip" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">College Trip</Link>
-          <Link href="/taxi-tariff" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Taxi Tariff</Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b pb-4">Contact Us</Link>
+          <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">Packages</Link>
+          <Link href="/college-trip" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">College Trip</Link>
+          <Link href="/taxi-tariff" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">Taxi Tariff</Link>
+          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-slate-100 pb-4">Contact Us</Link>
 
           <a
             href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking a tour with ${siteConfig.siteName}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 rounded-xl h-14 bg-primary text-white text-lg font-bold"
+            className="w-full flex items-center justify-center gap-2 rounded-xl py-3 bg-primary text-white text-lg font-bold"
           >
             <Headset size={24} />
             Enquire Now!

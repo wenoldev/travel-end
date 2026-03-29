@@ -84,6 +84,9 @@ export default async function Home() {
           <HeroCarousel />
         </section>
 
+        {/* Runner Special Banner */}
+        <RunnerBanner imageUrl={packages.find(p => p.type === 'runner')?.image} />
+
         {/* Intro Feature Section */}
         <section className="w-full bg-[#f8f9fa] py-20 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl animate-pulse" />
@@ -317,8 +320,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Runner Special Banner */}
-        <RunnerBanner imageUrl={packages.find(p => p.type === 'runner')?.image} />
 
         {/* Couples Package Banner */}
         <CouplesBanner imageUrl={packages.find(p => p.type === 'couples')?.image} />

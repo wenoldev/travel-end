@@ -97,7 +97,7 @@ export default async function CouplesPackageDetailsPage({
                       Spots in this tour:
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                      {pkg.spots.map((spot: string, i: number) => (
+                      {pkg.spots?.map((spot: string, i: number) => (
                         <div key={i} className="bg-secondary px-6 py-3 rounded-2xl border border-slate-100 font-bold text-slate-700 flex items-center gap-2">
                           <CheckCircle2 size={16} className="text-primary" />
                           {spot}
@@ -131,7 +131,7 @@ export default async function CouplesPackageDetailsPage({
                           <div className="space-y-3">
                             <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Included Spots</p>
                             <div className="flex flex-col gap-2">
-                              {option.places.map((place, pIdx) => (
+                              {option.places?.map((place, pIdx) => (
                                 <div key={pIdx} className="flex items-center gap-2 text-sm font-bold text-slate-600">
                                   <div className="size-1.5 rounded-full bg-primary shrink-0" />
                                   {place}
@@ -155,7 +155,7 @@ export default async function CouplesPackageDetailsPage({
                   </div>
 
                   <div className="space-y-6">
-                    {pkg.itinerary.map((day: ItineraryItem) => (
+                    {pkg.itinerary?.map((day: ItineraryItem) => (
                       <div key={day.day} className="group flex gap-6 bg-white p-8 rounded-4xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                         <div className="flex flex-col items-center shrink-0">
                           <div className="size-14 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-lg shadow-primary/20">

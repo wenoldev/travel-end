@@ -86,7 +86,7 @@ export default async function RunnerPackageDetailsPage({
                 href="/runner-packages" 
                 className="hover:text-white"
               >
-                Runner Packages
+                Special Packages
               </Link>
               <ChevronRight size={14} />
               <span className="text-white">{pkg.title}</span>
@@ -105,7 +105,7 @@ export default async function RunnerPackageDetailsPage({
               <section className="bg-white p-0 sm:p-8 rounded-[2.5rem] border-0 sm:border border-slate-100 shadow-none sm:shadow-sm">
                 <div className="flex flex-col gap-4 mb-8">
                   <span className="text-primary font-black uppercase tracking-widest text-sm">Experience</span>
-                  <h2 className="text-3xl font-black italic">Runner Special Overview</h2>
+                  <h2 className="text-3xl font-black italic">Special Overview</h2>
                   <div className="h-1 w-20 bg-primary rounded-full" />
                 </div>
                 <p className="text-slate-600 text-lg leading-relaxed mb-8">
@@ -120,7 +120,7 @@ export default async function RunnerPackageDetailsPage({
                       Spots in this tour:
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                      {pkg.spots.map((spot: string, i: number) => (
+                      {pkg.spots?.map((spot: string, i: number) => (
                         <div key={i} className="bg-secondary px-6 py-3 rounded-2xl border border-slate-100 font-bold text-slate-700 flex items-center gap-2">
                           <CheckCircle2 size={16} className="text-primary" />
                           {spot}
@@ -154,7 +154,7 @@ export default async function RunnerPackageDetailsPage({
                           <div className="space-y-3">
                             <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Included Spots</p>
                             <div className="flex flex-col gap-2">
-                              {option.places.map((place, pIdx) => (
+                              {option.places?.map((place, pIdx) => (
                                 <div key={pIdx} className="flex items-center gap-2 text-sm font-bold text-slate-600">
                                   <div className="size-1.5 rounded-full bg-primary shrink-0" />
                                   {place}
@@ -178,7 +178,7 @@ export default async function RunnerPackageDetailsPage({
                   </div>
 
                   <div className="space-y-6">
-                    {pkg.itinerary.map((day: ItineraryItem) => (
+                    {pkg.itinerary?.map((day: ItineraryItem) => (
                       <div key={day.day} className="group flex gap-6 bg-white p-8 rounded-4xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                         <div className="flex flex-col items-center shrink-0">
                           <div className="size-14 rounded-2xl bg-primary text-white flex items-center justify-center font-black text-xl shadow-lg shadow-primary/20">
@@ -226,7 +226,7 @@ export default async function RunnerPackageDetailsPage({
                 </div>
 
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} runner package`}
+                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}?text=Hi, I'm interested in booking the ${pkg.title} special package`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-primary hover:bg-[#6c193d] text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl shadow-primary/20 text-center block"

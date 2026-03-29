@@ -31,7 +31,7 @@ export default function PackagesList({ packages, type }: PackagesListProps) {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-white text-5xl sm:text-7xl font-black mb-4">
-                {isCouples ? 'Romantic Packages' : isRunner ? 'Runner Packages' : 'Tour Packages'}
+                {isCouples ? 'Romantic Packages' : isRunner ? 'Special Packages' : 'Tour Packages'}
               </h1>
               <p className="text-white/80 text-xl max-w-2xl font-medium">
                 {isCouples
