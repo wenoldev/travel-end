@@ -40,44 +40,73 @@ export default function AddReviewPage() {
 
     const uploadImages = async (files: File[]) => {
         if (files.length === 0) return [];
+        console.log(`Starting upload for ${files.length} files...`);
 
         const formData = new FormData();
         formData.append('store_id', process.env.NEXT_PUBLIC_STORE_ID || '');
         files.forEach(file => {
             formData.append('files', file);
+            console.log(`- Appending file: ${file.name}, size: ${file.size}`);
         });
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/common/upload`, {
-            method: 'POST',
-            body: formData,
-        });
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/common/upload`, {
+                method: 'POST',
+                body: formData,
+            });
 
-        const result = await response.json();
-        if (result.error) {
-            throw new Error(result.error.message || 'Failed to upload images');
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error("Upload API error response:", errorData);
+                throw new Error(errorData.error?.message || `Upload failed with status ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log("Upload API result:", result);
+
+            if (result.error) {
+                throw new Error(result.error.message || 'Failed to upload images');
+            }
+
+            const uploadResults = result.data.results || [];
+            const failedUploads = uploadResults.filter((r: any) => r.status !== 'success');
+            
+            if (failedUploads.length > 0) {
+                console.warn("Some uploads failed:", failedUploads);
+                // Optionally throw error if mandatory
+                // throw new Error(`Failed to upload ${failedUploads.length} images: ${failedUploads[0].error}`);
+            }
+
+            return uploadResults
+                .filter((r: { status: string; publicUrl: string }) => r.status === 'success')
+                .map((r: { publicUrl: string }) => r.publicUrl);
+        } catch (error: any) {
+            console.error("Image Upload Error:", error);
+            throw new Error(`Image upload failed: ${error.message}`);
         }
-
-        return result.data.results
-            .filter((r: { status: string; publicUrl: string }) => r.status === 'success')
-            .map((r: { publicUrl: string }) => r.publicUrl);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        console.log("Submitting review...");
 
         try {
             // 1. Upload Profile Photo if exists
             let profileImageUrl = '';
             if (profilePhoto) {
+                console.log("Uploading profile photo...");
                 const urls = await uploadImages([profilePhoto.file]);
                 profileImageUrl = urls[0] || '';
+                console.log("Profile photo URL:", profileImageUrl);
             }
 
             // 2. Upload Gallery Images if exist
             let galleryUrls: string[] = [];
             if (placePhotos.length > 0) {
+                console.log("Uploading gallery images...");
                 galleryUrls = await uploadImages(placePhotos.map(p => p.file));
+                console.log("Gallery photo URLs:", galleryUrls);
             }
 
             // 3. Submit Testimonial
@@ -96,6 +125,7 @@ export default function AddReviewPage() {
                     is_verified: true
                 }
             };
+            console.log("Submitting testimonial data:", testimonialData);
 
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/public/testimonials`, {
                 method: 'POST',
@@ -106,6 +136,7 @@ export default function AddReviewPage() {
             });
 
             const result = await response.json();
+            console.log("Submission result:", result);
 
             if (result.error) {
                 throw new Error(result.error.message || 'Failed to submit review');
@@ -116,7 +147,7 @@ export default function AddReviewPage() {
             setName('');
             setSubtitle('');
             setReview('');
-            setRating(5);
+            setRating( rating || 5);
             setVisitedPlace('');
             setServiceType('');
             setTripType('');
@@ -124,7 +155,7 @@ export default function AddReviewPage() {
             setPlacePhotos([]);
 
         } catch (error: unknown) {
-            console.error("Submission Error:", error);
+            console.error("Submission Error Details:", error);
             const errorMessage = error instanceof Error ? error.message : "An error occurred while submitting your review.";
             alert(errorMessage);
         } finally {
