@@ -14,11 +14,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Travelend - Best Travels in Tamil Nadu",
+    default: "Thoothukudi Travels | Travelend - Best Taxi Service in Tamil Nadu",
     template: "%s | Travelend"
   },
-  description: "Travelend is the leading travel agency serving all over Tamil Nadu. We offer premium cab bookings, custom tour packages, and reliable taxi services across South India.",
-  keywords: ["Tamil Nadu travels", "South India tours", "cab booking Tamil Nadu", "taxi service Tamil Nadu", "Travelend Tuticorin", "Thoothukudi travel agency"],
+  description: "Travelend is the premier travel agency in Thoothukudi, serving all of Tamil Nadu. We offer reliable cab bookings, custom tour packages, and premium taxi services in Tuticorin.",
+  keywords: ["Thoothukudi travels", "Tuticorin travels", "best travels in Thoothukudi", "cab booking Thoothukudi", "taxi service Tuticorin", "Tamil Nadu tours", "Travelend"],
   authors: [{ name: "Travelend" }],
   creator: "Travelend",
   publisher: "Travelend",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
   },
   openGraph: {
-    title: "Travelend - Best Travels in Tamil Nadu",
-    description: "Reliable cab bookings and custom tour packages all over Tamil Nadu.",
+    title: "Thoothukudi Travels | Travelend - Best Taxi Service",
+    description: "Premium cab bookings and custom tour packages in Thoothukudi and all over Tamil Nadu.",
     url: "https://travelend.in",
     siteName: "Travelend",
     locale: "en_IN",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Travelend - Best Travels in Tamil Nadu",
-    description: "Reliable cab bookings and custom tour packages all over Tamil Nadu.",
+    title: "Thoothukudi Travels | Travelend",
+    description: "Reliable taxi services and custom tour packages in Tuticorin, Tamil Nadu.",
   },
 };
 

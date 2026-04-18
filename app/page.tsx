@@ -13,15 +13,15 @@ import { getDestinations, getAllPackages, cmsIds } from "@/lib/data";
 import { Metadata } from "next";
 import StateDestinationSection from "@/components/StateDestinationSection";
 import { MapPin, Calendar, Headset, CheckCircle2, ShieldCheck, Bus, Users, ArrowRight, Phone } from 'lucide-react';
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
 export const metadata: Metadata = {
-  title: "Best Travels in Tamil Nadu | Cab Booking & Tour Packages",
-  description: "Experience the best travel service across Tamil Nadu. We provide reliable cab bookings, temple tours, and custom holiday packages with 24/7 support.",
+  title: "Thoothukudi Travels - Best Taxi & Tour Packages in Tamil Nadu",
+  description: "Travelend: The most reliable travels in Thoothukudi. We offer premium cab bookings, temple tours, and custom holiday packages across Tamil Nadu with 24/7 support.",
   alternates: {
     canonical: "https://travelend.in",
   },
 };
-
 
 export default async function Home() {
   const [packages, tamilnadu, kerala, karnataka] = await Promise.all([
@@ -31,52 +31,9 @@ export default async function Home() {
     getDestinations(siteConfig.cmsIds.karnataka)
   ]);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Travelend",
-    "image": "https://travelend.in/favicon.png",
-    "@id": "https://travelend.in",
-    "url": "https://travelend.in",
-    "telephone": "+919345605097",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6b, 6th street, Toovipuram",
-      "addressLocality": "Thoothukudi",
-      "postalCode": "628003",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 8.8053,
-      "longitude": 78.1348
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://www.instagram.com/travel_end.in/"
-    ],
-    "priceRange": "$$"
-  };
-
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <LocalBusinessSchema />
 
       <main className="flex-grow w-full">
         {/* Hero Section */}
@@ -101,7 +58,7 @@ export default async function Home() {
                   About Us
                 </div>
                 <h1 className="text-slate-900 text-4xl sm:text-5xl font-black leading-tight tracking-tight uppercase">
-                  Your Trusted <span className="text-primary italic">Tamil Nadu Tour Planner</span> & Cab Booking Agency
+                  Best <span className="text-primary italic">Thoothukudi Travels</span> for Tamil Nadu Tours & Cab Booking
                 </h1>
                 <p className="text-slate-600 text-lg font-medium leading-relaxed">
                   Discover the vibrant heritage and scenic beauty of South India with the experts. From curated holiday packages to reliable taxi services, we are your dedicated travel partner for exploring every corner of Tamil Nadu with comfort and local expertise.

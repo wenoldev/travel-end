@@ -18,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/contact',
     '/packages',
-    '/college-trip'
+    '/college-trip',
+    '/thoothukudi-travels'
   ].map(path => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
